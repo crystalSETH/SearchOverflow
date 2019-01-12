@@ -13,6 +13,11 @@
 		5D5F8C7221E87E0B007905A6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5D5F8C7121E87E0B007905A6 /* Assets.xcassets */; };
 		5D5F8C7521E87E0B007905A6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5D5F8C7321E87E0B007905A6 /* LaunchScreen.storyboard */; };
 		5D5F8C8021E87E0C007905A6 /* SearchOverflowTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D5F8C7F21E87E0C007905A6 /* SearchOverflowTests.swift */; };
+		5D5F8C9321E88251007905A6 /* StackOverflow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D5F8C9221E88251007905A6 /* StackOverflow.swift */; };
+		5D5F8C9521E968F9007905A6 /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D5F8C9421E968F9007905A6 /* Question.swift */; };
+		5D5F8C9721E96907007905A6 /* Answer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D5F8C9621E96907007905A6 /* Answer.swift */; };
+		5D5F8C9921E9691A007905A6 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D5F8C9821E9691A007905A6 /* User.swift */; };
+		5D5F8C9B21E96C35007905A6 /* PostItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D5F8C9A21E96C35007905A6 /* PostItem.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +41,11 @@
 		5D5F8C7B21E87E0C007905A6 /* SearchOverflowTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SearchOverflowTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5D5F8C7F21E87E0C007905A6 /* SearchOverflowTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchOverflowTests.swift; sourceTree = "<group>"; };
 		5D5F8C8121E87E0C007905A6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5D5F8C9221E88251007905A6 /* StackOverflow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackOverflow.swift; sourceTree = "<group>"; };
+		5D5F8C9421E968F9007905A6 /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
+		5D5F8C9621E96907007905A6 /* Answer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Answer.swift; sourceTree = "<group>"; };
+		5D5F8C9821E9691A007905A6 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		5D5F8C9A21E96C35007905A6 /* PostItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostItem.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,9 +88,10 @@
 			isa = PBXGroup;
 			children = (
 				5D5F8C8D21E87EA9007905A6 /* App */,
+				5D5F8C8F21E8809A007905A6 /* Data */,
+				5D5F8C8A21E87E85007905A6 /* Resources */,
 				5D5F8C8C21E87EA0007905A6 /* Utils */,
 				5D5F8C8B21E87E8F007905A6 /* View Controllers */,
-				5D5F8C8A21E87E85007905A6 /* Resources */,
 			);
 			path = SearchOverflow;
 			sourceTree = "<group>";
@@ -134,6 +145,42 @@
 				5D5F8C6E21E87DF6007905A6 /* Root.storyboard */,
 			);
 			path = Root;
+			sourceTree = "<group>";
+		};
+		5D5F8C8F21E8809A007905A6 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				5D5F8C9021E880A3007905A6 /* API */,
+				5D5F8C9121E88215007905A6 /* Models */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		5D5F8C9021E880A3007905A6 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				5D5F8C9221E88251007905A6 /* StackOverflow.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		5D5F8C9121E88215007905A6 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				5D5F8C9C21E96C3C007905A6 /* Protocols */,
+				5D5F8C9421E968F9007905A6 /* Question.swift */,
+				5D5F8C9621E96907007905A6 /* Answer.swift */,
+				5D5F8C9821E9691A007905A6 /* User.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		5D5F8C9C21E96C3C007905A6 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				5D5F8C9A21E96C35007905A6 /* PostItem.swift */,
+			);
+			path = Protocols;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -237,8 +284,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5D5F8C9B21E96C35007905A6 /* PostItem.swift in Sources */,
 				5D5F8C6D21E87DF5007905A6 /* RootViewController.swift in Sources */,
+				5D5F8C9521E968F9007905A6 /* Question.swift in Sources */,
+				5D5F8C9921E9691A007905A6 /* User.swift in Sources */,
+				5D5F8C9721E96907007905A6 /* Answer.swift in Sources */,
 				5D5F8C6B21E87DF5007905A6 /* AppDelegate.swift in Sources */,
+				5D5F8C9321E88251007905A6 /* StackOverflow.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
