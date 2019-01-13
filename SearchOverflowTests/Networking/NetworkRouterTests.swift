@@ -12,7 +12,7 @@ import XCTest
 class NetworkRouterTests: XCTestCase {
 
     var urlSession = MockUrlSession()
-    var sut = NetworkRouter<MockEndPoint>()
+    var sut = NetworkRouter()
 
     override func setUp() {
         sut.session = urlSession
@@ -22,7 +22,7 @@ class NetworkRouterTests: XCTestCase {
 
     func test_Router_UsesExpectedURL() {
         let urlSession = MockUrlSession()
-        let sut = NetworkRouter<MockEndPoint>()
+        let sut = NetworkRouter()
         sut.session = urlSession
 
         sut.request(MockEndPoint()) { _, _, _ in }

@@ -10,7 +10,7 @@ import UIKit
 
 class RootViewController: UIViewController {
 
-    let networkManager = NetworkManager(with: NetworkRouter<StackOverflow>())
+    let networkManager = NetworkManager(with: NetworkRouter())
 
     override func viewDidLoad() {
         super.viewDidLoad()

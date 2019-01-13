@@ -8,7 +8,7 @@
 
 import Foundation
 
-class NetworkRouter<EP: EndPoint>: Router {
+class NetworkRouter: Router {
     var session: URLSessionProtocol = URLSession.shared
     var task: URLSessionTask?
 
