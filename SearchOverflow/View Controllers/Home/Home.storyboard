@@ -56,6 +56,7 @@
                         <viewLayoutGuide key="safeArea" id="w0L-mc-svz"/>
                     </view>
                     <connections>
+                        <outlet property="resultsTableView" destination="4yQ-EV-aMQ" id="pIu-nr-mgK"/>
                         <outlet property="searchTextField" destination="QZQ-lp-H2V" id="Bb5-5C-aMv"/>
                     </connections>
                 </viewController>

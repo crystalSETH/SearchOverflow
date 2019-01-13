@@ -256,10 +256,10 @@
 		5D5F8CB521EB270E007905A6 /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				5D5F8CBA21EB2914007905A6 /* Views */,
 				5D5F8CB621EB2749007905A6 /* Home.storyboard */,
-				5D5F8CB821EB277C007905A6 /* HomeViewController.swift */,
 				5D5F8CC621EB3A0F007905A6 /* Home+Constants.swift */,
+				5D5F8CB821EB277C007905A6 /* HomeViewController.swift */,
+				5D5F8CBA21EB2914007905A6 /* Views */,
 			);
 			path = Home;
 			sourceTree = "<group>";
