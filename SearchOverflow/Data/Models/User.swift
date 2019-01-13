@@ -34,7 +34,7 @@ struct User {
 }
 
 // MARK: - Decodable
-extension User: Decodable {
+extension User: StackOverflowItem, Decodable {
     init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
 

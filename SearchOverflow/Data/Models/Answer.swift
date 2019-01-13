@@ -33,12 +33,11 @@ struct Answer: PostItem {
         case title
         case body
         case tags
-        case answers
     }
 }
 
 // MARK: - Decodable
-extension Answer: Decodable {
+extension Answer: StackOverflowItem, Decodable {
     init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
 

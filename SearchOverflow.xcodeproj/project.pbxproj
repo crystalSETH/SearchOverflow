@@ -22,6 +22,9 @@
 		5D5F8CA221E9C354007905A6 /* NetworkRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D5F8CA021E9C354007905A6 /* NetworkRouter.swift */; };
 		5D5F8CA421E9C668007905A6 /* EndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D5F8CA321E9C668007905A6 /* EndPoint.swift */; };
 		5D5F8CA621E9CDEB007905A6 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D5F8CA521E9CDEB007905A6 /* NetworkManager.swift */; };
+		5D5F8CA821E9D35E007905A6 /* StackOverflow+NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D5F8CA721E9D35E007905A6 /* StackOverflow+NetworkManager.swift */; };
+		5D5F8CAA21EA5265007905A6 /* StackOverflowResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D5F8CA921EA5265007905A6 /* StackOverflowResponse.swift */; };
+		5D5F8CAC21EA63F3007905A6 /* StackOverflowItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D5F8CAB21EA63F3007905A6 /* StackOverflowItem.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +57,9 @@
 		5D5F8CA021E9C354007905A6 /* NetworkRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkRouter.swift; sourceTree = "<group>"; };
 		5D5F8CA321E9C668007905A6 /* EndPoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EndPoint.swift; sourceTree = "<group>"; };
 		5D5F8CA521E9CDEB007905A6 /* NetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		5D5F8CA721E9D35E007905A6 /* StackOverflow+NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "StackOverflow+NetworkManager.swift"; sourceTree = "<group>"; };
+		5D5F8CA921EA5265007905A6 /* StackOverflowResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackOverflowResponse.swift; sourceTree = "<group>"; };
+		5D5F8CAB21EA63F3007905A6 /* StackOverflowItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackOverflowItem.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -169,6 +175,9 @@
 			isa = PBXGroup;
 			children = (
 				5D5F8C9221E88251007905A6 /* StackOverflow.swift */,
+				5D5F8CA721E9D35E007905A6 /* StackOverflow+NetworkManager.swift */,
+				5D5F8CA921EA5265007905A6 /* StackOverflowResponse.swift */,
+				5D5F8CAB21EA63F3007905A6 /* StackOverflowItem.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -306,6 +315,7 @@
 			files = (
 				5D5F8C9B21E96C35007905A6 /* PostItem.swift in Sources */,
 				5D5F8CA121E9C354007905A6 /* Router.swift in Sources */,
+				5D5F8CAA21EA5265007905A6 /* StackOverflowResponse.swift in Sources */,
 				5D5F8CA421E9C668007905A6 /* EndPoint.swift in Sources */,
 				5D5F8C6D21E87DF5007905A6 /* RootViewController.swift in Sources */,
 				5D5F8CA621E9CDEB007905A6 /* NetworkManager.swift in Sources */,
@@ -316,6 +326,7 @@
 				5D5F8C9721E96907007905A6 /* Answer.swift in Sources */,
 				5D5F8C6B21E87DF5007905A6 /* AppDelegate.swift in Sources */,
 				5D5F8C9321E88251007905A6 /* StackOverflow.swift in Sources */,
+				5D5F8CA821E9D35E007905A6 /* StackOverflow+NetworkManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
