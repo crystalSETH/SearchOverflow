@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="KTY-BD-EID">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Home View Controller-->
+        <scene sceneID="AAm-dg-vgJ">
+            <objects>
+                <viewController id="KTY-BD-EID" customClass="HomeViewController" customModule="SearchOverflow" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="aZY-Ta-zpF">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="4yQ-EV-aMQ">
+                                <rect key="frame" x="0.0" y="100" width="375" height="567"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Search Away..." textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="QZQ-lp-H2V" userLabel="Search Text Field">
+                                <rect key="frame" x="50" y="46" width="250" height="30"/>
+                                <color key="backgroundColor" red="0.96431744100000005" green="0.97036427260000002" blue="1" alpha="1" colorSpace="deviceRGB"/>
+                                <accessibility key="accessibilityConfiguration">
+                                    <accessibilityTraits key="traits" searchField="YES"/>
+                                </accessibility>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="C2a-dV-X8F"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" name="AvenirNextCondensed-MediumItalic" family="Avenir Next Condensed" pointSize="21"/>
+                                <textInputTraits key="textInputTraits" keyboardType="alphabet" keyboardAppearance="alert" returnKeyType="search" smartInsertDeleteType="no"/>
+                            </textField>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Stack O Logo" translatesAutoresizingMaskIntoConstraints="NO" id="DNC-3L-IpY">
+                                <rect key="frame" x="9" y="43" width="32" height="30"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.019607843137254902" green="0.17254901960784313" blue="0.27843137254901962" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="w0L-mc-svz" firstAttribute="trailing" secondItem="4yQ-EV-aMQ" secondAttribute="trailing" id="8rD-fC-hUG"/>
+                            <constraint firstItem="4yQ-EV-aMQ" firstAttribute="leading" secondItem="w0L-mc-svz" secondAttribute="leading" id="KLF-gs-jBh"/>
+                            <constraint firstItem="DNC-3L-IpY" firstAttribute="leading" secondItem="w0L-mc-svz" secondAttribute="leading" multiplier="9" constant="9" id="Ktf-c5-md4"/>
+                            <constraint firstItem="4yQ-EV-aMQ" firstAttribute="top" secondItem="w0L-mc-svz" secondAttribute="top" constant="80" id="Mhf-dK-EbY"/>
+                            <constraint firstItem="QZQ-lp-H2V" firstAttribute="bottom" secondItem="4yQ-EV-aMQ" secondAttribute="top" constant="-24" id="QHc-lK-5M5"/>
+                            <constraint firstItem="DNC-3L-IpY" firstAttribute="centerY" secondItem="QZQ-lp-H2V" secondAttribute="centerY" multiplier="0.95" id="YuZ-4f-Q29"/>
+                            <constraint firstItem="DNC-3L-IpY" firstAttribute="height" secondItem="QZQ-lp-H2V" secondAttribute="height" id="aTT-fd-oJc"/>
+                            <constraint firstItem="QZQ-lp-H2V" firstAttribute="leading" secondItem="DNC-3L-IpY" secondAttribute="trailing" constant="9" id="c6f-Hs-gU4"/>
+                            <constraint firstItem="QZQ-lp-H2V" firstAttribute="width" secondItem="aZY-Ta-zpF" secondAttribute="width" multiplier="2/3" id="hjA-Sf-XdN"/>
+                            <constraint firstItem="w0L-mc-svz" firstAttribute="bottom" secondItem="4yQ-EV-aMQ" secondAttribute="bottom" id="lSR-G1-jYJ"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="w0L-mc-svz"/>
+                    </view>
+                    <connections>
+                        <outlet property="searchTextField" destination="QZQ-lp-H2V" id="Bb5-5C-aMv"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KAq-Aj-oBY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="24.800000000000001" y="-28.335832083958024"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Stack O Logo" width="32" height="38"/>
+    </resources>
+</document>

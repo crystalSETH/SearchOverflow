@@ -28,6 +28,12 @@
 		5D5F8CAF21EAA00E007905A6 /* NetworkRouterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D5F8CAE21EAA00E007905A6 /* NetworkRouterTests.swift */; };
 		5D5F8CB221EAA45F007905A6 /* URLSessionProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D5F8CB121EAA45F007905A6 /* URLSessionProtocol.swift */; };
 		5D5F8CB421EAC7D8007905A6 /* NetworkManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D5F8CB321EAC7D8007905A6 /* NetworkManagerTests.swift */; };
+		5D5F8CB721EB2749007905A6 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5D5F8CB621EB2749007905A6 /* Home.storyboard */; };
+		5D5F8CB921EB277C007905A6 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D5F8CB821EB277C007905A6 /* HomeViewController.swift */; };
+		5D5F8CC321EB326B007905A6 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D5F8CC221EB326B007905A6 /* UIColor+Extension.swift */; };
+		5D5F8CC521EB39CD007905A6 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D5F8CC421EB39CD007905A6 /* Constants.swift */; };
+		5D5F8CC721EB3A0F007905A6 /* Home+Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D5F8CC621EB3A0F007905A6 /* Home+Constants.swift */; };
+		5D5F8CC921EB3C60007905A6 /* UIFont+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D5F8CC821EB3C60007905A6 /* UIFont+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,6 +72,12 @@
 		5D5F8CAE21EAA00E007905A6 /* NetworkRouterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRouterTests.swift; sourceTree = "<group>"; };
 		5D5F8CB121EAA45F007905A6 /* URLSessionProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionProtocol.swift; sourceTree = "<group>"; };
 		5D5F8CB321EAC7D8007905A6 /* NetworkManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManagerTests.swift; sourceTree = "<group>"; };
+		5D5F8CB621EB2749007905A6 /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
+		5D5F8CB821EB277C007905A6 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		5D5F8CC221EB326B007905A6 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
+		5D5F8CC421EB39CD007905A6 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		5D5F8CC621EB3A0F007905A6 /* Home+Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Home+Constants.swift"; sourceTree = "<group>"; };
+		5D5F8CC821EB3C60007905A6 /* UIFont+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,6 +151,7 @@
 		5D5F8C8B21E87E8F007905A6 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				5D5F8CB521EB270E007905A6 /* Home */,
 				5D5F8C8E21E87EEF007905A6 /* Root */,
 			);
 			path = "View Controllers";
@@ -147,6 +160,9 @@
 		5D5F8C8C21E87EA0007905A6 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				5D5F8CC421EB39CD007905A6 /* Constants.swift */,
+				5D5F8CC221EB326B007905A6 /* UIColor+Extension.swift */,
+				5D5F8CC821EB3C60007905A6 /* UIFont+Extension.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -237,6 +253,24 @@
 			path = Protocols;
 			sourceTree = "<group>";
 		};
+		5D5F8CB521EB270E007905A6 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				5D5F8CBA21EB2914007905A6 /* Views */,
+				5D5F8CB621EB2749007905A6 /* Home.storyboard */,
+				5D5F8CB821EB277C007905A6 /* HomeViewController.swift */,
+				5D5F8CC621EB3A0F007905A6 /* Home+Constants.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		5D5F8CBA21EB2914007905A6 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -321,6 +355,7 @@
 				5D5F8C7521E87E0B007905A6 /* LaunchScreen.storyboard in Resources */,
 				5D5F8C7221E87E0B007905A6 /* Assets.xcassets in Resources */,
 				5D5F8C7021E87DF6007905A6 /* Root.storyboard in Resources */,
+				5D5F8CB721EB2749007905A6 /* Home.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -342,6 +377,7 @@
 				5D5F8C9B21E96C35007905A6 /* PostItem.swift in Sources */,
 				5D5F8CA121E9C354007905A6 /* Router.swift in Sources */,
 				5D5F8CAA21EA5265007905A6 /* StackOverflowResponse.swift in Sources */,
+				5D5F8CC321EB326B007905A6 /* UIColor+Extension.swift in Sources */,
 				5D5F8CA421E9C668007905A6 /* EndPoint.swift in Sources */,
 				5D5F8C6D21E87DF5007905A6 /* RootViewController.swift in Sources */,
 				5D5F8CA621E9CDEB007905A6 /* NetworkManager.swift in Sources */,
@@ -349,10 +385,14 @@
 				5D5F8CAC21EA63F3007905A6 /* StackOverflowItem.swift in Sources */,
 				5D5F8CA221E9C354007905A6 /* NetworkRouter.swift in Sources */,
 				5D5F8C9921E9691A007905A6 /* User.swift in Sources */,
+				5D5F8CC721EB3A0F007905A6 /* Home+Constants.swift in Sources */,
+				5D5F8CB921EB277C007905A6 /* HomeViewController.swift in Sources */,
 				5D5F8C9721E96907007905A6 /* Answer.swift in Sources */,
 				5D5F8C6B21E87DF5007905A6 /* AppDelegate.swift in Sources */,
 				5D5F8C9321E88251007905A6 /* StackOverflow.swift in Sources */,
 				5D5F8CA821E9D35E007905A6 /* StackOverflow+NetworkManager.swift in Sources */,
+				5D5F8CC921EB3C60007905A6 /* UIFont+Extension.swift in Sources */,
+				5D5F8CC521EB39CD007905A6 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
