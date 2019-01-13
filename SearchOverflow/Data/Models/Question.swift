@@ -8,6 +8,8 @@
 
 import Foundation
 
+// https://api.stackexchange.com/docs/types/question
+/// Question model for the StackExchange API
 struct Question: PostItem {
     // Post Item vars
     var id: Int

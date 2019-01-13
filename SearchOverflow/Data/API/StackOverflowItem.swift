@@ -8,6 +8,7 @@
 
 import Foundation
 
+/// Descriptor of the StackOverflow response items' type
 enum StackOverflowItemType: String {
     case answer
     case question
@@ -15,4 +16,5 @@ enum StackOverflowItemType: String {
     case unknown
 }
 
+/// Base for StackOverflow API Items
 protocol StackOverflowItem: Decodable { }

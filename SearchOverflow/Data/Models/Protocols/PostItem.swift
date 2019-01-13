@@ -8,6 +8,8 @@
 
 import Foundation
 
+// https://api.stackexchange.com/docs/types/post
+/// This item represents the intersection of the Question and Answer items.
 protocol PostItem {
     var id: Int { get set }
     var owner: User? { get set }

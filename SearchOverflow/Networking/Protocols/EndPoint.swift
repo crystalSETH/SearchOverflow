@@ -8,6 +8,7 @@
 
 import Foundation
 
+/// Defines an endpoint to be used by Routers
 protocol EndPoint {
     var baseURL: URL { get }
     var path: String { get }

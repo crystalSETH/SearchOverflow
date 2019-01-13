@@ -10,6 +10,7 @@ import Foundation
 
 public typealias RouterCompletion = (_ data: Data?, _ response: URLResponse?, _ error: Error?) -> Void
 
+/// Defines what routers used for networking
 protocol Router: class {
     func request(_ route: EndPoint, completion: @escaping RouterCompletion)
     func cancel()

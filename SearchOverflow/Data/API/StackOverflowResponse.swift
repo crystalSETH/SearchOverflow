@@ -8,10 +8,12 @@
 
 import Foundation
 
+// StackOverflow response error descriptors
 enum StackOverflowResponseError: Error {
     case unknownType
 }
 
+// StackOverflow response description
 protocol StackOverflowResponseItem {
     associatedtype Item
     var hasMore: Bool { get }
@@ -26,6 +28,8 @@ protocol StackOverflowResponseItem {
     var errorMessage: String? { get }
 }
 
+// https://api.stackexchange.com/docs/wrapper
+/// The StackOverflow response item represents the response wrapper from the StackExchange API
 class StackOverflowResponse<SOR: StackOverflowItem>: StackOverflowResponseItem, Decodable {
     typealias Item = SOR
     var hasMore: Bool

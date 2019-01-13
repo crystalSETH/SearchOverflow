@@ -9,8 +9,14 @@
 import Foundation
 
 private let baseURL = "https://api.stackexchange.com"
+
+/* https://api.stackexchange.com/docs/filters
+ * Filters are immutable and non-expiring. An application can safely "bake in" any filters that are created,
+ * it is not necessary (or advisable) to create filters at runtime.
+ */
 private let filterParam = "&filter=!)rFTNPeZ)ZtF80-uQ9q9"
 
+/// StackOverflow API Endpoint
 enum StackOverflow {
     case search(for: String)
     case question(id: Int)

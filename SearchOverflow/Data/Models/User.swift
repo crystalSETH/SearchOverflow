@@ -16,6 +16,8 @@ enum UserType: String {
     case dne = "does_not_exist"
 }
 
+// https://api.stackexchange.com/docs/types/shallow-user
+/// User model for the StackExchange API (shallow_user)
 struct User {
     var id: Int
     var displayName: String?

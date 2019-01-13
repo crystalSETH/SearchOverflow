@@ -8,6 +8,7 @@
 
 import Foundation
 
+// Network response details
 enum NetworkResponse: String {
     case success
     case authenticationError = "You need to be authenticated."
@@ -18,11 +19,13 @@ enum NetworkResponse: String {
     case unableToDecode = "We could not decode the response."
 }
 
+// Network response result.
 enum Result<String> {
     case success
     case failure(String)
 }
 
+// Used to make network requests. Should define custom request to various APIs via extensions.
 struct NetworkManager {
     let router: Router
 
@@ -30,6 +33,7 @@ struct NetworkManager {
         self.router = router
     }
 
+    /// Determines the result of the given url response based on its status code.
     func handleNetworkResponse(_ response: HTTPURLResponse) -> Result<String> {
         switch response.statusCode {
         case 200...299: return .success

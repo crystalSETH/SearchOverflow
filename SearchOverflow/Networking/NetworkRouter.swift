@@ -8,10 +8,12 @@
 
 import Foundation
 
+// 
 class NetworkRouter: Router {
     var session: URLSessionProtocol = URLSession.shared
     var task: URLSessionTask?
 
+    /// Uses the previously defined session and task to complete the request given a specific Endpoint.
     func request(_ route: EndPoint, completion: @escaping RouterCompletion) {
 
         let request = buildRequest(from: route)
@@ -23,6 +25,7 @@ class NetworkRouter: Router {
         self.task?.resume()
     }
 
+    /// Cancles the session task, if there is one.
     func cancel() {
         self.task?.cancel()
     }
