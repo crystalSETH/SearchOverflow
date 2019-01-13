@@ -8,6 +8,7 @@
 
 import Foundation
 
+// MARK: Search
 typealias SearchCompletion = (_ results: [Question], _ error: String?) -> Void
 extension NetworkManager {
     func search(for text: String, completion: @escaping SearchCompletion) {

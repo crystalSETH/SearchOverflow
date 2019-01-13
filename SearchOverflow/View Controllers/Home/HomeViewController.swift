@@ -13,7 +13,6 @@ class HomeViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        UIFont.printAvailableFonts()
 
         searchTextField?.delegate = self
         searchTextField?.borderStyle = .none
