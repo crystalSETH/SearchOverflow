@@ -25,6 +25,9 @@
 		5D5F8CA821E9D35E007905A6 /* StackOverflow+NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D5F8CA721E9D35E007905A6 /* StackOverflow+NetworkManager.swift */; };
 		5D5F8CAA21EA5265007905A6 /* StackOverflowResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D5F8CA921EA5265007905A6 /* StackOverflowResponse.swift */; };
 		5D5F8CAC21EA63F3007905A6 /* StackOverflowItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D5F8CAB21EA63F3007905A6 /* StackOverflowItem.swift */; };
+		5D5F8CAF21EAA00E007905A6 /* NetworkRouterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D5F8CAE21EAA00E007905A6 /* NetworkRouterTests.swift */; };
+		5D5F8CB221EAA45F007905A6 /* URLSessionProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D5F8CB121EAA45F007905A6 /* URLSessionProtocol.swift */; };
+		5D5F8CB421EAC7D8007905A6 /* NetworkManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D5F8CB321EAC7D8007905A6 /* NetworkManagerTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +63,9 @@
 		5D5F8CA721E9D35E007905A6 /* StackOverflow+NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "StackOverflow+NetworkManager.swift"; sourceTree = "<group>"; };
 		5D5F8CA921EA5265007905A6 /* StackOverflowResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackOverflowResponse.swift; sourceTree = "<group>"; };
 		5D5F8CAB21EA63F3007905A6 /* StackOverflowItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackOverflowItem.swift; sourceTree = "<group>"; };
+		5D5F8CAE21EAA00E007905A6 /* NetworkRouterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRouterTests.swift; sourceTree = "<group>"; };
+		5D5F8CB121EAA45F007905A6 /* URLSessionProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionProtocol.swift; sourceTree = "<group>"; };
+		5D5F8CB321EAC7D8007905A6 /* NetworkManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManagerTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +120,7 @@
 		5D5F8C7E21E87E0C007905A6 /* SearchOverflowTests */ = {
 			isa = PBXGroup;
 			children = (
+				5D5F8CAD21EA9FDE007905A6 /* Networking */,
 				5D5F8C7F21E87E0C007905A6 /* SearchOverflowTests.swift */,
 				5D5F8C8121E87E0C007905A6 /* Info.plist */,
 			);
@@ -207,9 +214,27 @@
 				5D5F8CB021EAA3E7007905A6 /* Protocols */,
 				5D5F8CA021E9C354007905A6 /* NetworkRouter.swift */,
 				5D5F8CA521E9CDEB007905A6 /* NetworkManager.swift */,
-				5D5F8CA321E9C668007905A6 /* EndPoint.swift */,
 			);
 			path = Networking;
+			sourceTree = "<group>";
+		};
+		5D5F8CAD21EA9FDE007905A6 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				5D5F8CB321EAC7D8007905A6 /* NetworkManagerTests.swift */,
+				5D5F8CAE21EAA00E007905A6 /* NetworkRouterTests.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		5D5F8CB021EAA3E7007905A6 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				5D5F8C9F21E9C354007905A6 /* Router.swift */,
+				5D5F8CA321E9C668007905A6 /* EndPoint.swift */,
+				5D5F8CB121EAA45F007905A6 /* URLSessionProtocol.swift */,
+			);
+			path = Protocols;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -313,6 +338,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5D5F8CB221EAA45F007905A6 /* URLSessionProtocol.swift in Sources */,
 				5D5F8C9B21E96C35007905A6 /* PostItem.swift in Sources */,
 				5D5F8CA121E9C354007905A6 /* Router.swift in Sources */,
 				5D5F8CAA21EA5265007905A6 /* StackOverflowResponse.swift in Sources */,
@@ -334,6 +360,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5D5F8CB421EAC7D8007905A6 /* NetworkManagerTests.swift in Sources */,
+				5D5F8CAF21EAA00E007905A6 /* NetworkRouterTests.swift in Sources */,
 				5D5F8C8021E87E0C007905A6 /* SearchOverflowTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
