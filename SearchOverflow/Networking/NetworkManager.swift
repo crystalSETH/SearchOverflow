@@ -24,9 +24,11 @@ enum Result<String> {
 }
 
 struct NetworkManager {
-    static let shared = NetworkManager()
+    let router: Router
 
-    let router = Router<StackOverflow>()
+    init(with router: Router) {
+        self.router = router
+    }
 
     func handleNetworkResponse(_ response: HTTPURLResponse) -> Result<String> {
         switch response.statusCode {

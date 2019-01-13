@@ -10,6 +10,8 @@ import UIKit
 
 class RootViewController: UIViewController {
 
+    let networkManager = NetworkManager(with: NetworkRouter<StackOverflow>())
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
