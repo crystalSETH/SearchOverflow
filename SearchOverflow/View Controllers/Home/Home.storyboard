@@ -18,6 +18,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="No Result" translatesAutoresizingMaskIntoConstraints="NO" id="0Sv-Zf-Xc4">
+                                <rect key="frame" x="83.5" y="261.5" width="208" height="164"/>
+                            </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="400" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="4yQ-EV-aMQ">
                                 <rect key="frame" x="21" y="100" width="333" height="567"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -43,12 +46,15 @@
                         </subviews>
                         <color key="backgroundColor" red="0.019607843137254902" green="0.17254901960784313" blue="0.27843137254901962" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="0Sv-Zf-Xc4" firstAttribute="centerY" secondItem="w0L-mc-svz" secondAttribute="centerY" id="4od-xz-MMc"/>
                             <constraint firstItem="w0L-mc-svz" firstAttribute="trailing" secondItem="4yQ-EV-aMQ" secondAttribute="trailing" constant="21" id="8rD-fC-hUG"/>
                             <constraint firstItem="4yQ-EV-aMQ" firstAttribute="leading" secondItem="w0L-mc-svz" secondAttribute="leading" constant="21" id="KLF-gs-jBh"/>
                             <constraint firstItem="DNC-3L-IpY" firstAttribute="leading" secondItem="w0L-mc-svz" secondAttribute="leading" multiplier="9" constant="9" id="Ktf-c5-md4"/>
                             <constraint firstItem="4yQ-EV-aMQ" firstAttribute="top" secondItem="w0L-mc-svz" secondAttribute="top" constant="80" id="Mhf-dK-EbY"/>
                             <constraint firstItem="QZQ-lp-H2V" firstAttribute="bottom" secondItem="4yQ-EV-aMQ" secondAttribute="top" constant="-24" id="QHc-lK-5M5"/>
+                            <constraint firstItem="0Sv-Zf-Xc4" firstAttribute="width" secondItem="aZY-Ta-zpF" secondAttribute="width" multiplier="5/9" id="UId-QY-9SL"/>
                             <constraint firstItem="DNC-3L-IpY" firstAttribute="centerY" secondItem="QZQ-lp-H2V" secondAttribute="centerY" multiplier="0.95" id="YuZ-4f-Q29"/>
+                            <constraint firstItem="0Sv-Zf-Xc4" firstAttribute="centerX" secondItem="w0L-mc-svz" secondAttribute="centerX" id="ZrZ-zX-rdy"/>
                             <constraint firstItem="DNC-3L-IpY" firstAttribute="height" secondItem="QZQ-lp-H2V" secondAttribute="height" id="aTT-fd-oJc"/>
                             <constraint firstItem="QZQ-lp-H2V" firstAttribute="leading" secondItem="DNC-3L-IpY" secondAttribute="trailing" constant="9" id="c6f-Hs-gU4"/>
                             <constraint firstItem="QZQ-lp-H2V" firstAttribute="width" secondItem="aZY-Ta-zpF" secondAttribute="width" multiplier="2/3" id="hjA-Sf-XdN"/>
@@ -57,6 +63,7 @@
                         <viewLayoutGuide key="safeArea" id="w0L-mc-svz"/>
                     </view>
                     <connections>
+                        <outlet property="noResultsImage" destination="0Sv-Zf-Xc4" id="iUn-bH-gDP"/>
                         <outlet property="resultsTableView" destination="4yQ-EV-aMQ" id="pIu-nr-mgK"/>
                         <outlet property="searchTextField" destination="QZQ-lp-H2V" id="Bb5-5C-aMv"/>
                     </connections>
@@ -67,6 +74,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="No Result" width="250" height="164"/>
         <image name="Stack O Logo" width="32" height="38"/>
     </resources>
 </document>

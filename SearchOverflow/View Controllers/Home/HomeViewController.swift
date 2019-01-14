@@ -7,10 +7,12 @@
 //
 
 import UIKit
+import Kingfisher
 
 class HomeViewController: UIViewController {
     @IBOutlet weak var searchTextField: UITextField?
     @IBOutlet weak var resultsTableView: UITableView?
+    @IBOutlet weak var noResultsImage: UIImageView!
 
     let networkManager = NetworkManager(with: NetworkRouter())
     private var questions: [Question] = [] {
@@ -54,7 +56,10 @@ class HomeViewController: UIViewController {
 // MARK: Datasource
 extension HomeViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return questions.count
+        let totalItems = questions.count
+
+        noResultsImage.isHidden = totalItems > 0
+        return totalItems
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
