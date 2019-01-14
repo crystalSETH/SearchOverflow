@@ -19,7 +19,7 @@ enum UserType: String {
 // https://api.stackexchange.com/docs/types/shallow-user
 /// User model for the StackExchange API (shallow_user)
 struct User {
-    var id: Int
+    var id: Int?
     var displayName: String?
     var type: UserType
     var reputation: Int?
@@ -40,7 +40,7 @@ extension User: StackOverflowItem, Decodable {
     init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
 
-        id = try values.decode(Int.self, forKey: .id)
+        id = try values.decodeIfPresent(Int.self, forKey: .id)
         displayName = try values.decodeIfPresent(String.self, forKey: .displayName)
 
         let userTypeString = try values.decode(String.self, forKey: .type)

@@ -64,7 +64,7 @@ extension HomeViewController: UITableViewDataSource {
 
         cell.usernameLabel?.text = question.owner?.displayName ?? "No Username"
         cell.questionTitleLabel?.text = question.title
-        cell.bodyTextField?.text = question.body
+        try? cell.markdownView?.update(markdownString: question.body)
         cell.viewsLabel?.text = "\(question.viewCount)"
         cell.answersLabel?.text = "\(question.answerCount)"
         cell.scoreLabel?.text = "\(question.score)"
