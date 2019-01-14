@@ -29,13 +29,17 @@
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SK5-tu-x9R">
-                        <rect key="frame" x="62.5" y="6" width="55.5" height="20.5"/>
+                        <rect key="frame" x="62.5" y="6" width="55.5" height="14"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="14" id="1w4-Iy-Cai"/>
+                        </constraints>
                         <fontDescription key="fontDescription" name="AvenirNextCondensed-Medium" family="Avenir Next Condensed" pointSize="15"/>
                         <color key="textColor" red="0.63233095407485962" green="0.63282322883605957" blue="0.63240724802017212" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Question Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eHW-Pj-cyi">
-                        <rect key="frame" x="62.5" y="27" width="312.5" height="28"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eHW-Pj-cyi">
+                        <rect key="frame" x="62.5" y="15.5" width="306.5" height="56"/>
+                        <string key="text">Question Title can be a very long string so I'm not sure how this works now because I have more space to fill and less time to fill it</string>
                         <fontDescription key="fontDescription" name="AvenirNextCondensed-MediumItalic" family="Avenir Next Condensed" pointSize="20"/>
                         <color key="textColor" red="0.019607843140000001" green="0.17254901959999999" blue="0.2784313725" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
@@ -98,7 +102,7 @@
                     <constraint firstItem="DWc-iT-nHh" firstAttribute="leading" secondItem="kq4-za-Pby" secondAttribute="trailing" priority="999" constant="6" id="ALN-uj-enw"/>
                     <constraint firstItem="PPF-WD-EL1" firstAttribute="leading" secondItem="6So-FJ-8PH" secondAttribute="centerX" id="AnZ-HA-HR0"/>
                     <constraint firstItem="SK5-tu-x9R" firstAttribute="top" secondItem="6So-FJ-8PH" secondAttribute="top" id="ECB-RQ-hqi"/>
-                    <constraint firstItem="eHW-Pj-cyi" firstAttribute="top" secondItem="6So-FJ-8PH" secondAttribute="centerY" id="FCg-Mw-ENK"/>
+                    <constraint firstItem="eHW-Pj-cyi" firstAttribute="centerY" secondItem="6So-FJ-8PH" secondAttribute="bottom" constant="-4" id="FCg-Mw-ENK"/>
                     <constraint firstItem="Ww8-Ot-lE7" firstAttribute="bottom" secondItem="0eC-WO-5Jq" secondAttribute="bottom" multiplier="0.92" id="FDm-5c-jYw"/>
                     <constraint firstAttribute="trailing" secondItem="Z9O-gn-yaK" secondAttribute="trailing" constant="12" id="Ikg-ge-gXU"/>
                     <constraint firstItem="K1Z-5I-cSY" firstAttribute="centerY" secondItem="kq4-za-Pby" secondAttribute="centerY" priority="999" id="JJL-5R-8OL"/>
@@ -109,8 +113,9 @@
                     <constraint firstItem="FMy-Sr-qYj" firstAttribute="centerY" secondItem="kq4-za-Pby" secondAttribute="centerY" priority="999" id="QGQ-mU-NqE"/>
                     <constraint firstItem="K1Z-5I-cSY" firstAttribute="leading" secondItem="6So-FJ-8PH" secondAttribute="leading" id="T4L-xc-m7Y"/>
                     <constraint firstItem="6So-FJ-8PH" firstAttribute="width" secondItem="0eC-WO-5Jq" secondAttribute="width" multiplier="1/9" id="Tjn-lR-Qe5"/>
+                    <constraint firstItem="eHW-Pj-cyi" firstAttribute="bottom" secondItem="6So-FJ-8PH" secondAttribute="bottom" constant="24" id="XzP-Q6-9aX"/>
                     <constraint firstItem="SK5-tu-x9R" firstAttribute="leading" secondItem="6So-FJ-8PH" secondAttribute="trailing" constant="6" id="Z9P-mb-doR"/>
-                    <constraint firstAttribute="trailing" relation="lessThanOrEqual" secondItem="eHW-Pj-cyi" secondAttribute="trailing" id="baD-96-2dB"/>
+                    <constraint firstAttribute="trailing" secondItem="eHW-Pj-cyi" secondAttribute="trailing" constant="6" id="baD-96-2dB"/>
                     <constraint firstItem="kq4-za-Pby" firstAttribute="trailing" secondItem="0eC-WO-5Jq" secondAttribute="centerX" id="dF6-rF-d3v"/>
                     <constraint firstItem="FMy-Sr-qYj" firstAttribute="leading" secondItem="DWc-iT-nHh" secondAttribute="trailing" constant="12" id="dWF-1n-FBN"/>
                     <constraint firstAttribute="trailing" secondItem="FMy-Sr-qYj" secondAttribute="trailing" constant="71" id="dpk-z7-5tj"/>
@@ -133,7 +138,7 @@
                 <outlet property="usernameLabel" destination="SK5-tu-x9R" id="FKT-E7-6rE"/>
                 <outlet property="viewsLabel" destination="hbg-hr-lpH" id="0PX-9B-AGv"/>
             </connections>
-            <point key="canvasLocation" x="-215" y="39"/>
+            <point key="canvasLocation" x="-215.19999999999999" y="38.23088455772114"/>
         </tableViewCell>
     </objects>
     <resources>

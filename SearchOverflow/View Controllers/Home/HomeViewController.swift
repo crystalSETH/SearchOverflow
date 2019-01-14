@@ -47,6 +47,8 @@ class HomeViewController: UIViewController {
         resultsTableView?.backgroundColor = .clear
         let background = UIView(frame: .zero)
         resultsTableView?.backgroundView = background
+
+        resultsTableView?.showsVerticalScrollIndicator = false
         resultsTableView?.dataSource = self
         resultsTableView?.delegate = self
     }
