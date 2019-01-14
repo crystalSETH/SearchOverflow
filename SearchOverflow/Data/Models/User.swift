@@ -46,7 +46,7 @@ extension User: StackOverflowItem, Decodable {
         let userTypeString = try values.decode(String.self, forKey: .type)
         type = UserType(rawValue: userTypeString) ?? .dne
 
-        reputation = try values.decode(Int.self, forKey: .reputation)
-        profileImageUrl = try values.decode(String.self, forKey: .profileImageUrl)
+        reputation = try values.decodeIfPresent(Int.self, forKey: .reputation)
+        profileImageUrl = try values.decodeIfPresent(String.self, forKey: .profileImageUrl)
     }
 }
