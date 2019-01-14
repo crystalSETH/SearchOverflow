@@ -62,6 +62,12 @@ extension HomeViewController: UITableViewDataSource {
 
         let question = questions[indexPath.item]
 
+        cell.gravatarImage.layer.cornerRadius = 5
+        if let urlString = question.owner?.profileImageUrl, let url = URL(string: urlString) {
+
+            cell.gravatarImage.kf.setImage(with: url, placeholder: UIImage(named: "DefaultGravatar"))
+        }
+
         cell.usernameLabel?.text = question.owner?.displayName ?? "No Username"
         cell.questionTitleLabel?.text = question.title
         try? cell.markdownView?.update(markdownString: question.body)
@@ -77,6 +83,12 @@ extension HomeViewController: UITableViewDataSource {
         cell.background.layer.masksToBounds = true
         
         return cell
+    }
+
+    func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if let qCell = cell as? QuestionCell {
+            qCell.gravatarImage.kf.cancelDownloadTask()
+        }
     }
 }
 
