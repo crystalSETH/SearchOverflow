@@ -34,6 +34,8 @@
 		5D5F8CC521EB39CD007905A6 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D5F8CC421EB39CD007905A6 /* Constants.swift */; };
 		5D5F8CC721EB3A0F007905A6 /* Home+Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D5F8CC621EB3A0F007905A6 /* Home+Constants.swift */; };
 		5D5F8CC921EB3C60007905A6 /* UIFont+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D5F8CC821EB3C60007905A6 /* UIFont+Extension.swift */; };
+		5D5F8CCB21EBCD2D007905A6 /* QuestionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D5F8CCA21EBCD2D007905A6 /* QuestionCell.swift */; };
+		5D5F8CCD21EBF966007905A6 /* QuestionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D5F8CCC21EBF966007905A6 /* QuestionCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,6 +80,8 @@
 		5D5F8CC421EB39CD007905A6 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		5D5F8CC621EB3A0F007905A6 /* Home+Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Home+Constants.swift"; sourceTree = "<group>"; };
 		5D5F8CC821EB3C60007905A6 /* UIFont+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Extension.swift"; sourceTree = "<group>"; };
+		5D5F8CCA21EBCD2D007905A6 /* QuestionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionCell.swift; sourceTree = "<group>"; };
+		5D5F8CCC21EBF966007905A6 /* QuestionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QuestionCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -267,6 +271,8 @@
 		5D5F8CBA21EB2914007905A6 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				5D5F8CCA21EBCD2D007905A6 /* QuestionCell.swift */,
+				5D5F8CCC21EBF966007905A6 /* QuestionCell.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -354,6 +360,7 @@
 			files = (
 				5D5F8C7521E87E0B007905A6 /* LaunchScreen.storyboard in Resources */,
 				5D5F8C7221E87E0B007905A6 /* Assets.xcassets in Resources */,
+				5D5F8CCD21EBF966007905A6 /* QuestionCell.xib in Resources */,
 				5D5F8C7021E87DF6007905A6 /* Root.storyboard in Resources */,
 				5D5F8CB721EB2749007905A6 /* Home.storyboard in Resources */,
 			);
@@ -376,6 +383,7 @@
 				5D5F8CB221EAA45F007905A6 /* URLSessionProtocol.swift in Sources */,
 				5D5F8C9B21E96C35007905A6 /* PostItem.swift in Sources */,
 				5D5F8CA121E9C354007905A6 /* Router.swift in Sources */,
+				5D5F8CCB21EBCD2D007905A6 /* QuestionCell.swift in Sources */,
 				5D5F8CAA21EA5265007905A6 /* StackOverflowResponse.swift in Sources */,
 				5D5F8CC321EB326B007905A6 /* UIColor+Extension.swift in Sources */,
 				5D5F8CA421E9C668007905A6 /* EndPoint.swift in Sources */,
