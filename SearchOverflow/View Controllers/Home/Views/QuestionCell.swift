@@ -25,13 +25,27 @@ class QuestionCell: UITableViewCell {
         super.awakeFromNib()
         setupViews()
     }
+    override func prepareForReuse() {
+        super.prepareForReuse()
+
+        gravatarImage.image = nil
+        usernameLabel.text = nil
+        questionTitleLabel.text = nil
+        viewsLabel.text = nil
+        scoreLabel.text = nil
+        answersLabel.text = nil
+
+        try? markdownView?.update(markdownString: "")
+    }
 
     private func setupViews() {
-
+        // Setup markDownView
         markdownView = try? DownView(frame: .zero, markdownString: "")
 
         if let downView = markdownView {
+
             downView.scrollView.isScrollEnabled = false
+            downView.isUserInteractionEnabled = false
             addSubview(downView)
 
             downView.backgroundColor = .red
