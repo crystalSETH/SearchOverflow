@@ -31,6 +31,7 @@ class QuestionCell: UITableViewCell {
         markdownView = try? DownView(frame: .zero, markdownString: "")
 
         if let downView = markdownView {
+            downView.scrollView.isScrollEnabled = false
             addSubview(downView)
 
             downView.backgroundColor = .red

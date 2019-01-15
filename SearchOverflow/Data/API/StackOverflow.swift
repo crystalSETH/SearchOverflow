@@ -36,7 +36,7 @@ extension StackOverflow: EndPoint {
             guard let textPercentEncoded = text.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) else {
                 fatalError("Could not percent encode searched for text.")
             }
-            return "/2.2/search?order=desc&sort=activity&intitle=\(textPercentEncoded)&site=stackoverflow"
+            return "/2.2/search?order=desc&sort=votes&intitle=\(textPercentEncoded)&site=stackoverflow"
 
         case .question(let id):
             return "/2.2/questions/\(id)?order=desc&sort=activity&site=stackoverflow"
