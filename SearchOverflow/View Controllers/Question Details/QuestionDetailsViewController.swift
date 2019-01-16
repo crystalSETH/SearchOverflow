@@ -71,3 +71,14 @@ extension QuestionDetailsViewController: UITableViewDataSource {
         }
     }
 }
+
+extension QuestionDetailsViewController {
+    static func initializeFromNib(with question: Question) -> QuestionDetailsViewController? {
+        let questionVC = UIStoryboard(name: QuestionDetails.storyboardId, bundle: nil)
+                        .instantiateInitialViewController() as? QuestionDetailsViewController
+
+        questionVC?.question = question
+
+        return questionVC
+    }
+}

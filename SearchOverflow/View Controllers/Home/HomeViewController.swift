@@ -106,15 +106,11 @@ extension HomeViewController: UITableViewDataSource {
 // MARK: Delegate
 extension HomeViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let cell = tableView.cellForRow(at: indexPath) as? QuestionCell else { return }
+        if let questionVC = QuestionDetailsViewController
+                            .initializeFromNib(with: questions[indexPath.item]) {
 
-        cell.background.backgroundColor = Home.selectedCellColor
-    }
-
-    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
-        guard let cell = tableView.cellForRow(at: indexPath) as? QuestionCell else { return }
-
-        cell.background.backgroundColor = Home.unselectedCellColor
+            present(questionVC, animated: true)
+        }
     }
 }
 
