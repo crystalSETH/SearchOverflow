@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Down
 import Kingfisher
 
 class HomeViewController: UIViewController {
@@ -76,11 +77,14 @@ extension HomeViewController: UITableViewDataSource {
         }
 
         cell.usernameLabel?.text = question.owner?.displayName ?? "No Username"
-        cell.questionTitleLabel?.text = question.title
-        try? cell.markdownView?.update(markdownString: question.body)
+
+        let questionTitle = try? Down.init(markdownString: "\(question.title)").toAttributedString().string
+        cell.questionTitleLabel?.text = questionTitle
         cell.viewsLabel?.text = "\(question.viewCount)"
         cell.answersLabel?.text = "\(question.answerCount)"
         cell.scoreLabel?.text = "\(question.score)"
+
+        try? cell.markdownView?.update(markdownString: question.body)
 
         let bgView = UIView(frame: .zero)
         bgView.backgroundColor = .clear
