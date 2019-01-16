@@ -48,7 +48,10 @@ extension Answer: StackOverflowItem, Decodable {
         score = try values.decode(Int.self, forKey: .score)
         title = try values.decode(String.self, forKey: .title)
         body = try values.decode(String.self, forKey: .body)
-        createdOn = try values.decode(Date.self, forKey: .createdOn)
+
+        let creationDateTime = try values.decode(TimeInterval.self, forKey: .createdOn)
+        createdOn = Date(timeIntervalSince1970: creationDateTime)
+
         tags = try values.decode([String].self, forKey: .tags)
 
         isAccepted = try values.decode(Bool.self, forKey: .isAccepted)
