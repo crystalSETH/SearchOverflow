@@ -15,7 +15,12 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var resultsTableView: UITableView?
     @IBOutlet weak var noResultsImage: UIImageView!
 
-    let networkManager = NetworkManager(with: NetworkRouter())
+    private lazy var dataController: QuestionsController = {
+        let qController = QuestionsController(with: NetworkRouter())
+        qController.delegate = self
+        return qController
+    }()
+
     private var questions: [Question] = [] {
         didSet {
             resultsTableView?.reloadData()
@@ -53,6 +58,22 @@ class HomeViewController: UIViewController {
         resultsTableView?.dataSource = self
         resultsTableView?.delegate = self
     }
+}
+
+extension HomeViewController: QuestionsControllerDelegate {
+    func didBeginSearch(for title: String) {
+        // start loading animation
+    }
+    
+    func didFinishSearch(for title: String, results: [Question]) {
+        // finish loading animation
+
+        let questionsSorted = results.sorted(by: { $0.score > $1.score })
+        DispatchQueue.main.async { [weak self] in
+            self?.questions = questionsSorted
+        }
+    }
+    
 }
 
 // MARK: - Table View
@@ -106,8 +127,11 @@ extension HomeViewController: UITableViewDataSource {
 // MARK: Delegate
 extension HomeViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        var requestedQuestion = questions[indexPath.item]
+        requestedQuestion.answers = dataController.orderedAnswers(for: requestedQuestion)
+
         if let questionVC = QuestionDetailsViewController
-                            .initializeFromNib(with: questions[indexPath.item]) {
+                            .initializeFromNib(with: requestedQuestion) {
 
             present(questionVC, animated: true)
         }
@@ -125,12 +149,6 @@ extension HomeViewController: UITextFieldDelegate {
     func textFieldDidEndEditing(_ textField: UITextField, reason: UITextField.DidEndEditingReason) {
         guard let text = textField.text, text.count > 0 else { return }
 
-        networkManager.search(for: text) { [weak self] questions, error in
-
-            let questionsSorted = questions.sorted(by: { $0.score > $1.score })
-            DispatchQueue.main.async {
-                self?.questions = questionsSorted
-            }
-        }
+        dataController.search(for: text)
     }
 }
