@@ -42,7 +42,7 @@ class AnswerCell: UITableViewCell {
         if let downView = markdownView {
             addSubview(downView)
 
-            downView.backgroundColor = .red
+            downView.backgroundColor = .clear
             downView.translatesAutoresizingMaskIntoConstraints = false
             downView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 9).isActive = true
             downView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -9).isActive = true

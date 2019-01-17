@@ -16,6 +16,8 @@ extension Constants {
         static let storyboardId = "QuestionDetails"
         static let defaultUsername = "unknown"
         static let defaultGravatarName = "DefaultGravatar"
+        static let defaultTitle = "No Title"
+        static let defaultBody = "No Additional Details"
 
         struct AnswerCell {
             static let cellId = "AnswerCell"
