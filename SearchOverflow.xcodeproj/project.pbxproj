@@ -45,6 +45,9 @@
 		B4C804A0F75CC3FE8722E7EA /* Pods_SearchOverflowTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 526A74D7DFFFEB8F74471A41 /* Pods_SearchOverflowTests.framework */; };
 		BA0474ED21F06C010029983E /* QuestionsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA0474EC21F06C010029983E /* QuestionsController.swift */; };
 		BA0474EF21F06EBC0029983E /* BaseDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA0474EE21F06EBC0029983E /* BaseDataController.swift */; };
+		BA0474F121F0DBEB0029983E /* QuestionDetails+TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA0474F021F0DBEB0029983E /* QuestionDetails+TableView.swift */; };
+		BA0474F321F0DC840029983E /* Home+DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA0474F221F0DC840029983E /* Home+DataController.swift */; };
+		BA0474F521F0DCCD0029983E /* Home+TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA0474F421F0DCCD0029983E /* Home+TableView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -102,6 +105,9 @@
 		97D70EB5A57BF60616388C8B /* Pods_SearchOverflow.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SearchOverflow.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA0474EC21F06C010029983E /* QuestionsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionsController.swift; sourceTree = "<group>"; };
 		BA0474EE21F06EBC0029983E /* BaseDataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseDataController.swift; sourceTree = "<group>"; };
+		BA0474F021F0DBEB0029983E /* QuestionDetails+TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "QuestionDetails+TableView.swift"; sourceTree = "<group>"; };
+		BA0474F221F0DC840029983E /* Home+DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Home+DataController.swift"; sourceTree = "<group>"; };
+		BA0474F421F0DCCD0029983E /* Home+TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Home+TableView.swift"; sourceTree = "<group>"; };
 		C2D15F80758BD75A43E7D9F9 /* Pods-SearchOverflow.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SearchOverflow.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SearchOverflow/Pods-SearchOverflow.debug.xcconfig"; sourceTree = "<group>"; };
 		ED5E640398D8DBD75FC34861 /* Pods-SearchOverflow.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SearchOverflow.release.xcconfig"; path = "Pods/Target Support Files/Pods-SearchOverflow/Pods-SearchOverflow.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -301,6 +307,8 @@
 			children = (
 				5D5F8CB621EB2749007905A6 /* Home.storyboard */,
 				5D5F8CC621EB3A0F007905A6 /* Home+Constants.swift */,
+				BA0474F221F0DC840029983E /* Home+DataController.swift */,
+				BA0474F421F0DCCD0029983E /* Home+TableView.swift */,
 				5D5F8CB821EB277C007905A6 /* HomeViewController.swift */,
 				5D5F8CBA21EB2914007905A6 /* Views */,
 			);
@@ -320,9 +328,10 @@
 			isa = PBXGroup;
 			children = (
 				5D5F8CD321ED6DEF007905A6 /* QuestionDetails.storyboard */,
+				5D5F8CDA21EDA689007905A6 /* QuestionDetails+Constants.swift */,
+				BA0474F021F0DBEB0029983E /* QuestionDetails+TableView.swift */,
 				5D5F8CD121ED6D91007905A6 /* QuestionDetailsViewController.swift */,
 				5D5F8CD521ED7350007905A6 /* Views */,
-				5D5F8CDA21EDA689007905A6 /* QuestionDetails+Constants.swift */,
 			);
 			path = "Question Details";
 			sourceTree = "<group>";
@@ -543,10 +552,13 @@
 				5D5F8CC721EB3A0F007905A6 /* Home+Constants.swift in Sources */,
 				5D5F8CDB21EDA689007905A6 /* QuestionDetails+Constants.swift in Sources */,
 				5D5F8CB921EB277C007905A6 /* HomeViewController.swift in Sources */,
+				BA0474F521F0DCCD0029983E /* Home+TableView.swift in Sources */,
 				BA0474EF21F06EBC0029983E /* BaseDataController.swift in Sources */,
 				5D5F8C9721E96907007905A6 /* Answer.swift in Sources */,
+				BA0474F321F0DC840029983E /* Home+DataController.swift in Sources */,
 				5D5F8C6B21E87DF5007905A6 /* AppDelegate.swift in Sources */,
 				5D5F8C9321E88251007905A6 /* StackOverflow.swift in Sources */,
+				BA0474F121F0DBEB0029983E /* QuestionDetails+TableView.swift in Sources */,
 				5D5F8CC921EB3C60007905A6 /* UIFont+Extension.swift in Sources */,
 				5D5F8CC521EB39CD007905A6 /* Constants.swift in Sources */,
 			);
