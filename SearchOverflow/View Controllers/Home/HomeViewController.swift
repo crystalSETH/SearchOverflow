@@ -9,12 +9,16 @@
 import UIKit
 import Down
 import Kingfisher
+import NVActivityIndicatorView
 
 class HomeViewController: UIViewController {
     @IBOutlet weak var searchTextField: UITextField?
     @IBOutlet weak var resultsTableView: UITableView?
     @IBOutlet weak var noResultsImage: UIImageView!
-
+    @IBOutlet weak var activityIndicator: NVActivityIndicatorView!
+    
+//    private var activityView = NVActivityIndicatorView(frame: .zero, type: .ballClipRotateMultiple , color: .white)
+    
     private lazy var dataController: QuestionsController = {
         let qController = QuestionsController(with: NetworkRouter())
         qController.delegate = self
@@ -62,14 +66,24 @@ class HomeViewController: UIViewController {
 
 extension HomeViewController: QuestionsControllerDelegate {
     func didBeginSearch(for title: String) {
+        noResultsImage.isHidden = true
+
         // start loading animation
+        activityIndicator.isHidden = false
+        activityIndicator.startAnimating()
     }
     
     func didFinishSearch(for title: String, results: [Question]) {
-        // finish loading animation
 
-        let questionsSorted = results.sorted(by: { $0.score > $1.score })
         DispatchQueue.main.async { [weak self] in
+
+            self?.noResultsImage.isHidden = results.count > 0
+
+            // finish loading animation
+            self?.activityIndicator.isHidden = true
+            self?.activityIndicator.stopAnimating()
+            
+            let questionsSorted = results.sorted(by: { $0.score > $1.score })
             self?.questions = questionsSorted
         }
     }
@@ -82,7 +96,6 @@ extension HomeViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let totalItems = questions.count
 
-        noResultsImage.isHidden = totalItems > 0
         return totalItems
     }
 

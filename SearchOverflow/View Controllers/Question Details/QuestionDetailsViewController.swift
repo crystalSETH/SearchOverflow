@@ -60,6 +60,10 @@ class QuestionDetailsViewController: UIViewController {
             downView.topAnchor.constraint(equalTo: questionTitleLabel.bottomAnchor).isActive = true
             downView.bottomAnchor.constraint(equalTo: qView.bottomAnchor, constant: -6).isActive = true
         }
+        
+        // Dismiss button
+        dismissButton.layer.borderWidth = 2
+        dismissButton.layer.borderColor = UIColor.lightGray.cgColor
     }
 
     override func viewDidLayoutSubviews() {

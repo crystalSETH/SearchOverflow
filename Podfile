@@ -6,6 +6,7 @@ target 'SearchOverflow' do
 
   pod 'Down'
   pod 'Kingfisher'
+  pod 'NVActivityIndicatorView'
 
   target 'SearchOverflowTests' do
     inherit! :search_paths
