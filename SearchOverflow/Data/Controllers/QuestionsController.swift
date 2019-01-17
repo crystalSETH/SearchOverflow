@@ -29,6 +29,8 @@ final class QuestionsController: BaseDataController {
     }
 
     func search(for title: String) {
+        delegate?.didBeginSearch(for: title)
+        
         // Request data
         router.request(StackOverflow.search(for: title)) { [weak self] data, response, error in
             guard error == nil, let urlResponse = response as? HTTPURLResponse else {

@@ -1,5 +1,5 @@
 //
-//  NetworkManager.swift
+//  NetworkResponse.swift
 //  SearchOverflow
 //
 //  Created by Seth Folley on 1/11/19.
