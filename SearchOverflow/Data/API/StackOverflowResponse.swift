@@ -17,8 +17,9 @@ enum StackOverflowResponseError: Error {
 protocol StackOverflowResponseItem {
     associatedtype Item
     var hasMore: Bool { get }
-    var quotaMax: Int { get }
-    var quotaRemaining: Int { get }
+    var page: Int { get }
+    var pageSize: Int { get }
+    var total: Int { get }
 
     var type: StackOverflowItemType { get }
     var items: [Item] { get }
@@ -33,8 +34,9 @@ protocol StackOverflowResponseItem {
 class StackOverflowResponse<SOR: StackOverflowItem>: StackOverflowResponseItem, Decodable {
     typealias Item = SOR
     var hasMore: Bool
-    var quotaMax: Int
-    var quotaRemaining: Int
+    var page: Int
+    var pageSize: Int
+    var total: Int
 
     var type: StackOverflowItemType
     var items: [Item]
@@ -45,22 +47,25 @@ class StackOverflowResponse<SOR: StackOverflowItem>: StackOverflowResponseItem, 
 
     enum CodingKeys: String, CodingKey {
         case hasMore = "has_more"
-        case quotaMax = "quota_max"
-        case quotaRemaining = "quota_remaining"
+        case pageSize = "page_size"
+
         case errorId = "error_id"
         case errorName = "error_name"
         case errorMessage = "error_message"
 
+        case page
         case type
         case items
+        case total
     }
 
     required init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
 
         hasMore = try values.decode(Bool.self, forKey: .hasMore)
-        quotaMax = try values.decode(Int.self, forKey: .quotaMax)
-        quotaRemaining = try values.decode(Int.self, forKey: .quotaRemaining)
+        page = try values.decode(Int.self, forKey: .page)
+        pageSize = try values.decode(Int.self, forKey: .pageSize)
+        total = try values.decode(Int.self, forKey: .total)
 
         let itemType = try values.decode(String.self, forKey: .type)
 
