@@ -48,6 +48,7 @@
 		BA0474F321F0DC840029983E /* Home+DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA0474F221F0DC840029983E /* Home+DataController.swift */; };
 		BA0474F521F0DCCD0029983E /* Home+TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA0474F421F0DCCD0029983E /* Home+TableView.swift */; };
 		BAE959D521F4EA7700AE180D /* SearchResponse p2.json in Resources */ = {isa = PBXBuildFile; fileRef = BAE959D421F4EA7700AE180D /* SearchResponse p2.json */; };
+		BAE959D721F505F900AE180D /* QuestionControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE959D621F505F900AE180D /* QuestionControllerTests.swift */; };
 		BAF70C3B21F4121A00800B05 /* SearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAF70C3A21F4121A00800B05 /* SearchController.swift */; };
 		BAF70C3F21F43C6C00800B05 /* BaseDataControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAF70C3E21F43C6C00800B05 /* BaseDataControllerTests.swift */; };
 		BAF70C4121F43DEF00800B05 /* SearchControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAF70C4021F43DEF00800B05 /* SearchControllerTests.swift */; };
@@ -112,6 +113,7 @@
 		BA0474F221F0DC840029983E /* Home+DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Home+DataController.swift"; sourceTree = "<group>"; };
 		BA0474F421F0DCCD0029983E /* Home+TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Home+TableView.swift"; sourceTree = "<group>"; };
 		BAE959D421F4EA7700AE180D /* SearchResponse p2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "SearchResponse p2.json"; sourceTree = "<group>"; };
+		BAE959D621F505F900AE180D /* QuestionControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionControllerTests.swift; sourceTree = "<group>"; };
 		BAF70C3A21F4121A00800B05 /* SearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchController.swift; sourceTree = "<group>"; };
 		BAF70C3E21F43C6C00800B05 /* BaseDataControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseDataControllerTests.swift; sourceTree = "<group>"; };
 		BAF70C4021F43DEF00800B05 /* SearchControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchControllerTests.swift; sourceTree = "<group>"; };
@@ -372,11 +374,19 @@
 			path = Controllers;
 			sourceTree = "<group>";
 		};
+		BAE959D821F50F2B00AE180D /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		BAF70C3C21F43B7100800B05 /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				BAF70C4221F4609A00800B05 /* JSON Stubs */,
 				BAF70C3D21F43B7B00800B05 /* Controllers */,
+				BAF70C4221F4609A00800B05 /* JSON Stubs */,
+				BAE959D821F50F2B00AE180D /* Models */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -385,6 +395,7 @@
 			isa = PBXGroup;
 			children = (
 				BAF70C3E21F43C6C00800B05 /* BaseDataControllerTests.swift */,
+				BAE959D621F505F900AE180D /* QuestionControllerTests.swift */,
 				BAF70C4021F43DEF00800B05 /* SearchControllerTests.swift */,
 			);
 			path = Controllers;
@@ -393,8 +404,8 @@
 		BAF70C4221F4609A00800B05 /* JSON Stubs */ = {
 			isa = PBXGroup;
 			children = (
-				BAE959D421F4EA7700AE180D /* SearchResponse p2.json */,
 				BAF70C4321F4610900800B05 /* SearchResponse p1.json */,
+				BAE959D421F4EA7700AE180D /* SearchResponse p2.json */,
 			);
 			path = "JSON Stubs";
 			sourceTree = "<group>";
@@ -608,6 +619,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BAF70C3F21F43C6C00800B05 /* BaseDataControllerTests.swift in Sources */,
+				BAE959D721F505F900AE180D /* QuestionControllerTests.swift in Sources */,
 				5D5F8CAF21EAA00E007905A6 /* NetworkRouterTests.swift in Sources */,
 				5D5F8C8021E87E0C007905A6 /* SearchOverflowTests.swift in Sources */,
 				BAF70C4121F43DEF00800B05 /* SearchControllerTests.swift in Sources */,
