@@ -23,6 +23,7 @@ class QuestionDetailsViewController: UIViewController {
     
     private var markdownView: DownView?
 
+    // MARK: Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -74,12 +75,15 @@ class QuestionDetailsViewController: UIViewController {
         dismissButton.layer.masksToBounds = true
     }
 
+    // MARK: Selectors
     @IBAction func didTapDismiss(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }
 }
 
+// MARK: Convience
 extension QuestionDetailsViewController {
+    /// Creates a Question Details VC with the given question.
     static func initializeFromNib(with question: Question) -> QuestionDetailsViewController? {
         let questionVC = UIStoryboard(name: QuestionDetails.storyboardId, bundle: nil)
                         .instantiateInitialViewController() as? QuestionDetailsViewController

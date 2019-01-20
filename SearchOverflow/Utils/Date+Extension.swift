@@ -9,7 +9,7 @@
 import Foundation
 
 extension Date {
-    /// Returns string for data printed in MMM dd YYYY format
+    /// Returns string for data printed in MMM dd 'YY format
     var prettyPrinted: String {
         let formatter = DateFormatter()
         formatter.dateFormat = "MMM dd ''YY"

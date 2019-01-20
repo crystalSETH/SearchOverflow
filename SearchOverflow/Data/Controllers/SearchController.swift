@@ -13,6 +13,7 @@ protocol SearchControllerDelegate: class {
     func didReceiveSearchResults(for title: String, results: [Question], page: Int)
 }
 
+/// Search Controller that assists searching for strings in question titles.
 class SearchController: BaseDataController {
     weak var delegate: SearchControllerDelegate?
     

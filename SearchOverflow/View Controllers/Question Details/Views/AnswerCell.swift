@@ -19,6 +19,7 @@ class AnswerCell: UITableViewCell {
     
     var markdownView: DownView?
 
+    // MARK: - Lifecycle
     override func awakeFromNib() {
         super.awakeFromNib()
         setupViews()

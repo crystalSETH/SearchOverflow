@@ -200,8 +200,8 @@
 		5D5F8C8B21E87E8F007905A6 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				5D5F8CD021ED6D30007905A6 /* Question Details */,
 				5D5F8CB521EB270E007905A6 /* Home */,
+				5D5F8CD021ED6D30007905A6 /* Question Details */,
 				5D5F8C8E21E87EEF007905A6 /* Root */,
 			);
 			path = "View Controllers";
@@ -211,9 +211,9 @@
 			isa = PBXGroup;
 			children = (
 				5D5F8CC421EB39CD007905A6 /* Constants.swift */,
+				5D5F8CDC21EDACBE007905A6 /* Date+Extension.swift */,
 				5D5F8CC221EB326B007905A6 /* UIColor+Extension.swift */,
 				5D5F8CC821EB3C60007905A6 /* UIFont+Extension.swift */,
-				5D5F8CDC21EDACBE007905A6 /* Date+Extension.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -250,8 +250,8 @@
 			isa = PBXGroup;
 			children = (
 				5D5F8C9221E88251007905A6 /* StackOverflow.swift */,
-				5D5F8CA921EA5265007905A6 /* StackOverflowResponse.swift */,
 				5D5F8CAB21EA63F3007905A6 /* StackOverflowItem.swift */,
+				5D5F8CA921EA5265007905A6 /* StackOverflowResponse.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -259,10 +259,10 @@
 		5D5F8C9121E88215007905A6 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				5D5F8C9C21E96C3C007905A6 /* Protocols */,
-				5D5F8C9421E968F9007905A6 /* Question.swift */,
 				5D5F8C9621E96907007905A6 /* Answer.swift */,
+				5D5F8C9421E968F9007905A6 /* Question.swift */,
 				5D5F8C9821E9691A007905A6 /* User.swift */,
+				5D5F8C9C21E96C3C007905A6 /* Protocols */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -278,9 +278,9 @@
 		5D5F8C9E21E9C2BF007905A6 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
-				5D5F8CB021EAA3E7007905A6 /* Protocols */,
-				5D5F8CA021E9C354007905A6 /* NetworkRouter.swift */,
 				5D5F8CA521E9CDEB007905A6 /* NetworkResponse.swift */,
+				5D5F8CA021E9C354007905A6 /* NetworkRouter.swift */,
+				5D5F8CB021EAA3E7007905A6 /* Protocols */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -297,8 +297,8 @@
 		5D5F8CB021EAA3E7007905A6 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
-				5D5F8C9F21E9C354007905A6 /* Router.swift */,
 				5D5F8CA321E9C668007905A6 /* EndPoint.swift */,
+				5D5F8C9F21E9C354007905A6 /* Router.swift */,
 				5D5F8CB121EAA45F007905A6 /* URLSessionProtocol.swift */,
 			);
 			path = Protocols;
@@ -341,8 +341,8 @@
 		5D5F8CD521ED7350007905A6 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				5D5F8CD621ED7373007905A6 /* AnswerCell.xib */,
 				5D5F8CD821ED73B8007905A6 /* AnswerCell.swift */,
+				5D5F8CD621ED7373007905A6 /* AnswerCell.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";

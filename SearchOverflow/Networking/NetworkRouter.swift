@@ -8,7 +8,6 @@
 
 import Foundation
 
-// 
 class NetworkRouter: Router {
     var session: URLSessionProtocol = URLSession.shared
     var task: URLSessionTask?
