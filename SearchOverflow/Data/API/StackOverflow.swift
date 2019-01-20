@@ -14,11 +14,11 @@ private let baseURL = "https://api.stackexchange.com"
  * Filters are immutable and non-expiring. An application can safely "bake in" any filters that are created,
  * it is not necessary (or advisable) to create filters at runtime.
  */
-private let filterParam = "&filter=!)rFTNPeZ)ZtF80-uQ9q9"
+private let filterParam = "&filter=!)s))yOCJcBsc9uLD71Rm"
 
 /// StackOverflow API Endpoint
 enum StackOverflow {
-    case search(for: String)
+    case search(for: String, page: Int)
     case question(id: Int)
 }
 
@@ -32,11 +32,11 @@ extension StackOverflow: EndPoint {
 
     var path: String {
         switch self {
-        case .search(let text):
+        case .search(let text, let page):
             guard let textPercentEncoded = text.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) else {
                 fatalError("Could not percent encode searched for text.")
             }
-            return "/2.2/search?order=desc&sort=votes&intitle=\(textPercentEncoded)&site=stackoverflow"
+            return "/2.2/search?page=\(page)&order=desc&sort=votes&intitle=\(textPercentEncoded)&site=stackoverflow"
 
         case .question(let id):
             return "/2.2/questions/\(id)?order=desc&sort=activity&site=stackoverflow"
