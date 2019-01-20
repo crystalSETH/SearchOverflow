@@ -18,8 +18,8 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var activityIndicator: NVActivityIndicatorView!
     
     
-    lazy var dataController: QuestionsController = {
-        let qController = QuestionsController(with: NetworkRouter())
+    lazy var dataController: SearchController = {
+        let qController = SearchController(with: NetworkRouter())
         qController.delegate = self
         return qController
     }()

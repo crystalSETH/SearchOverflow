@@ -1,45 +1,39 @@
 //
-//  QuestionsController.swift
+//  SearchController.swift
 //  SearchOverflow
 //
-//  Created by Seth Folley on 1/17/19.
+//  Created by Seth Folley on 1/19/19.
 //  Copyright © 2019 Seth Folley. All rights reserved.
 //
 
 import Foundation
 
-protocol QuestionsControllerDelegate: class {
+protocol SearchControllerDelegate: class {
     func didBeginSearch(for title: String)
     func didReceiveSearchResults(for title: String, results: [Question], page: Int)
 }
 
-final class QuestionsController: BaseDataController {
-    weak var delegate: QuestionsControllerDelegate?
-
+class SearchController: BaseDataController {
+    weak var delegate: SearchControllerDelegate?
+    
     var router: Router
-
+    
     private var currentSearchString: String?
-
-    var totalItems: Int = 0
-    var pageSize: Int = 0
-
+    
+    private(set) var totalItems: Int = 0
+    private(set) var pageSize: Int = 0
+    
     var numberOfPages: Int {
-
+        
         return pageSize > 0 ? totalItems / pageSize : 0
     }
-
+    
+    // MARK: - Lifecycle
     init(with router: Router) {
         self.router = router
     }
-
-    /// Returns the answers ordered by score, but the accepted answer is always first
-    func orderedAnswers(for question: Question) -> [Answer] {
-        var tempQ = question
-        tempQ.answers?.sort(by: { $0.isAccepted || $0.score > $1.score })
-        
-        return question.answers?.sorted(by: { $0.isAccepted || $0.score > $1.score }) ?? []
-    }
-
+    
+    // MARK: - Search Functions
     /// Begins the search for the given title
     func beginSearch(for title: String) {
         delegate?.didBeginSearch(for: title)
@@ -52,15 +46,15 @@ final class QuestionsController: BaseDataController {
     /// Gets the next page of the search results
     func continueSearch(page: Int) {
         guard let title = currentSearchString, page <= numberOfPages else { return }
-
+        
         let nonZeroPage = page + 1
         search(for: title, page: nonZeroPage)
     }
-
+    
     private func search(for title: String, page: Int) {
         // Request data
         router.request(StackOverflow.search(for: title, page: page)) { [weak self] data, response, error in
-
+            
             guard error == nil, let urlResponse = response as? HTTPURLResponse, self?.currentSearchString == title else {
                 self?.delegate?.didReceiveSearchResults(for: title, results: [], page: page)
                 return
@@ -75,12 +69,12 @@ final class QuestionsController: BaseDataController {
                 }
                 do {
                     // Try to parse the response data
-//                    let json = try JSONSerialization.jsonObject(with: data!, options: []) as? [String : Any]
+                    //                    let json = try JSONSerialization.jsonObject(with: data!, options: []) as? [String : Any]
                     let apiReponse = try JSONDecoder().decode(StackOverflowResponse<Question>.self, from: responseData)
                     
                     self?.totalItems = apiReponse.total
                     self?.pageSize = apiReponse.pageSize
-    
+                    
                     // Completes with the question items, no error
                     self?.delegate?.didReceiveSearchResults(for: title, results: apiReponse.items, page: page)
                 } catch {

@@ -8,7 +8,7 @@
 
 import Foundation
 
-extension HomeViewController: QuestionsControllerDelegate {
+extension HomeViewController: SearchControllerDelegate {
     
     func didBeginSearch(for title: String) {
         DispatchQueue.main.async {

@@ -86,7 +86,7 @@ extension HomeViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard var requestedQuestion = question(for: indexPath) else { return }
 
-        requestedQuestion.answers = dataController.orderedAnswers(for: requestedQuestion)
+        requestedQuestion.answers = QuestionController.orderedAnswers(for: requestedQuestion)
         
         if let questionVC = QuestionDetailsViewController
             .initializeFromNib(with: requestedQuestion) {
