@@ -1,0 +1,36 @@
+{
+    "items": [
+        {
+            "tags": [
+                "javascript",
+                "function",
+                "arguments"
+            ],
+            "owner": {
+                "reputation": 240810,
+                "user_id": 6521,
+                "user_type": "registered",
+                "accept_rate": 95,
+                "profile_image": "https://www.gravatar.com/avatar/6af19633ae0228e3b5bb4de168b5d19d?s=128&d=identicon&r=PG",
+                "display_name": "Paul Dixon",
+                "link": "https://stackoverflow.com/users/6521/paul-dixon"
+            },
+            "is_accepted": true,
+            "score": 1031,
+            "last_activity_date": 1425891416,
+            "last_edit_date": 1425891416,
+            "creation_date": 1222698634,
+            "answer_id": 148918,
+            "question_id": 148901,
+            "title": "Is there a better way to do optional function parameters in JavaScript?",
+            "body": "<p>Your logic fails if optionalArg is passed, but evaluates as false - try this as an alternative</p>\n\n<pre><code>if (typeof optionalArg === 'undefined') { optionalArg = 'default'; }\n</code></pre>\n\n<p>Or an alternative idiom:</p>\n\n<pre><code>optionalArg = (typeof optionalArg === 'undefined') ? 'default' : optionalArg;\n</code></pre>\n\n<p>Use whichever idiom communicates the intent best to you!</p>\n"
+        }
+    ],
+    "has_more": false,
+    "quota_max": 10000,
+    "quota_remaining": 9947,
+    "page": 1,
+    "page_size": 30,
+    "total": 1,
+    "type": "answer"
+}

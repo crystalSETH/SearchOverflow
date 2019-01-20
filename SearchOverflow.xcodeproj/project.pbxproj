@@ -58,6 +58,9 @@
 		BAE959E721F518F400AE180D /* UserDecodeFailure.json in Resources */ = {isa = PBXBuildFile; fileRef = BAE959E521F518F300AE180D /* UserDecodeFailure.json */; };
 		BAE959E821F518F400AE180D /* UserDecodeSuccess.json in Resources */ = {isa = PBXBuildFile; fileRef = BAE959E621F518F400AE180D /* UserDecodeSuccess.json */; };
 		BAE959EA21F5190900AE180D /* UserModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE959E921F5190900AE180D /* UserModelTests.swift */; };
+		BAE959ED21F5247800AE180D /* StackOverflowResponseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE959EC21F5247800AE180D /* StackOverflowResponseTests.swift */; };
+		BAE959F021F524EE00AE180D /* StackOResponseDecodeSuccess.json in Resources */ = {isa = PBXBuildFile; fileRef = BAE959EE21F524EE00AE180D /* StackOResponseDecodeSuccess.json */; };
+		BAE959F121F524EE00AE180D /* StackOResponseDecodeFailure.json in Resources */ = {isa = PBXBuildFile; fileRef = BAE959EF21F524EE00AE180D /* StackOResponseDecodeFailure.json */; };
 		BAF70C3B21F4121A00800B05 /* SearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAF70C3A21F4121A00800B05 /* SearchController.swift */; };
 		BAF70C3F21F43C6C00800B05 /* BaseDataControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAF70C3E21F43C6C00800B05 /* BaseDataControllerTests.swift */; };
 		BAF70C4121F43DEF00800B05 /* SearchControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAF70C4021F43DEF00800B05 /* SearchControllerTests.swift */; };
@@ -132,6 +135,9 @@
 		BAE959E521F518F300AE180D /* UserDecodeFailure.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = UserDecodeFailure.json; sourceTree = "<group>"; };
 		BAE959E621F518F400AE180D /* UserDecodeSuccess.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = UserDecodeSuccess.json; sourceTree = "<group>"; };
 		BAE959E921F5190900AE180D /* UserModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModelTests.swift; sourceTree = "<group>"; };
+		BAE959EC21F5247800AE180D /* StackOverflowResponseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackOverflowResponseTests.swift; sourceTree = "<group>"; };
+		BAE959EE21F524EE00AE180D /* StackOResponseDecodeSuccess.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = StackOResponseDecodeSuccess.json; sourceTree = "<group>"; };
+		BAE959EF21F524EE00AE180D /* StackOResponseDecodeFailure.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = StackOResponseDecodeFailure.json; sourceTree = "<group>"; };
 		BAF70C3A21F4121A00800B05 /* SearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchController.swift; sourceTree = "<group>"; };
 		BAF70C3E21F43C6C00800B05 /* BaseDataControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseDataControllerTests.swift; sourceTree = "<group>"; };
 		BAF70C4021F43DEF00800B05 /* SearchControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchControllerTests.swift; sourceTree = "<group>"; };
@@ -402,9 +408,18 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		BAE959EB21F5245F00AE180D /* API */ = {
+			isa = PBXGroup;
+			children = (
+				BAE959EC21F5247800AE180D /* StackOverflowResponseTests.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
 		BAF70C3C21F43B7100800B05 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				BAE959EB21F5245F00AE180D /* API */,
 				BAF70C3D21F43B7B00800B05 /* Controllers */,
 				BAF70C4221F4609A00800B05 /* JSON Stubs */,
 				BAE959D821F50F2B00AE180D /* Models */,
@@ -425,6 +440,8 @@
 		BAF70C4221F4609A00800B05 /* JSON Stubs */ = {
 			isa = PBXGroup;
 			children = (
+				BAE959EF21F524EE00AE180D /* StackOResponseDecodeFailure.json */,
+				BAE959EE21F524EE00AE180D /* StackOResponseDecodeSuccess.json */,
 				BAE959E121F517FB00AE180D /* AnswerDecodeFailure.json */,
 				BAE959E221F517FB00AE180D /* AnswerDecodeSuccess.json */,
 				BAE959DD21F5164200AE180D /* QuestionDecodeFailure.json */,
@@ -537,8 +554,10 @@
 			files = (
 				BAE959DC21F510F100AE180D /* QuestionDecodeSuccess.json in Resources */,
 				BAE959E421F517FB00AE180D /* AnswerDecodeSuccess.json in Resources */,
+				BAE959F121F524EE00AE180D /* StackOResponseDecodeFailure.json in Resources */,
 				BAE959E821F518F400AE180D /* UserDecodeSuccess.json in Resources */,
 				BAE959E321F517FB00AE180D /* AnswerDecodeFailure.json in Resources */,
+				BAE959F021F524EE00AE180D /* StackOResponseDecodeSuccess.json in Resources */,
 				BAE959E721F518F400AE180D /* UserDecodeFailure.json in Resources */,
 				BAF70C4421F4610900800B05 /* SearchResponse p1.json in Resources */,
 				BAE959DE21F5164200AE180D /* QuestionDecodeFailure.json in Resources */,
@@ -654,6 +673,7 @@
 				BAF70C3F21F43C6C00800B05 /* BaseDataControllerTests.swift in Sources */,
 				BAE959E021F5173800AE180D /* AnswerModelTests.swift in Sources */,
 				BAE959EA21F5190900AE180D /* UserModelTests.swift in Sources */,
+				BAE959ED21F5247800AE180D /* StackOverflowResponseTests.swift in Sources */,
 				BAE959D721F505F900AE180D /* QuestionControllerTests.swift in Sources */,
 				5D5F8CAF21EAA00E007905A6 /* NetworkRouterTests.swift in Sources */,
 				5D5F8C8021E87E0C007905A6 /* SearchOverflowTests.swift in Sources */,
