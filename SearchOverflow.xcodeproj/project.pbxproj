@@ -395,8 +395,8 @@
 		BAE959D821F50F2B00AE180D /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				BAE959D921F50F8700AE180D /* QuestionModelTests.swift */,
 				BAE959DF21F5173800AE180D /* AnswerModelTests.swift */,
+				BAE959D921F50F8700AE180D /* QuestionModelTests.swift */,
 				BAE959E921F5190900AE180D /* UserModelTests.swift */,
 			);
 			path = Models;
@@ -425,14 +425,14 @@
 		BAF70C4221F4609A00800B05 /* JSON Stubs */ = {
 			isa = PBXGroup;
 			children = (
-				BAE959E521F518F300AE180D /* UserDecodeFailure.json */,
-				BAE959E621F518F400AE180D /* UserDecodeSuccess.json */,
 				BAE959E121F517FB00AE180D /* AnswerDecodeFailure.json */,
 				BAE959E221F517FB00AE180D /* AnswerDecodeSuccess.json */,
 				BAE959DD21F5164200AE180D /* QuestionDecodeFailure.json */,
 				BAE959DB21F510F100AE180D /* QuestionDecodeSuccess.json */,
 				BAF70C4321F4610900800B05 /* SearchResponse p1.json */,
 				BAE959D421F4EA7700AE180D /* SearchResponse p2.json */,
+				BAE959E521F518F300AE180D /* UserDecodeFailure.json */,
+				BAE959E621F518F400AE180D /* UserDecodeSuccess.json */,
 			);
 			path = "JSON Stubs";
 			sourceTree = "<group>";
