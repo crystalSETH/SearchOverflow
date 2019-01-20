@@ -24,11 +24,7 @@ class HomeViewController: UIViewController {
         return qController
     }()
 
-    var questions: [Question] = [] {
-        didSet {
-            resultsTableView?.reloadData()
-        }
-    }
+    var questionPages: [[Question]] = []
 
     // MARK: - Lifecycle
     override func viewDidLoad() {
@@ -59,6 +55,7 @@ class HomeViewController: UIViewController {
 
         resultsTableView?.showsVerticalScrollIndicator = false
         resultsTableView?.dataSource = self
+        resultsTableView?.prefetchDataSource = self
         resultsTableView?.delegate = self
     }
 }
@@ -75,6 +72,6 @@ extension HomeViewController: UITextFieldDelegate {
     func textFieldDidEndEditing(_ textField: UITextField, reason: UITextField.DidEndEditingReason) {
         guard let text = textField.text, text.count > 0 else { return }
 
-        dataController.search(for: text)
+        dataController.beginSearch(for: text)
     }
 }

@@ -9,27 +9,41 @@
 import Foundation
 
 extension HomeViewController: QuestionsControllerDelegate {
-    func didBeginSearch(for title: String) {
-        noResultsImage.isHidden = true
-        
-        // start loading animation
-        activityIndicator.isHidden = false
-        activityIndicator.startAnimating()
-    }
     
-    func didFinishSearch(for title: String, results: [Question]) {
-        
-        DispatchQueue.main.async { [weak self] in
+    func didBeginSearch(for title: String) {
+        DispatchQueue.main.async {
             
-            self?.noResultsImage.isHidden = results.count > 0
+            // reset table data
+            self.questionPages = []
+            self.resultsTableView?.reloadData()
+
+            self.noResultsImage.isHidden = true
             
-            // finish loading animation
-            self?.activityIndicator.isHidden = true
-            self?.activityIndicator.stopAnimating()
-            
-            let questionsSorted = results.sorted(by: { $0.score > $1.score })
-            self?.questions = questionsSorted
+            // start loading animation
+            self.activityIndicator.isHidden = false
+            self.activityIndicator.startAnimating()
         }
     }
-    
+
+    func didReceiveSearchResults(for title: String, results: [Question], page: Int) {
+
+        // fill the array if needed
+        if questionPages.isEmpty {
+            questionPages = Array<[Question]>(repeating: [], count: dataController.numberOfPages)
+        }
+        
+        let questionsSorted = results.sorted(by: { $0.score > $1.score })
+        questionPages[page - 1] = questionsSorted
+        
+        // Reload the table if this is the first page
+        if page == 1 {
+            DispatchQueue.main.async {
+                self.resultsTableView?.reloadData()
+                
+                self.noResultsImage.isHidden = results.count > 0
+                self.activityIndicator.isHidden = true
+                self.activityIndicator.stopAnimating()
+            }
+        }
+    }
 }
