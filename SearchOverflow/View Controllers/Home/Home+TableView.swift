@@ -83,7 +83,7 @@ extension HomeViewController: UITableViewDataSourcePrefetching {
 
         // request search results for pages not in the question pages
         for section in sections {
-            dataController.continueSearch(page: section)
+            dataController.continueSearch(page: section + 1)
         }
     }
 }

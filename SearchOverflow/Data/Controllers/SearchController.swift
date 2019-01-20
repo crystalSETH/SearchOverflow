@@ -45,9 +45,8 @@ class SearchController: BaseDataController {
     /// Gets the next page of the search results
     func continueSearch(page: Int) {
         guard let title = currentSearchString else { return }
-        
-        let nonZeroPage = page + 1
-        search(for: title, page: nonZeroPage)
+
+        search(for: title, page: page)
     }
     
     private func search(for title: String, page: Int) {
@@ -78,7 +77,7 @@ class SearchController: BaseDataController {
                     self?.pageSize = apiReponse.pageSize
                     
                     // Completes with the question items, no error
-                    self?.delegate?.didReceiveSearchResults(for: title, results: apiReponse.items, page: page)
+                    self?.delegate?.didReceiveSearchResults(for: title, results: apiReponse.items, page: apiReponse.page)
                 } catch {
                     // Complete with a parsing error
                     self?.delegate?.didReceiveSearchResults(for: title, results: [], page: page)

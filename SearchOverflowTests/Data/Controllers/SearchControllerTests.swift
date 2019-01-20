@@ -30,26 +30,27 @@ class SearchControllerTests: XCTestCase, SearchControllerDelegate {
     var delegateSearchPage = -1
     var searchResults: [Question]?
 
-    override func setUp() {
-    }
+    override func setUp() { }
 
     override func tearDown() {
-
         delegateSearchTitle = ""
-        searchBeganExpectation = nil
         delegateSearchPage = -1
         searchResults = nil
+
+        searchBeganExpectation = nil
+        searchBeganResultExpectation = nil
+        searchContinuedResultExpectation = nil
+        
+        router.requestedPage = 1
     }
     
     func test_Search_CurrentSearchStringIsExpected() {
-
         sut.beginSearch(for: searchString)
         
         XCTAssertEqual(sut.currentSearchString, searchString)
     }
     
     func test_Search_SearchBeginsAndTitleIsExpected() {
-
         searchBeganExpectation = expectation(description: "Search Began")
         
         sut.beginSearch(for: searchString)
@@ -59,6 +60,23 @@ class SearchControllerTests: XCTestCase, SearchControllerDelegate {
         XCTAssertEqual(searchString, delegateSearchTitle)
     }
 
+    func test_Search_ContinuesSearchAndPageAndTitleIsExpected() {
+        searchBeganResultExpectation = expectation(description: "Search Began Result")
+        
+        sut.beginSearch(for: searchString)
+        
+        wait(for: [searchBeganResultExpectation], timeout: 10)
+        XCTAssertEqual(searchString, delegateSearchTitle)
+        XCTAssertEqual(delegateSearchPage, 1)
+        
+        searchContinuedResultExpectation = expectation(description: "Search Continued Result")
+        router.requestedPage = 2
+        sut.continueSearch(page: 2)
+        
+        wait(for: [searchContinuedResultExpectation], timeout: 10)
+        XCTAssertEqual(searchString, delegateSearchTitle)
+        XCTAssertEqual(delegateSearchPage, 2)
+    }
 
     // MARK: Search Datasource Delegate
     func didBeginSearch(for title: String) {
@@ -72,16 +90,19 @@ class SearchControllerTests: XCTestCase, SearchControllerDelegate {
         delegateSearchPage = page
         searchResults = results
 
-        page == 1 ? searchBeganResultExpectation?.fulfill() : searchContinuedResultExpectation?.fulfill()
+        page == 1 ? searchBeganResultExpectation?.fulfill() :
+                    searchContinuedResultExpectation?.fulfill()
     }
 }
 
 fileprivate class MockSearchRouter: Router {
-    let successResponse = HTTPURLResponse(url: URL(fileURLWithPath: ""), statusCode: 100, httpVersion: nil, headerFields: nil)
+    let successResponse = HTTPURLResponse(url: URL(fileURLWithPath: ""), statusCode: 200, httpVersion: nil, headerFields: nil)
+
+    var requestedPage = 1
 
     func request(_ route: EndPoint, completion: @escaping RouterCompletion) {
 
-        let data = SearchOverflowTests.loadJSON(named: "SearchResponse")
+        let data = SearchOverflowTests.loadJSON(named: "SearchResponse p\(requestedPage)")
         completion(data, successResponse, nil)
     }
     
