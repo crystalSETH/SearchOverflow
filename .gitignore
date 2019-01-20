@@ -48,3 +48,4 @@ playground.xcworkspace
 Pods/
 
 SearchOverflow\.xcworkspace/xcshareddata/
+.DS_Store
