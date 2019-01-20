@@ -1,0 +1,30 @@
+{
+    "tags": [
+        "javascript",
+        "function",
+        "arguments"
+    ],
+    "owner": {
+        "reputation": 91545,
+        "user_id": 305,
+        "user_type": "registered",
+        "accept_rate": 93,
+        "profile_image": "https://www.gravatar.com/avatar/040ffc7f3327b05f01c54a8bef3ba60a?s=128&d=identicon&r=PG",
+        "display_name": "Mark Biek",
+        "link": "https://stackoverflow.com/users/305/mark-biek"
+    },
+    "is_answered": true,
+    "view_count": 360313,
+    "closed_date": 1480097717,
+    "accepted_answer_id": 148918,
+    "answer_count": 28,
+    "score": 775,
+    "last_activity_date": 1516700520,
+    "creation_date": 1222698428,
+    "last_edit_date": 1516699129,
+    "question_id": 148901,
+    "link": "https://stackoverflow.com/questions/148901/is-there-a-better-way-to-do-optional-function-parameters-in-javascript",
+    "closed_reason": "duplicate",
+    "title": "Is there a better way to do optional function parameters in JavaScript?",
+    "body": "<p>I've always handled optional parameters in JavaScript like this:</p>\n\n<pre><code>function myFunc(requiredArg, optionalArg){\n  optionalArg = optionalArg || 'defaultValue';\n\n  // Do stuff\n}\n</code></pre>\n\n<p>Is there a better way to do it?</p>\n\n<p>Are there any cases where using <code>||</code> like that is going to fail?</p>\n"
+}

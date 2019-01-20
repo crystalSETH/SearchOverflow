@@ -49,6 +49,15 @@
 		BA0474F521F0DCCD0029983E /* Home+TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA0474F421F0DCCD0029983E /* Home+TableView.swift */; };
 		BAE959D521F4EA7700AE180D /* SearchResponse p2.json in Resources */ = {isa = PBXBuildFile; fileRef = BAE959D421F4EA7700AE180D /* SearchResponse p2.json */; };
 		BAE959D721F505F900AE180D /* QuestionControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE959D621F505F900AE180D /* QuestionControllerTests.swift */; };
+		BAE959DA21F50F8700AE180D /* QuestionModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE959D921F50F8700AE180D /* QuestionModelTests.swift */; };
+		BAE959DC21F510F100AE180D /* QuestionDecodeSuccess.json in Resources */ = {isa = PBXBuildFile; fileRef = BAE959DB21F510F100AE180D /* QuestionDecodeSuccess.json */; };
+		BAE959DE21F5164200AE180D /* QuestionDecodeFailure.json in Resources */ = {isa = PBXBuildFile; fileRef = BAE959DD21F5164200AE180D /* QuestionDecodeFailure.json */; };
+		BAE959E021F5173800AE180D /* AnswerModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE959DF21F5173800AE180D /* AnswerModelTests.swift */; };
+		BAE959E321F517FB00AE180D /* AnswerDecodeFailure.json in Resources */ = {isa = PBXBuildFile; fileRef = BAE959E121F517FB00AE180D /* AnswerDecodeFailure.json */; };
+		BAE959E421F517FB00AE180D /* AnswerDecodeSuccess.json in Resources */ = {isa = PBXBuildFile; fileRef = BAE959E221F517FB00AE180D /* AnswerDecodeSuccess.json */; };
+		BAE959E721F518F400AE180D /* UserDecodeFailure.json in Resources */ = {isa = PBXBuildFile; fileRef = BAE959E521F518F300AE180D /* UserDecodeFailure.json */; };
+		BAE959E821F518F400AE180D /* UserDecodeSuccess.json in Resources */ = {isa = PBXBuildFile; fileRef = BAE959E621F518F400AE180D /* UserDecodeSuccess.json */; };
+		BAE959EA21F5190900AE180D /* UserModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE959E921F5190900AE180D /* UserModelTests.swift */; };
 		BAF70C3B21F4121A00800B05 /* SearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAF70C3A21F4121A00800B05 /* SearchController.swift */; };
 		BAF70C3F21F43C6C00800B05 /* BaseDataControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAF70C3E21F43C6C00800B05 /* BaseDataControllerTests.swift */; };
 		BAF70C4121F43DEF00800B05 /* SearchControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAF70C4021F43DEF00800B05 /* SearchControllerTests.swift */; };
@@ -114,6 +123,15 @@
 		BA0474F421F0DCCD0029983E /* Home+TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Home+TableView.swift"; sourceTree = "<group>"; };
 		BAE959D421F4EA7700AE180D /* SearchResponse p2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "SearchResponse p2.json"; sourceTree = "<group>"; };
 		BAE959D621F505F900AE180D /* QuestionControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionControllerTests.swift; sourceTree = "<group>"; };
+		BAE959D921F50F8700AE180D /* QuestionModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionModelTests.swift; sourceTree = "<group>"; };
+		BAE959DB21F510F100AE180D /* QuestionDecodeSuccess.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = QuestionDecodeSuccess.json; sourceTree = "<group>"; };
+		BAE959DD21F5164200AE180D /* QuestionDecodeFailure.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = QuestionDecodeFailure.json; sourceTree = "<group>"; };
+		BAE959DF21F5173800AE180D /* AnswerModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerModelTests.swift; sourceTree = "<group>"; };
+		BAE959E121F517FB00AE180D /* AnswerDecodeFailure.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = AnswerDecodeFailure.json; sourceTree = "<group>"; };
+		BAE959E221F517FB00AE180D /* AnswerDecodeSuccess.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = AnswerDecodeSuccess.json; sourceTree = "<group>"; };
+		BAE959E521F518F300AE180D /* UserDecodeFailure.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = UserDecodeFailure.json; sourceTree = "<group>"; };
+		BAE959E621F518F400AE180D /* UserDecodeSuccess.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = UserDecodeSuccess.json; sourceTree = "<group>"; };
+		BAE959E921F5190900AE180D /* UserModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModelTests.swift; sourceTree = "<group>"; };
 		BAF70C3A21F4121A00800B05 /* SearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchController.swift; sourceTree = "<group>"; };
 		BAF70C3E21F43C6C00800B05 /* BaseDataControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseDataControllerTests.swift; sourceTree = "<group>"; };
 		BAF70C4021F43DEF00800B05 /* SearchControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchControllerTests.swift; sourceTree = "<group>"; };
@@ -377,6 +395,9 @@
 		BAE959D821F50F2B00AE180D /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				BAE959D921F50F8700AE180D /* QuestionModelTests.swift */,
+				BAE959DF21F5173800AE180D /* AnswerModelTests.swift */,
+				BAE959E921F5190900AE180D /* UserModelTests.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -404,6 +425,12 @@
 		BAF70C4221F4609A00800B05 /* JSON Stubs */ = {
 			isa = PBXGroup;
 			children = (
+				BAE959E521F518F300AE180D /* UserDecodeFailure.json */,
+				BAE959E621F518F400AE180D /* UserDecodeSuccess.json */,
+				BAE959E121F517FB00AE180D /* AnswerDecodeFailure.json */,
+				BAE959E221F517FB00AE180D /* AnswerDecodeSuccess.json */,
+				BAE959DD21F5164200AE180D /* QuestionDecodeFailure.json */,
+				BAE959DB21F510F100AE180D /* QuestionDecodeSuccess.json */,
 				BAF70C4321F4610900800B05 /* SearchResponse p1.json */,
 				BAE959D421F4EA7700AE180D /* SearchResponse p2.json */,
 			);
@@ -508,7 +535,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BAE959DC21F510F100AE180D /* QuestionDecodeSuccess.json in Resources */,
+				BAE959E421F517FB00AE180D /* AnswerDecodeSuccess.json in Resources */,
+				BAE959E821F518F400AE180D /* UserDecodeSuccess.json in Resources */,
+				BAE959E321F517FB00AE180D /* AnswerDecodeFailure.json in Resources */,
+				BAE959E721F518F400AE180D /* UserDecodeFailure.json in Resources */,
 				BAF70C4421F4610900800B05 /* SearchResponse p1.json in Resources */,
+				BAE959DE21F5164200AE180D /* QuestionDecodeFailure.json in Resources */,
 				BAE959D521F4EA7700AE180D /* SearchResponse p2.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -619,10 +652,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				BAF70C3F21F43C6C00800B05 /* BaseDataControllerTests.swift in Sources */,
+				BAE959E021F5173800AE180D /* AnswerModelTests.swift in Sources */,
+				BAE959EA21F5190900AE180D /* UserModelTests.swift in Sources */,
 				BAE959D721F505F900AE180D /* QuestionControllerTests.swift in Sources */,
 				5D5F8CAF21EAA00E007905A6 /* NetworkRouterTests.swift in Sources */,
 				5D5F8C8021E87E0C007905A6 /* SearchOverflowTests.swift in Sources */,
 				BAF70C4121F43DEF00800B05 /* SearchControllerTests.swift in Sources */,
+				BAE959DA21F50F8700AE180D /* QuestionModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
