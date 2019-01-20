@@ -13,6 +13,7 @@ class NetworkRouterTests: XCTestCase {
 
     var urlSession = MockUrlSession()
     var sut = NetworkRouter()
+    let endPoint = MockEndPoint()
 
     override func setUp() {
         sut.session = urlSession
@@ -21,11 +22,8 @@ class NetworkRouterTests: XCTestCase {
     override func tearDown() { }
 
     func test_Router_UsesExpectedURL() {
-        let urlSession = MockUrlSession()
-        let sut = NetworkRouter()
-        sut.session = urlSession
 
-        sut.request(MockEndPoint()) { _, _, _ in }
+        sut.request(endPoint) { _, _, _ in }
         guard let url = urlSession.url else {
             XCTFail()
             return
@@ -33,6 +31,28 @@ class NetworkRouterTests: XCTestCase {
 
         let urlComponents = URLComponents(url: url, resolvingAgainstBaseURL: true)
         XCTAssertEqual(urlComponents?.url?.absoluteString, mockBaseURL + mockPath)
+    }
+    
+    func test_Router_URLSessionTaskCreated() {
+
+        sut.request(endPoint) { _, _, _ in }
+        
+        XCTAssertNotNil(sut.task)
+    }
+
+    func test_Router_RequestStartsURLSessionTask() {
+        
+        sut.request(endPoint) { _, _, _ in }
+
+        XCTAssert(sut.task?.state == .running)
+    }
+    
+    func test_Router_CancelStopsURLSessionTask() {
+        
+        sut.request(endPoint) { _, _, _ in }
+        sut.cancel()
+        
+        XCTAssert(sut.task?.state == .canceling)
     }
 }
 

@@ -26,7 +26,6 @@
 		5D5F8CAC21EA63F3007905A6 /* StackOverflowItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D5F8CAB21EA63F3007905A6 /* StackOverflowItem.swift */; };
 		5D5F8CAF21EAA00E007905A6 /* NetworkRouterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D5F8CAE21EAA00E007905A6 /* NetworkRouterTests.swift */; };
 		5D5F8CB221EAA45F007905A6 /* URLSessionProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D5F8CB121EAA45F007905A6 /* URLSessionProtocol.swift */; };
-		5D5F8CB421EAC7D8007905A6 /* NetworkManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D5F8CB321EAC7D8007905A6 /* NetworkManagerTests.swift */; };
 		5D5F8CB721EB2749007905A6 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5D5F8CB621EB2749007905A6 /* Home.storyboard */; };
 		5D5F8CB921EB277C007905A6 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D5F8CB821EB277C007905A6 /* HomeViewController.swift */; };
 		5D5F8CC321EB326B007905A6 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D5F8CC221EB326B007905A6 /* UIColor+Extension.swift */; };
@@ -49,6 +48,9 @@
 		BA0474F321F0DC840029983E /* Home+DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA0474F221F0DC840029983E /* Home+DataController.swift */; };
 		BA0474F521F0DCCD0029983E /* Home+TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA0474F421F0DCCD0029983E /* Home+TableView.swift */; };
 		BAF70C3B21F4121A00800B05 /* SearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAF70C3A21F4121A00800B05 /* SearchController.swift */; };
+		BAF70C3F21F43C6C00800B05 /* BaseDataControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAF70C3E21F43C6C00800B05 /* BaseDataControllerTests.swift */; };
+		BAF70C4121F43DEF00800B05 /* SearchControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAF70C4021F43DEF00800B05 /* SearchControllerTests.swift */; };
+		BAF70C4421F4610900800B05 /* SearchResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = BAF70C4321F4610900800B05 /* SearchResponse.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -87,7 +89,6 @@
 		5D5F8CAB21EA63F3007905A6 /* StackOverflowItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackOverflowItem.swift; sourceTree = "<group>"; };
 		5D5F8CAE21EAA00E007905A6 /* NetworkRouterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRouterTests.swift; sourceTree = "<group>"; };
 		5D5F8CB121EAA45F007905A6 /* URLSessionProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionProtocol.swift; sourceTree = "<group>"; };
-		5D5F8CB321EAC7D8007905A6 /* NetworkManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManagerTests.swift; sourceTree = "<group>"; };
 		5D5F8CB621EB2749007905A6 /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		5D5F8CB821EB277C007905A6 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		5D5F8CC221EB326B007905A6 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
@@ -110,6 +111,9 @@
 		BA0474F221F0DC840029983E /* Home+DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Home+DataController.swift"; sourceTree = "<group>"; };
 		BA0474F421F0DCCD0029983E /* Home+TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Home+TableView.swift"; sourceTree = "<group>"; };
 		BAF70C3A21F4121A00800B05 /* SearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchController.swift; sourceTree = "<group>"; };
+		BAF70C3E21F43C6C00800B05 /* BaseDataControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseDataControllerTests.swift; sourceTree = "<group>"; };
+		BAF70C4021F43DEF00800B05 /* SearchControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchControllerTests.swift; sourceTree = "<group>"; };
+		BAF70C4321F4610900800B05 /* SearchResponse.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = SearchResponse.json; sourceTree = "<group>"; };
 		C2D15F80758BD75A43E7D9F9 /* Pods-SearchOverflow.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SearchOverflow.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SearchOverflow/Pods-SearchOverflow.debug.xcconfig"; sourceTree = "<group>"; };
 		ED5E640398D8DBD75FC34861 /* Pods-SearchOverflow.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SearchOverflow.release.xcconfig"; path = "Pods/Target Support Files/Pods-SearchOverflow/Pods-SearchOverflow.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -181,6 +185,7 @@
 		5D5F8C7E21E87E0C007905A6 /* SearchOverflowTests */ = {
 			isa = PBXGroup;
 			children = (
+				BAF70C3C21F43B7100800B05 /* Data */,
 				5D5F8CAD21EA9FDE007905A6 /* Networking */,
 				5D5F8C7F21E87E0C007905A6 /* SearchOverflowTests.swift */,
 				5D5F8C8121E87E0C007905A6 /* Info.plist */,
@@ -288,7 +293,6 @@
 		5D5F8CAD21EA9FDE007905A6 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
-				5D5F8CB321EAC7D8007905A6 /* NetworkManagerTests.swift */,
 				5D5F8CAE21EAA00E007905A6 /* NetworkRouterTests.swift */,
 			);
 			path = Networking;
@@ -364,6 +368,32 @@
 				BAF70C3A21F4121A00800B05 /* SearchController.swift */,
 			);
 			path = Controllers;
+			sourceTree = "<group>";
+		};
+		BAF70C3C21F43B7100800B05 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				BAF70C4221F4609A00800B05 /* JSON Stubs */,
+				BAF70C3D21F43B7B00800B05 /* Controllers */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		BAF70C3D21F43B7B00800B05 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				BAF70C3E21F43C6C00800B05 /* BaseDataControllerTests.swift */,
+				BAF70C4021F43DEF00800B05 /* SearchControllerTests.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		BAF70C4221F4609A00800B05 /* JSON Stubs */ = {
+			isa = PBXGroup;
+			children = (
+				BAF70C4321F4610900800B05 /* SearchResponse.json */,
+			);
+			path = "JSON Stubs";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -464,6 +494,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BAF70C4421F4610900800B05 /* SearchResponse.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -572,9 +603,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5D5F8CB421EAC7D8007905A6 /* NetworkManagerTests.swift in Sources */,
+				BAF70C3F21F43C6C00800B05 /* BaseDataControllerTests.swift in Sources */,
 				5D5F8CAF21EAA00E007905A6 /* NetworkRouterTests.swift in Sources */,
 				5D5F8C8021E87E0C007905A6 /* SearchOverflowTests.swift in Sources */,
+				BAF70C4121F43DEF00800B05 /* SearchControllerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

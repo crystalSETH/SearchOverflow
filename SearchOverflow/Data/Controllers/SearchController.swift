@@ -19,7 +19,7 @@ class SearchController: BaseDataController {
     
     var router: Router
     
-    private var currentSearchString: String?
+    private(set) var currentSearchString: String?
     
     private(set) var totalItems: Int = 0
     private(set) var pageSize: Int = 0
@@ -37,8 +37,6 @@ class SearchController: BaseDataController {
     // MARK: - Search Functions
     /// Begins the search for the given title
     func beginSearch(for title: String) {
-        delegate?.didBeginSearch(for: title)
-        
         currentSearchString = title
         
         search(for: title, page: 1)
@@ -46,13 +44,16 @@ class SearchController: BaseDataController {
     
     /// Gets the next page of the search results
     func continueSearch(page: Int) {
-        guard let title = currentSearchString, page <= numberOfPages else { return }
+        guard let title = currentSearchString else { return }
         
         let nonZeroPage = page + 1
         search(for: title, page: nonZeroPage)
     }
     
     private func search(for title: String, page: Int) {
+
+        page == 1 ? delegate?.didBeginSearch(for: title) : nil
+
         // Request data
         router.request(StackOverflow.search(for: title, page: page)) { [weak self] data, response, error in
             

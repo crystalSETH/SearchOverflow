@@ -11,4 +11,13 @@ import XCTest
 
 class SearchOverflowTests: XCTestCase {
 
+    static func loadJSON(named jsonName: String) -> Data? {
+        let bundle = Bundle(for: self)
+        
+        guard let url = bundle.url(forResource: jsonName, withExtension: "json"),
+              let data = try? Data(contentsOf: url)
+            else { return nil }
+        
+        return data
+    }
 }
