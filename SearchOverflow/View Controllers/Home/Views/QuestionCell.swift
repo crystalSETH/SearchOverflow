@@ -21,10 +21,12 @@ class QuestionCell: UITableViewCell {
 
     var markdownView: DownView?
 
+    // MARK: - Lifecycle
     override func awakeFromNib() {
         super.awakeFromNib()
         setupViews()
     }
+
     override func prepareForReuse() {
         super.prepareForReuse()
 

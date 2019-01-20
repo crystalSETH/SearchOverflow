@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 
 typealias Home = Constants.Home
+
 extension Constants {
     struct Home {
         static let cellId = "QuestionCell"

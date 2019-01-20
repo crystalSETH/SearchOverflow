@@ -8,6 +8,7 @@
 
 import Foundation
 
+// MARK: - Search Controller Delegate
 extension HomeViewController: SearchControllerDelegate {
     
     func didBeginSearch(for title: String) {
