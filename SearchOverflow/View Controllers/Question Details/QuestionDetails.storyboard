@@ -13,7 +13,7 @@
         <!--Question Details View Controller-->
         <scene sceneID="4Lq-N0-yWl">
             <objects>
-                <viewController id="qxx-dx-1Jk" customClass="QuestionDetailsViewController" customModule="SearchOverflow" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="QuestionDetailsViewController" id="qxx-dx-1Jk" customClass="QuestionDetailsViewController" customModule="SearchOverflow" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="gZP-k4-9VN">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
