@@ -18,6 +18,7 @@ extension HomeViewController: SearchControllerDelegate {
             self.questionPages = []
             self.resultsTableView?.reloadData()
 
+            self.resultsTableView?.isHidden = true
             self.noResultsImage.isHidden = true
             
             // start loading animation
@@ -32,14 +33,17 @@ extension HomeViewController: SearchControllerDelegate {
         if questionPages.isEmpty {
             questionPages = Array<[Question]>(repeating: [], count: dataController.numberOfPages)
         }
-        
-        let questionsSorted = results.sorted(by: { $0.score > $1.score })
-        questionPages[page - 1] = questionsSorted
-        
+    
+        if dataController.numberOfPages != 0 {
+            let questionsSorted = results.sorted(by: { $0.score > $1.score })
+            questionPages[page - 1] = questionsSorted
+        }
+
         // Reload the table if this is the first page
         if page == 1 {
             DispatchQueue.main.async {
                 self.resultsTableView?.reloadData()
+                self.resultsTableView?.isHidden = results.count == 0
                 
                 self.noResultsImage.isHidden = results.count > 0
                 self.activityIndicator.isHidden = true
