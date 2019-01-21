@@ -26,7 +26,16 @@ class SearchController: BaseDataController {
     
     var numberOfPages: Int {
         
-        return pageSize > 0 ? totalItems / pageSize : 0
+        let pages: Int
+        if pageSize > 0 {
+            
+            let fPages = (Float(totalItems) / Float(pageSize)).rounded(.up)
+            
+            pages = Int(fPages)
+        }
+        else { pages = 0}
+
+        return pages
     }
     
     // MARK: - Lifecycle

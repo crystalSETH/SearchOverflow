@@ -61,6 +61,7 @@
 		BAE959ED21F5247800AE180D /* StackOverflowResponseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE959EC21F5247800AE180D /* StackOverflowResponseTests.swift */; };
 		BAE959F021F524EE00AE180D /* StackOResponseDecodeSuccess.json in Resources */ = {isa = PBXBuildFile; fileRef = BAE959EE21F524EE00AE180D /* StackOResponseDecodeSuccess.json */; };
 		BAE959F121F524EE00AE180D /* StackOResponseDecodeFailure.json in Resources */ = {isa = PBXBuildFile; fileRef = BAE959EF21F524EE00AE180D /* StackOResponseDecodeFailure.json */; };
+		BAE959F421F5274100AE180D /* HomeViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE959F321F5274100AE180D /* HomeViewControllerTests.swift */; };
 		BAF70C3B21F4121A00800B05 /* SearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAF70C3A21F4121A00800B05 /* SearchController.swift */; };
 		BAF70C3F21F43C6C00800B05 /* BaseDataControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAF70C3E21F43C6C00800B05 /* BaseDataControllerTests.swift */; };
 		BAF70C4121F43DEF00800B05 /* SearchControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAF70C4021F43DEF00800B05 /* SearchControllerTests.swift */; };
@@ -138,6 +139,7 @@
 		BAE959EC21F5247800AE180D /* StackOverflowResponseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackOverflowResponseTests.swift; sourceTree = "<group>"; };
 		BAE959EE21F524EE00AE180D /* StackOResponseDecodeSuccess.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = StackOResponseDecodeSuccess.json; sourceTree = "<group>"; };
 		BAE959EF21F524EE00AE180D /* StackOResponseDecodeFailure.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = StackOResponseDecodeFailure.json; sourceTree = "<group>"; };
+		BAE959F321F5274100AE180D /* HomeViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewControllerTests.swift; sourceTree = "<group>"; };
 		BAF70C3A21F4121A00800B05 /* SearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchController.swift; sourceTree = "<group>"; };
 		BAF70C3E21F43C6C00800B05 /* BaseDataControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseDataControllerTests.swift; sourceTree = "<group>"; };
 		BAF70C4021F43DEF00800B05 /* SearchControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchControllerTests.swift; sourceTree = "<group>"; };
@@ -213,6 +215,7 @@
 		5D5F8C7E21E87E0C007905A6 /* SearchOverflowTests */ = {
 			isa = PBXGroup;
 			children = (
+				BAE959F221F5271F00AE180D /* View Controllers */,
 				BAF70C3C21F43B7100800B05 /* Data */,
 				5D5F8CAD21EA9FDE007905A6 /* Networking */,
 				5D5F8C7F21E87E0C007905A6 /* SearchOverflowTests.swift */,
@@ -414,6 +417,14 @@
 				BAE959EC21F5247800AE180D /* StackOverflowResponseTests.swift */,
 			);
 			path = API;
+			sourceTree = "<group>";
+		};
+		BAE959F221F5271F00AE180D /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				BAE959F321F5274100AE180D /* HomeViewControllerTests.swift */,
+			);
+			path = "View Controllers";
 			sourceTree = "<group>";
 		};
 		BAF70C3C21F43B7100800B05 /* Data */ = {
@@ -675,6 +686,7 @@
 				BAE959EA21F5190900AE180D /* UserModelTests.swift in Sources */,
 				BAE959ED21F5247800AE180D /* StackOverflowResponseTests.swift in Sources */,
 				BAE959D721F505F900AE180D /* QuestionControllerTests.swift in Sources */,
+				BAE959F421F5274100AE180D /* HomeViewControllerTests.swift in Sources */,
 				5D5F8CAF21EAA00E007905A6 /* NetworkRouterTests.swift in Sources */,
 				5D5F8C8021E87E0C007905A6 /* SearchOverflowTests.swift in Sources */,
 				BAF70C4121F43DEF00800B05 /* SearchControllerTests.swift in Sources */,
