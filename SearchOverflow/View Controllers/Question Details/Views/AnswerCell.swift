@@ -48,7 +48,7 @@ class AnswerCell: UITableViewCell {
             downView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 9).isActive = true
             downView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -9).isActive = true
             downView.topAnchor.constraint(equalTo: gravatarImage.bottomAnchor).isActive = true
-            downView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -6).isActive = true
+            downView.bottomAnchor.constraint(equalTo: background.bottomAnchor, constant: -6).isActive = true
         }
     }
 }

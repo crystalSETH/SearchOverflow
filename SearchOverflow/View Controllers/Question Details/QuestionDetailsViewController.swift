@@ -40,7 +40,8 @@ class QuestionDetailsViewController: BaseViewController {
         let questionTitle = try? Down.init(markdownString: "\(question?.title ?? QuestionDetails.defaultTitle)").toAttributedString().string
         questionTitleLabel?.text = questionTitle
 
-        gravatarImage.layer.cornerRadius = 5
+        gravatarImage.layer.cornerRadius = 3
+        gravatarImage.layer.masksToBounds = true
         if let urlString = question?.owner?.profileImageUrl, let url = URL(string: urlString) {
             
             gravatarImage.kf.setImage(with: url, placeholder: UIImage(named: QuestionDetails.defaultGravatarName))

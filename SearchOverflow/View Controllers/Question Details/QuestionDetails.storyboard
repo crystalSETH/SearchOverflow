@@ -22,13 +22,13 @@
                                 <rect key="frame" x="0.0" y="20" width="375" height="222.5"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1wT-1z-AwH" userLabel="Gravatar Image">
-                                        <rect key="frame" x="0.0" y="3" width="41.5" height="41.5"/>
+                                        <rect key="frame" x="6" y="3" width="41.5" height="41.5"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="1wT-1z-AwH" secondAttribute="height" multiplier="1:1" id="HQM-HR-Wpw"/>
                                         </constraints>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OHl-z6-Hd1" userLabel="Username Label">
-                                        <rect key="frame" x="47.5" y="3" width="61" height="24"/>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OHl-z6-Hd1" userLabel="Username Label">
+                                        <rect key="frame" x="53.5" y="3" width="61" height="24"/>
                                         <fontDescription key="fontDescription" name="AvenirNextCondensed-MediumItalic" family="Avenir Next Condensed" pointSize="17"/>
                                         <color key="textColor" cocoaTouchSystemColor="lightTextColor"/>
                                         <nil key="highlightedColor"/>
@@ -40,7 +40,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FGc-TC-kfo" userLabel="Question Title">
-                                        <rect key="frame" x="47.5" y="27" width="327.5" height="70"/>
+                                        <rect key="frame" x="53.5" y="27" width="321.5" height="70"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="70" id="U50-aD-fog"/>
                                         </constraints>
@@ -54,7 +54,7 @@
                                 <constraints>
                                     <constraint firstItem="1wT-1z-AwH" firstAttribute="top" secondItem="EJv-vs-kcP" secondAttribute="top" constant="3" id="0BX-t0-awb"/>
                                     <constraint firstAttribute="trailing" secondItem="YTf-h5-904" secondAttribute="trailing" constant="8" id="0RE-2b-FzZ"/>
-                                    <constraint firstItem="1wT-1z-AwH" firstAttribute="leading" secondItem="EJv-vs-kcP" secondAttribute="leading" id="3FE-D5-4SW"/>
+                                    <constraint firstItem="1wT-1z-AwH" firstAttribute="leading" secondItem="EJv-vs-kcP" secondAttribute="leading" constant="6" id="3FE-D5-4SW"/>
                                     <constraint firstAttribute="trailing" secondItem="FGc-TC-kfo" secondAttribute="trailing" id="3iQ-dD-jcD"/>
                                     <constraint firstItem="YTf-h5-904" firstAttribute="top" secondItem="OHl-z6-Hd1" secondAttribute="top" id="A6J-b2-818"/>
                                     <constraint firstItem="1wT-1z-AwH" firstAttribute="width" secondItem="EJv-vs-kcP" secondAttribute="width" multiplier="1/9" id="Bcd-l1-etm"/>
@@ -65,7 +65,7 @@
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="380" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Zdm-hq-kVH" userLabel="Answers Table View">
-                                <rect key="frame" x="0.0" y="242.5" width="375" height="424.5"/>
+                                <rect key="frame" x="3" y="242.5" width="369" height="424.5"/>
                                 <color key="backgroundColor" red="0.1636915803" green="0.34535592790000003" blue="0.49537944789999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="separatorColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -100,7 +100,7 @@
                             <constraint firstItem="EJv-vs-kcP" firstAttribute="height" secondItem="gZP-k4-9VN" secondAttribute="height" multiplier="1/3" id="hGX-Sf-Bbr"/>
                             <constraint firstItem="EJv-vs-kcP" firstAttribute="top" secondItem="8Dt-xv-lPn" secondAttribute="top" id="jBz-ZT-u5v"/>
                             <constraint firstItem="Zdm-hq-kVH" firstAttribute="top" secondItem="EJv-vs-kcP" secondAttribute="bottom" id="mIK-9E-id5"/>
-                            <constraint firstItem="Zdm-hq-kVH" firstAttribute="width" secondItem="gZP-k4-9VN" secondAttribute="width" id="pMb-HJ-6uV"/>
+                            <constraint firstItem="Zdm-hq-kVH" firstAttribute="width" secondItem="gZP-k4-9VN" secondAttribute="width" constant="-6" id="pMb-HJ-6uV"/>
                             <constraint firstItem="8Dt-xv-lPn" firstAttribute="bottom" secondItem="x3L-YI-DB9" secondAttribute="bottom" constant="-6" id="sWo-1s-dI7"/>
                             <constraint firstItem="EJv-vs-kcP" firstAttribute="width" secondItem="gZP-k4-9VN" secondAttribute="width" id="szK-rZ-8gr"/>
                             <constraint firstItem="ChF-ty-Ocd" firstAttribute="height" secondItem="x3L-YI-DB9" secondAttribute="height" multiplier="2" id="va3-hg-Qmd"/>
