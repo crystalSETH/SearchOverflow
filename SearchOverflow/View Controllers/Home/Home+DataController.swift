@@ -16,9 +16,10 @@ extension HomeViewController: SearchControllerDelegate {
             
             // reset table data
             self.questionPages = []
-            self.resultsTableView?.reloadData()
 
+            self.resultsTableView?.reloadData()
             self.resultsTableView?.isHidden = true
+
             self.noResultsImage.isHidden = true
             
             // start loading animation
@@ -44,7 +45,8 @@ extension HomeViewController: SearchControllerDelegate {
             DispatchQueue.main.async {
                 self.resultsTableView?.reloadData()
                 self.resultsTableView?.isHidden = results.count == 0
-                
+                self.resultsTableView?.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: true)
+
                 self.noResultsImage.isHidden = results.count > 0
                 self.activityIndicator.isHidden = true
                 self.activityIndicator.stopAnimating()
