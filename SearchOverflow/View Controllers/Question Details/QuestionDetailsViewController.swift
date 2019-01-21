@@ -9,7 +9,7 @@
 import UIKit
 import Down
 
-class QuestionDetailsViewController: UIViewController {
+class QuestionDetailsViewController: BaseViewController {
     var question: Question?
 
     @IBOutlet weak var questionView: UIView?
