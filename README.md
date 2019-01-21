@@ -38,8 +38,8 @@ I chose to use three 3rd party libraries via cocaopods, all of which are for UI:
 #### Improvements
 Below (in Future Improvements), I've listed some additional improvements to make to this project. Being more descriptive:
 I would like to add additional units test to the view controllers (specifically looking at you infinite scroll), as well as UI Testing and integration testing.
-Speaking of inifinite scroll, this technique can have the potential to create a massive array of question arrays which would not be very effecient. I would like to refine this technique into something that would might only have ~100 (or some fixed number) questions avaiable at a time. 
-Improvements can als be made to give the UI a little bit more a "feel."
+On the topic of inifinite scroll, this technique can have the potential to create a massive array of question arrays which would not be very effecient. I would like to refine this technique into something that might only have ~100 (or some fixed number) questions available at a time. 
+Improvements can also be made to give the UI a little bit more a "feel."
 
 ## Future Improvements
 - [ ] Refine infinite scroll to not have the potential for MASSIVE arrays
