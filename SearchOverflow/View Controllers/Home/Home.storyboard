@@ -32,7 +32,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="onDrag" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="400" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="4yQ-EV-aMQ">
-                                <rect key="frame" x="21" y="100" width="333" height="567"/>
+                                <rect key="frame" x="6" y="100" width="363" height="567"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <sections/>
@@ -59,8 +59,8 @@
                             <constraint firstItem="LCc-7Q-Z0m" firstAttribute="centerX" secondItem="0Sv-Zf-Xc4" secondAttribute="centerX" id="32N-9s-iJh"/>
                             <constraint firstItem="0Sv-Zf-Xc4" firstAttribute="centerY" secondItem="w0L-mc-svz" secondAttribute="centerY" id="4od-xz-MMc"/>
                             <constraint firstItem="LCc-7Q-Z0m" firstAttribute="height" secondItem="0Sv-Zf-Xc4" secondAttribute="height" id="6mp-0N-wKX"/>
-                            <constraint firstItem="w0L-mc-svz" firstAttribute="trailing" secondItem="4yQ-EV-aMQ" secondAttribute="trailing" constant="21" id="8rD-fC-hUG"/>
-                            <constraint firstItem="4yQ-EV-aMQ" firstAttribute="leading" secondItem="w0L-mc-svz" secondAttribute="leading" constant="21" id="KLF-gs-jBh"/>
+                            <constraint firstItem="w0L-mc-svz" firstAttribute="trailing" secondItem="4yQ-EV-aMQ" secondAttribute="trailing" constant="6" id="8rD-fC-hUG"/>
+                            <constraint firstItem="4yQ-EV-aMQ" firstAttribute="leading" secondItem="w0L-mc-svz" secondAttribute="leading" constant="6" id="KLF-gs-jBh"/>
                             <constraint firstItem="DNC-3L-IpY" firstAttribute="leading" secondItem="w0L-mc-svz" secondAttribute="leading" multiplier="9" constant="9" id="Ktf-c5-md4"/>
                             <constraint firstItem="4yQ-EV-aMQ" firstAttribute="top" secondItem="w0L-mc-svz" secondAttribute="top" constant="80" id="Mhf-dK-EbY"/>
                             <constraint firstItem="QZQ-lp-H2V" firstAttribute="bottom" secondItem="4yQ-EV-aMQ" secondAttribute="top" constant="-24" id="QHc-lK-5M5"/>

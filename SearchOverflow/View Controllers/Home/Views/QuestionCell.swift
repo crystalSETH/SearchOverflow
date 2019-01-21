@@ -54,7 +54,7 @@ class QuestionCell: UITableViewCell {
             downView.translatesAutoresizingMaskIntoConstraints = false
             downView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 9).isActive = true
             downView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -9).isActive = true
-            downView.topAnchor.constraint(equalTo: questionTitleLabel.bottomAnchor).isActive = true
+            downView.topAnchor.constraint(equalTo: gravatarImage.bottomAnchor).isActive = true
             downView.bottomAnchor.constraint(equalTo: lineView.bottomAnchor, constant: -6).isActive = true
         }
     }

@@ -49,6 +49,8 @@ class HomeViewController: BaseViewController {
         let questionNib = UINib(nibName: Home.cellId, bundle: nil)
         resultsTableView?.register(questionNib, forCellReuseIdentifier: Home.cellId)
 
+        resultsTableView?.layer.cornerRadius = 12
+        resultsTableView?.layer.masksToBounds = true
         resultsTableView?.backgroundColor = .clear
         let background = UIView(frame: .zero)
         resultsTableView?.backgroundView = background

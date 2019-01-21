@@ -50,7 +50,7 @@ extension HomeViewController: UITableViewDataSource {
         bgView.backgroundColor = .clear
         cell.backgroundView = bgView
         
-        cell.background.layer.cornerRadius = 25
+        cell.background.layer.cornerRadius = 12
         cell.background.layer.masksToBounds = true
         
         return cell
