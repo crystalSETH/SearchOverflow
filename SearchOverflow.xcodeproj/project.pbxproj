@@ -41,6 +41,7 @@
 		5D5F8CDB21EDA689007905A6 /* QuestionDetails+Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D5F8CDA21EDA689007905A6 /* QuestionDetails+Constants.swift */; };
 		5D5F8CDD21EDACBE007905A6 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D5F8CDC21EDACBE007905A6 /* Date+Extension.swift */; };
 		757795AAF4156F1FEAFEC9E5 /* Pods_SearchOverflow.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 97D70EB5A57BF60616388C8B /* Pods_SearchOverflow.framework */; };
+		8C6494F0226A5AD100A93D27 /* RootViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6494EF226A5AD100A93D27 /* RootViewControllerTests.swift */; };
 		B4C804A0F75CC3FE8722E7EA /* Pods_SearchOverflowTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 526A74D7DFFFEB8F74471A41 /* Pods_SearchOverflowTests.framework */; };
 		BA0474ED21F06C010029983E /* QuestionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA0474EC21F06C010029983E /* QuestionController.swift */; };
 		BA0474EF21F06EBC0029983E /* BaseDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA0474EE21F06EBC0029983E /* BaseDataController.swift */; };
@@ -120,6 +121,7 @@
 		5D5F8CD821ED73B8007905A6 /* AnswerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerCell.swift; sourceTree = "<group>"; };
 		5D5F8CDA21EDA689007905A6 /* QuestionDetails+Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "QuestionDetails+Constants.swift"; sourceTree = "<group>"; };
 		5D5F8CDC21EDACBE007905A6 /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
+		8C6494EF226A5AD100A93D27 /* RootViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewControllerTests.swift; sourceTree = "<group>"; };
 		968247F0DD9D7DE29DE94E2F /* Pods-SearchOverflowTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SearchOverflowTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SearchOverflowTests/Pods-SearchOverflowTests.release.xcconfig"; sourceTree = "<group>"; };
 		97D70EB5A57BF60616388C8B /* Pods_SearchOverflow.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SearchOverflow.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA0474EC21F06C010029983E /* QuestionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionController.swift; sourceTree = "<group>"; };
@@ -429,6 +431,7 @@
 			children = (
 				BAE959F321F5274100AE180D /* HomeViewControllerTests.swift */,
 				BAE959F721F5917C00AE180D /* DetailViewControllerTests.swift */,
+				8C6494EF226A5AD100A93D27 /* RootViewControllerTests.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -698,6 +701,7 @@
 			files = (
 				BAF70C3F21F43C6C00800B05 /* BaseDataControllerTests.swift in Sources */,
 				BAE959E021F5173800AE180D /* AnswerModelTests.swift in Sources */,
+				8C6494F0226A5AD100A93D27 /* RootViewControllerTests.swift in Sources */,
 				BAE959EA21F5190900AE180D /* UserModelTests.swift in Sources */,
 				BAE959ED21F5247800AE180D /* StackOverflowResponseTests.swift in Sources */,
 				BAE959D721F505F900AE180D /* QuestionControllerTests.swift in Sources */,
