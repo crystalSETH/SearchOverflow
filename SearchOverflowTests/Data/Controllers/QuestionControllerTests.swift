@@ -19,9 +19,14 @@ class QuestionControllerTests: XCTestCase {
 
     func test_AnswersAreNotEmptyGivenAtLeastOneAnswer() {
 
-        XCTAssert(!QuestionController.orderedAnswers(for: question).isEmpty)
+        XCTAssertFalse(QuestionController.orderedAnswers(for: question).isEmpty)
     }
     
+    func test_AnswersAreEmptyGivenNoAnswersInQuestion() {
+        let question = Question(id: 1, owner: nil, score: 1, title: "", body: "", createdOn: Date(), tags: [], viewCount: 1, isAnswered: true, answers: nil, acceptedAnswerId: nil, answerCount: 0)
+        XCTAssert(QuestionController.orderedAnswers(for: question).isEmpty)
+    }
+
     func test_AnswerHasAcceptedFirst() {
 
         XCTAssert(QuestionController.orderedAnswers(for: question)[0].isAccepted)
