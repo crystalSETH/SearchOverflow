@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum UserType: String {
+enum UserType: String, Decodable {
     case unregistered
     case registered
     case moderator
@@ -18,7 +18,7 @@ enum UserType: String {
 
 // https://api.stackexchange.com/docs/types/shallow-user
 /// User model for the StackExchange API (shallow_user)
-struct User {
+struct User: StackOverflowItem {
     var id: Int?
     var displayName: String?
     var type: UserType
@@ -32,21 +32,5 @@ struct User {
         case profileImageUrl = "profile_image"
 
         case reputation
-    }
-}
-
-// MARK: - Decodable
-extension User: StackOverflowItem, Decodable {
-    init(from decoder: Decoder) throws {
-        let values = try decoder.container(keyedBy: CodingKeys.self)
-
-        id = try values.decodeIfPresent(Int.self, forKey: .id)
-        displayName = try values.decodeIfPresent(String.self, forKey: .displayName)
-
-        let userTypeString = try values.decode(String.self, forKey: .type)
-        type = UserType(rawValue: userTypeString) ?? .dne
-
-        reputation = try values.decodeIfPresent(Int.self, forKey: .reputation)
-        profileImageUrl = try values.decodeIfPresent(String.self, forKey: .profileImageUrl)
     }
 }

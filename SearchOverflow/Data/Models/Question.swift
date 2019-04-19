@@ -10,7 +10,7 @@ import Foundation
 
 // https://api.stackexchange.com/docs/types/question
 /// Question model for the StackExchange API
-struct Question: PostItem {
+struct Question: PostItem, StackOverflowItem {
     // Post Item vars
     var id: Int
     var owner: User?
@@ -41,29 +41,5 @@ struct Question: PostItem {
         case body
         case tags
         case answers
-    }
-}
-
-// MARK: - Decodable
-extension Question: StackOverflowItem, Decodable {
-    init(from decoder: Decoder) throws {
-        let values = try decoder.container(keyedBy: CodingKeys.self)
-
-        id = try values.decode(Int.self, forKey: .id)
-        owner = try values.decodeIfPresent(User.self, forKey: .owner)
-        score = try values.decode(Int.self, forKey: .score)
-        title = try values.decode(String.self, forKey: .title)
-        body = try values.decode(String.self, forKey: .body)
-
-        let creationDateTime = try values.decode(TimeInterval.self, forKey: .createdOn)
-        createdOn = Date(timeIntervalSince1970: creationDateTime)
-
-        tags = try values.decode([String].self, forKey: .tags)
-
-        viewCount = try values.decode(Int.self, forKey: .viewCount)
-        isAnswered = try values.decode(Bool.self, forKey: .isAnswered)
-        answers = try values.decodeIfPresent([Answer].self, forKey: .answers)
-        acceptedAnswerId = try values.decodeIfPresent(Int.self, forKey: .acceptedAnswerId)
-        answerCount = try values.decode(Int.self, forKey: .answerCount)
     }
 }

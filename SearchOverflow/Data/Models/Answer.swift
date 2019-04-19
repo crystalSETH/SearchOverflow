@@ -10,7 +10,7 @@ import Foundation
 
 // https://api.stackexchange.com/docs/types/answer
 /// Answer model for the StackExchange API
-struct Answer: PostItem {
+struct Answer: PostItem, StackOverflowItem {
     // Post Item vars
     var id: Int
     var owner: User?
@@ -35,26 +35,5 @@ struct Answer: PostItem {
         case title
         case body
         case tags
-    }
-}
-
-// MARK: - Decodable
-extension Answer: StackOverflowItem, Decodable {
-    init(from decoder: Decoder) throws {
-        let values = try decoder.container(keyedBy: CodingKeys.self)
-
-        id = try values.decode(Int.self, forKey: .id)
-        owner = try values.decodeIfPresent(User.self, forKey: .owner)
-        score = try values.decode(Int.self, forKey: .score)
-        title = try values.decode(String.self, forKey: .title)
-        body = try values.decode(String.self, forKey: .body)
-
-        let creationDateTime = try values.decode(TimeInterval.self, forKey: .createdOn)
-        createdOn = Date(timeIntervalSince1970: creationDateTime)
-
-        tags = try values.decode([String].self, forKey: .tags)
-
-        isAccepted = try values.decode(Bool.self, forKey: .isAccepted)
-        questionId = try values.decode(Int.self, forKey: .questionId)
     }
 }
