@@ -14,17 +14,18 @@ private let baseURL = "https://api.stackexchange.com"
  * Filters are immutable and non-expiring. An application can safely "bake in" any filters that are created,
  * it is not necessary (or advisable) to create filters at runtime.
  */
-private let filterParam = "&filter=!)s))yOCJcBsc9uLD71Rm"
 
 /// StackOverflow API Endpoint
 enum StackOverflow {
+    static let filterParam = "&filter=!)s))yOCJcBsc9uLD71Rm"
+
     case search(for: String, page: Int)
     case question(id: Int)
 }
 
 extension StackOverflow: EndPoint {
     var baseURL: URL {
-        guard let url = URL(string: "https://api.stackexchange.com" + path + filterParam)
+        guard let url = URL(string: "https://api.stackexchange.com" + path + StackOverflow.filterParam)
             else { fatalError("Base url could not be configured.") }
 
         return url
