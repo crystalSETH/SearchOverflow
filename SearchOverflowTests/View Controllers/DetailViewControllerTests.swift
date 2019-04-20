@@ -33,8 +33,7 @@ class DetailViewControllerTests: XCTestCase {
                                ]
 
     override func setUp() {
-        guard let questionDetailsVC = UIStoryboard(name: "QuestionDetails", bundle: nil).instantiateInitialViewController() as? QuestionDetailsViewController
-        else {
+        guard let questionDetailsVC = QuestionDetailsViewController.initializeFromStoryboard(with: question) else {
             XCTFail()
             return
         }
@@ -47,7 +46,7 @@ class DetailViewControllerTests: XCTestCase {
     override func tearDown() {
         sut = nil
     }
-    
+
     func test_QuestionView_IsNotNil() {
         
         XCTAssertNotNil(sut.questionView)
@@ -59,7 +58,7 @@ class DetailViewControllerTests: XCTestCase {
     }
     
     func test_DismissButton_IsNotNil() {
-        
+
         XCTAssertNotNil(sut.dismissButton)
     }
     

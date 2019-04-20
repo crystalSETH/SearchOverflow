@@ -85,7 +85,7 @@ class QuestionDetailsViewController: BaseViewController {
 // MARK: Convience
 extension QuestionDetailsViewController {
     /// Creates a Question Details VC with the given question.
-    static func initializeFromNib(with question: Question) -> QuestionDetailsViewController? {
+    static func initializeFromStoryboard(with question: Question) -> QuestionDetailsViewController? {
         let questionVC = UIStoryboard(name: QuestionDetails.storyboardId, bundle: nil)
                         .instantiateInitialViewController() as? QuestionDetailsViewController
 

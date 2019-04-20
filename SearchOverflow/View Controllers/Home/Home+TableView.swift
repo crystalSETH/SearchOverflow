@@ -98,7 +98,7 @@ extension HomeViewController: UITableViewDelegate {
         requestedQuestion.answers = QuestionController.orderedAnswers(for: requestedQuestion)
         
         if let questionVC = QuestionDetailsViewController
-            .initializeFromNib(with: requestedQuestion) {
+            .initializeFromStoryboard(with: requestedQuestion) {
             
             present(questionVC, animated: true)
         }
