@@ -1,4 +1,4 @@
-# SearchOverflow
+# SearchOverflow [![codecov](https://codecov.io/gh/seth-folley/SearchOverflow/branch/develop/graph/badge.svg)](https://codecov.io/gh/seth-folley/SearchOverflow) [![Build Status](https://app.bitrise.io/app/f0637cb9cfbddb6c/status.svg?token=0LZW7w4dT_XScRLydJHzOQ)](https://app.bitrise.io/app/f0637cb9cfbddb6c)
 > An iOS search client for StackOverflow using Stack Exchange API v2.2.
 
 SeachOverflow is an iOS app that provides a simple interface for its users to search StackOverflow. With SearchOverflow, you can also view individual question details (includes a display of answers). Currently, all questions are sorted, in descending order, based on their "score" which is the net of that question's up/down votes. All answer lists will show answers with the accepted answer (if available) first, then sorted by score. 
