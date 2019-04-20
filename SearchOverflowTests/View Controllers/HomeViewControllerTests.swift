@@ -21,7 +21,17 @@ class HomeViewControllerTests: XCTestCase {
         }
         
         sut = homeVC
+        
+        let mockDataController = MockSearchController(with: MockSearchRouter())
+        mockDataController.test_TotalItems = 10
+        mockDataController.test_PageSize = 3
+        
+        sut.dataController = mockDataController
+        sut.dataController.delegate = sut
+
         sut.loadViewIfNeeded()
+        
+        sut.dataController.beginSearch(for: "")
     }
 
     override func tearDown() {
@@ -40,7 +50,7 @@ class HomeViewControllerTests: XCTestCase {
         XCTAssertEqual(safeSut, tableView.delegate as? HomeViewController)
     }
 
-    func test_HomeVC_IsDataSourceDelegate() {
+    func test_HomeVC_IsDataControllerDelegate() {
         
         XCTAssertEqual(sut, sut.dataController.delegate as? HomeViewController)
     }
@@ -55,7 +65,7 @@ class HomeViewControllerTests: XCTestCase {
         XCTAssertNotNil(sut.resultsTableView)
     }
     
-    func test_TableView_NumberOfRows_Case1() {
+    func test_TableView_NumberOfSections_Case1() {
     
         let mockDataController = MockSearchController(with: MockSearchRouter())
         mockDataController.test_TotalItems = 9
@@ -66,26 +76,35 @@ class HomeViewControllerTests: XCTestCase {
         XCTAssertEqual(sut.resultsTableView?.numberOfSections, 3)
     }
     
-    func test_TableView_NumberOfRows_Case2() {
-        
-        let mockDataController = MockSearchController(with: MockSearchRouter())
-        mockDataController.test_TotalItems = 10
-        mockDataController.test_PageSize = 3
-        
-        sut.dataController = mockDataController
+    func test_TableView_NumberOfSections_Case2() {
         
         XCTAssertEqual(sut.resultsTableView?.numberOfSections, 4)
     }
     
-    func test_TableView_NumberOfSectionsInRow() {
-        let mockDataController = MockSearchController(with: MockSearchRouter())
-        mockDataController.test_TotalItems = 10
-        mockDataController.test_PageSize = 3
-        
-        sut.dataController = mockDataController
+    func test_TableView_NumberOfRowsInSection() {
         
         XCTAssertEqual(sut.resultsTableView?.numberOfRows(inSection: 0), 3)
     }
+    
+    func test_TableView_QuestionCellForRowAt() {
+        let cell = sut.tableView(sut.resultsTableView!, cellForRowAt: IndexPath(item: 0, section: 0)) as? QuestionCell
+        
+        XCTAssertNotNil(cell)
+        
+    }
+    
+    func test_TableView_QuestionCellReuse() {
+        let cell = sut.tableView(sut.resultsTableView!, cellForRowAt: IndexPath(item: 0, section: 0)) as? QuestionCell
+        cell?.prepareForReuse()
+
+        XCTAssertNotNil(cell)
+        XCTAssertNil(cell?.gravatarImage.image)
+        XCTAssertNil(cell?.usernameLabel.text)
+        XCTAssertNil(cell?.questionTitleLabel.text)
+        XCTAssertNil(cell?.viewsLabel.text)
+        XCTAssertNil(cell?.scoreLabel.text)
+        XCTAssertNil(cell?.answersLabel.text)
+    }    
 }
 
 class MockSearchController: SearchController {
