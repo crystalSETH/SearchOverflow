@@ -19,7 +19,9 @@ class NetworkRouterTests: XCTestCase {
         sut.session = urlSession
     }
 
-    override func tearDown() { }
+    override func tearDown() {
+        sut.cancel()
+    }
 
     func test_Router_UsesExpectedURL() {
 
@@ -54,6 +56,16 @@ class NetworkRouterTests: XCTestCase {
         
         XCTAssert(sut.task?.state == .canceling)
     }
+    
+    func test_Router_CompletesRequest() {
+        
+        let expectation = XCTestExpectation(description: "Router completes a web url request")
+        sut.request(endPoint) { data, response, error in
+            expectation.fulfill()
+        }
+        
+        wait(for: [expectation], timeout: 5.0)
+    }
 }
 
 // MARK: - Mock
@@ -72,6 +84,11 @@ class MockUrlSession: URLSessionProtocol {
     func dataTask(with request: URLRequest, completionHandler: @escaping (Data?, URLResponse?, Error?) -> Void) -> URLSessionDataTask {
 
         self.url = request.url
+        
+        DispatchQueue.global().asyncAfter(deadline: .now() + 2.0) {
+            completionHandler(nil, nil, nil)
+        }
+
         return URLSession.shared.dataTask(with: request)
     }
 }
