@@ -15,12 +15,12 @@ extension HomeViewController: UITableViewDataSource {
 
     func numberOfSections(in tableView: UITableView) -> Int {
 
-        return dataController.numberOfPages
+        return searchController?.numberOfPages ?? 0
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return dataController.pageSize
+        return searchController?.pageSize ?? 0
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -83,7 +83,7 @@ extension HomeViewController: UITableViewDataSourcePrefetching {
 
         // request search results for pages not in the question pages
         for section in sections {
-            dataController.continueSearch(page: section + 1)
+            searchController?.continueSearch(page: section + 1)
         }
     }
 }
@@ -96,11 +96,6 @@ extension HomeViewController: UITableViewDelegate {
         guard var requestedQuestion = question(for: indexPath) else { return }
 
         requestedQuestion.answers = QuestionController.orderedAnswers(for: requestedQuestion)
-        
-        if let questionVC = QuestionDetailsViewController
-            .initializeFromStoryboard(with: requestedQuestion) {
-            
-            present(questionVC, animated: true)
-        }
+        coordintator?.viewQuestionDetails(requestedQuestion)
     }
 }

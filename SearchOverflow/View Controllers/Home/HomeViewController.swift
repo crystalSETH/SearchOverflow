@@ -12,17 +12,19 @@ import Kingfisher
 import NVActivityIndicatorView
 
 class HomeViewController: BaseViewController {
+    weak var coordintator: AppCoordinator?
+    
     @IBOutlet weak var searchTextField: UITextField?
     @IBOutlet weak var resultsTableView: UITableView?
     @IBOutlet weak var noResultsImage: UIImageView!
     @IBOutlet weak var activityIndicator: NVActivityIndicatorView!
     
     
-    lazy var dataController: SearchController = {
-        let qController = SearchController(with: NetworkRouter())
-        qController.delegate = self
-        return qController
-    }()
+    var searchController: SearchController? {
+        didSet {
+            searchController?.delegate = self
+        }
+    }
 
     var questionPages: [[Question]] = []
 
@@ -74,6 +76,6 @@ extension HomeViewController: UITextFieldDelegate {
     func textFieldDidEndEditing(_ textField: UITextField, reason: UITextField.DidEndEditingReason) {
         guard let text = textField.text, text.count > 0 else { return }
 
-        dataController.beginSearch(for: text)
+        searchController?.beginSearch(for: text)
     }
 }

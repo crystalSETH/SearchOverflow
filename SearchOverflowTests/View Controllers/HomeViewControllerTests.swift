@@ -25,13 +25,12 @@ class HomeViewControllerTests: XCTestCase {
         let mockDataController = MockSearchController(with: MockSearchRouter())
         mockDataController.test_TotalItems = 10
         mockDataController.test_PageSize = 3
-        
-        sut.dataController = mockDataController
-        sut.dataController.delegate = sut
+
+        sut.searchController = mockDataController
 
         sut.loadViewIfNeeded()
         
-        sut.dataController.beginSearch(for: "")
+        sut.searchController?.beginSearch(for: "")
     }
 
     override func tearDown() {
@@ -52,7 +51,7 @@ class HomeViewControllerTests: XCTestCase {
 
     func test_HomeVC_IsDataControllerDelegate() {
         
-        XCTAssertEqual(sut, sut.dataController.delegate as? HomeViewController)
+        XCTAssertEqual(sut, sut.searchController?.delegate as? HomeViewController)
     }
 
     func test_SearchField_IsNotNil() {
@@ -71,7 +70,7 @@ class HomeViewControllerTests: XCTestCase {
         mockDataController.test_TotalItems = 9
         mockDataController.test_PageSize = 3
         
-        sut.dataController = mockDataController
+        sut.searchController = mockDataController
         
         XCTAssertEqual(sut.resultsTableView?.numberOfSections, 3)
     }
