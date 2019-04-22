@@ -20,6 +20,8 @@ class AppCoordinator: Coordinator {
 
     func begin() {
         let vc = UIStoryboard.init(name: "Home", bundle: nil).instantiateInitialViewController() as! HomeViewController
+        vc.coordintator = self
+        vc.searchController = SearchController(with: NetworkRouter())
         self.navController.pushViewController(vc, animated: true)
     }
 }

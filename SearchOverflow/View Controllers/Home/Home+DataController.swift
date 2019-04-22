@@ -31,11 +31,11 @@ extension HomeViewController: SearchControllerDelegate {
     func didReceiveSearchResults(for title: String, results: [Question], page: Int) {
 
         // fill the array if needed
-        if questionPages.isEmpty {
-            questionPages = Array<[Question]>(repeating: [], count: dataController.numberOfPages)
+        if questionPages.isEmpty, let pages = searchController?.numberOfPages {
+            questionPages = Array<[Question]>(repeating: [], count: pages)
         }
     
-        if dataController.numberOfPages != 0 {
+        if searchController?.numberOfPages != 0 {
             let questionsSorted = results.sorted(by: { $0.score > $1.score })
             questionPages[page - 1] = questionsSorted
         }
