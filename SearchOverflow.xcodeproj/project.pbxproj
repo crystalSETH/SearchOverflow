@@ -49,6 +49,9 @@
 		BA0474F121F0DBEB0029983E /* QuestionDetails+TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA0474F021F0DBEB0029983E /* QuestionDetails+TableView.swift */; };
 		BA0474F321F0DC840029983E /* Home+DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA0474F221F0DC840029983E /* Home+DataController.swift */; };
 		BA0474F521F0DCCD0029983E /* Home+TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA0474F421F0DCCD0029983E /* Home+TableView.swift */; };
+		BA566DB8226DFA01005F247C /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA566DB7226DFA01005F247C /* Coordinator.swift */; };
+		BA566DBA226DFAB6005F247C /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA566DB9226DFAB6005F247C /* AppCoordinator.swift */; };
+		BA566DBD226DFFF3005F247C /* AppCoordinatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA566DBC226DFFF3005F247C /* AppCoordinatorTests.swift */; };
 		BAE959D521F4EA7700AE180D /* SearchResponse p2.json in Resources */ = {isa = PBXBuildFile; fileRef = BAE959D421F4EA7700AE180D /* SearchResponse p2.json */; };
 		BAE959D721F505F900AE180D /* QuestionControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE959D621F505F900AE180D /* QuestionControllerTests.swift */; };
 		BAE959DA21F50F8700AE180D /* QuestionModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE959D921F50F8700AE180D /* QuestionModelTests.swift */; };
@@ -131,6 +134,9 @@
 		BA0474F021F0DBEB0029983E /* QuestionDetails+TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "QuestionDetails+TableView.swift"; sourceTree = "<group>"; };
 		BA0474F221F0DC840029983E /* Home+DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Home+DataController.swift"; sourceTree = "<group>"; };
 		BA0474F421F0DCCD0029983E /* Home+TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Home+TableView.swift"; sourceTree = "<group>"; };
+		BA566DB7226DFA01005F247C /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		BA566DB9226DFAB6005F247C /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		BA566DBC226DFFF3005F247C /* AppCoordinatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinatorTests.swift; sourceTree = "<group>"; };
 		BAE959D421F4EA7700AE180D /* SearchResponse p2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "SearchResponse p2.json"; sourceTree = "<group>"; };
 		BAE959D621F505F900AE180D /* QuestionControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionControllerTests.swift; sourceTree = "<group>"; };
 		BAE959D921F50F8700AE180D /* QuestionModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionModelTests.swift; sourceTree = "<group>"; };
@@ -211,6 +217,7 @@
 			isa = PBXGroup;
 			children = (
 				5D5F8C8D21E87EA9007905A6 /* App */,
+				BA566DB6226DF9E5005F247C /* Coordination */,
 				5D5F8C8F21E8809A007905A6 /* Data */,
 				5D5F8C9E21E9C2BF007905A6 /* Networking */,
 				5D5F8C8A21E87E85007905A6 /* Resources */,
@@ -223,6 +230,7 @@
 		5D5F8C7E21E87E0C007905A6 /* SearchOverflowTests */ = {
 			isa = PBXGroup;
 			children = (
+				BA566DBB226DFFD7005F247C /* Coordinators */,
 				BAE959F221F5271F00AE180D /* View Controllers */,
 				BAF70C3C21F43B7100800B05 /* Data */,
 				5D5F8CAD21EA9FDE007905A6 /* Networking */,
@@ -408,6 +416,23 @@
 				BAF70C3A21F4121A00800B05 /* SearchController.swift */,
 			);
 			path = Controllers;
+			sourceTree = "<group>";
+		};
+		BA566DB6226DF9E5005F247C /* Coordination */ = {
+			isa = PBXGroup;
+			children = (
+				BA566DB7226DFA01005F247C /* Coordinator.swift */,
+				BA566DB9226DFAB6005F247C /* AppCoordinator.swift */,
+			);
+			path = Coordination;
+			sourceTree = "<group>";
+		};
+		BA566DBB226DFFD7005F247C /* Coordinators */ = {
+			isa = PBXGroup;
+			children = (
+				BA566DBC226DFFF3005F247C /* AppCoordinatorTests.swift */,
+			);
+			path = Coordinators;
 			sourceTree = "<group>";
 		};
 		BAE959D821F50F2B00AE180D /* Models */ = {
@@ -623,7 +648,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-SearchOverflow/Pods-SearchOverflow-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-SearchOverflow/Pods-SearchOverflow-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Down/Down.framework",
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 				"${BUILT_PRODUCTS_DIR}/NVActivityIndicatorView/NVActivityIndicatorView.framework",
@@ -636,7 +661,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SearchOverflow/Pods-SearchOverflow-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SearchOverflow/Pods-SearchOverflow-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		FB017BA60EDF3EA7AD0F5CDB /* [CP] Check Pods Manifest.lock */ = {
@@ -664,6 +689,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BA566DBA226DFAB6005F247C /* AppCoordinator.swift in Sources */,
 				5D5F8CDD21EDACBE007905A6 /* Date+Extension.swift in Sources */,
 				BAF70C3B21F4121A00800B05 /* SearchController.swift in Sources */,
 				5D5F8CB221EAA45F007905A6 /* URLSessionProtocol.swift in Sources */,
@@ -680,6 +706,7 @@
 				5D5F8CA621E9CDEB007905A6 /* NetworkResponse.swift in Sources */,
 				5D5F8CD221ED6D91007905A6 /* QuestionDetailsViewController.swift in Sources */,
 				5D5F8C9521E968F9007905A6 /* Question.swift in Sources */,
+				BA566DB8226DFA01005F247C /* Coordinator.swift in Sources */,
 				5D5F8CAC21EA63F3007905A6 /* StackOverflowItem.swift in Sources */,
 				5D5F8CA221E9C354007905A6 /* NetworkRouter.swift in Sources */,
 				5D5F8C9921E9691A007905A6 /* User.swift in Sources */,
@@ -708,6 +735,7 @@
 				BAE959EA21F5190900AE180D /* UserModelTests.swift in Sources */,
 				BAE959ED21F5247800AE180D /* StackOverflowResponseTests.swift in Sources */,
 				BAE959D721F505F900AE180D /* QuestionControllerTests.swift in Sources */,
+				BA566DBD226DFFF3005F247C /* AppCoordinatorTests.swift in Sources */,
 				BAE959F421F5274100AE180D /* HomeViewControllerTests.swift in Sources */,
 				5D5F8CAF21EAA00E007905A6 /* NetworkRouterTests.swift in Sources */,
 				5D5F8C8021E87E0C007905A6 /* SearchOverflowTests.swift in Sources */,
