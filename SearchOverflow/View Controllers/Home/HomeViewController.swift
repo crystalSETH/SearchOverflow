@@ -12,7 +12,7 @@ import Kingfisher
 import NVActivityIndicatorView
 
 class HomeViewController: BaseViewController {
-    weak var coordintator: Coordinator?
+    weak var coordintator: AppCoordinator?
     
     @IBOutlet weak var searchTextField: UITextField?
     @IBOutlet weak var resultsTableView: UITableView?

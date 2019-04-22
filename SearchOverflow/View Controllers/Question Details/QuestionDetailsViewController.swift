@@ -10,6 +10,8 @@ import UIKit
 import Down
 
 class QuestionDetailsViewController: BaseViewController {
+    weak var coordinator: AppCoordinator?
+
     var question: Question?
 
     @IBOutlet weak var questionView: UIView?
@@ -78,7 +80,7 @@ class QuestionDetailsViewController: BaseViewController {
 
     // MARK: Selectors
     @IBAction func didTapDismiss(_ sender: Any) {
-        dismiss(animated: true, completion: nil)
+        coordinator?.questionDetailsHasFinished()
     }
 }
 

@@ -96,11 +96,6 @@ extension HomeViewController: UITableViewDelegate {
         guard var requestedQuestion = question(for: indexPath) else { return }
 
         requestedQuestion.answers = QuestionController.orderedAnswers(for: requestedQuestion)
-        
-        if let questionVC = QuestionDetailsViewController
-            .initializeFromStoryboard(with: requestedQuestion) {
-            
-            present(questionVC, animated: true)
-        }
+        coordintator?.viewQuestionDetails(requestedQuestion)
     }
 }

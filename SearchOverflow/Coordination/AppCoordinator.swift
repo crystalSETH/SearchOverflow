@@ -14,14 +14,27 @@ class AppCoordinator: Coordinator {
     private(set) var navController: UINavigationController
     
     init(navigationController: UINavigationController) {
-        self.navController = navigationController
-        self.navController.isNavigationBarHidden = true
+        navController = navigationController
+        navController.isNavigationBarHidden = true
     }
 
     func begin() {
         let vc = UIStoryboard.init(name: "Home", bundle: nil).instantiateInitialViewController() as! HomeViewController
         vc.coordintator = self
         vc.searchController = SearchController(with: NetworkRouter())
-        self.navController.pushViewController(vc, animated: true)
+        navController.pushViewController(vc, animated: true)
+    }
+    
+    func viewQuestionDetails(_ question: Question) {
+        guard let vc = QuestionDetailsViewController.initializeFromStoryboard(with: question) else { return }
+        vc.coordinator = self
+
+        navController.pushViewController(vc, animated: true)
+    }
+    
+    func questionDetailsHasFinished() {
+        if navController.topViewController is QuestionDetailsViewController {
+            navController.popViewController(animated: true)
+        }
     }
 }
