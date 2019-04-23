@@ -19,8 +19,8 @@ class HomeViewController: BaseViewController {
     @IBOutlet weak var noResultsImage: UIImageView!
     @IBOutlet weak var activityIndicator: NVActivityIndicatorView!
     
-    lazy var categoryPicker: QuestionCategoryPickerView = {
-        let view = QuestionCategoryPickerView.instantiateFromNib()!
+    lazy var categoryNavButton: QuestionCategoryNavigationButton = {
+        let view = QuestionCategoryNavigationButton.instantiateFromNib()!
         view.categoryLabel.text = "Featured"
         return view
     }()
@@ -36,8 +36,8 @@ class HomeViewController: BaseViewController {
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        categoryPicker.sizeToFit()
-        navigationItem.titleView = categoryPicker
+        categoryNavButton.sizeToFit()
+        navigationItem.titleView = categoryNavButton
 
         configureViews()
     }

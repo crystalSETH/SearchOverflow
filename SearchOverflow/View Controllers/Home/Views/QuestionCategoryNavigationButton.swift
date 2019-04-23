@@ -8,7 +8,7 @@
 
 import UIKit
 
-class QuestionCategoryPickerView: UIView {
+class QuestionCategoryNavigationButton: UIView {
     @IBOutlet weak var categoryLabel: UILabel!
     @IBOutlet weak var indicatorImageView: UIImageView!
 }
