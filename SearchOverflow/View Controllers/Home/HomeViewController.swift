@@ -86,6 +86,14 @@ class HomeViewController: BaseViewController {
         isPickerViewShowing ? hideCategoryPicker() : showCategoryPicker()
     }
     
+    @IBAction func doneTappedForPickerView(_ sender: Any) {
+        let row = categoryPickerView.selectedRow(inComponent: 0)
+        let category = QuestionCategory(rawValue: row)
+
+        hideCategoryPicker()
+        categoryNavButton.categoryLabel.text = category?.displayText
+    }
+
     private func showCategoryPicker() {
         categoryPickerBottomConstraint.priority = UILayoutPriority(999)
         
@@ -134,13 +142,6 @@ extension HomeViewController: UIPickerViewDataSource, UIPickerViewDelegate {
     // MARK: Picker View Delegate
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return QuestionCategory(rawValue: row)?.displayText
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        let category = QuestionCategory(rawValue: row)
-        
-        hideCategoryPicker()
-        categoryNavButton.categoryLabel.text = category?.displayText
     }
 }
 

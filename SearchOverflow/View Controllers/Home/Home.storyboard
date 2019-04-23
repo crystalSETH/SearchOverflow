@@ -53,9 +53,41 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Stack O Logo" translatesAutoresizingMaskIntoConstraints="NO" id="DNC-3L-IpY">
                                 <rect key="frame" x="9" y="43" width="32" height="30"/>
                             </imageView>
-                            <pickerView contentMode="scaleToFill" verticalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="8Vv-cs-fe0">
-                                <rect key="frame" x="27.5" y="667" width="320" height="216"/>
-                            </pickerView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CbY-t7-llv" userLabel="Category Picker Container">
+                                <rect key="frame" x="0.0" y="667" width="375" height="166"/>
+                                <subviews>
+                                    <pickerView contentMode="scaleToFill" verticalHuggingPriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="8Vv-cs-fe0">
+                                        <rect key="frame" x="0.0" y="22" width="375" height="144"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="144" id="lXY-VU-PAz"/>
+                                        </constraints>
+                                    </pickerView>
+                                    <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" verticalHuggingPriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="S2W-pq-djF">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="44" id="tio-hZ-KX1"/>
+                                        </constraints>
+                                        <items>
+                                            <barButtonItem style="plain" systemItem="flexibleSpace" id="Owq-8m-Mo9"/>
+                                            <barButtonItem systemItem="done" id="43s-Gt-f3z">
+                                                <connections>
+                                                    <action selector="doneTappedForPickerView:" destination="KTY-BD-EID" id="pTL-94-jrX"/>
+                                                </connections>
+                                            </barButtonItem>
+                                        </items>
+                                    </toolbar>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="8Vv-cs-fe0" secondAttribute="trailing" id="90D-gh-z49"/>
+                                    <constraint firstItem="8Vv-cs-fe0" firstAttribute="leading" secondItem="CbY-t7-llv" secondAttribute="leading" id="JEg-Wd-QYT"/>
+                                    <constraint firstAttribute="bottom" secondItem="8Vv-cs-fe0" secondAttribute="bottom" id="i9t-af-Mp0"/>
+                                    <constraint firstItem="S2W-pq-djF" firstAttribute="top" secondItem="CbY-t7-llv" secondAttribute="top" id="lff-9u-7Ac"/>
+                                    <constraint firstItem="S2W-pq-djF" firstAttribute="leading" secondItem="CbY-t7-llv" secondAttribute="leading" id="tyg-YO-Rzt"/>
+                                    <constraint firstAttribute="trailing" secondItem="S2W-pq-djF" secondAttribute="trailing" id="xoz-PA-lhW"/>
+                                    <constraint firstItem="S2W-pq-djF" firstAttribute="centerY" secondItem="8Vv-cs-fe0" secondAttribute="top" id="yDz-M7-Mbn"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.019607843137254902" green="0.17254901960784313" blue="0.27843137254901962" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -63,13 +95,15 @@
                             <constraint firstItem="0Sv-Zf-Xc4" firstAttribute="centerY" secondItem="w0L-mc-svz" secondAttribute="centerY" id="4od-xz-MMc"/>
                             <constraint firstItem="LCc-7Q-Z0m" firstAttribute="height" secondItem="0Sv-Zf-Xc4" secondAttribute="height" id="6mp-0N-wKX"/>
                             <constraint firstItem="w0L-mc-svz" firstAttribute="trailing" secondItem="4yQ-EV-aMQ" secondAttribute="trailing" constant="6" id="8rD-fC-hUG"/>
-                            <constraint firstItem="8Vv-cs-fe0" firstAttribute="centerX" secondItem="w0L-mc-svz" secondAttribute="centerX" id="DBE-oK-wAh"/>
+                            <constraint firstItem="CbY-t7-llv" firstAttribute="width" secondItem="aZY-Ta-zpF" secondAttribute="width" id="AKl-Ah-Q8d"/>
                             <constraint firstItem="4yQ-EV-aMQ" firstAttribute="leading" secondItem="w0L-mc-svz" secondAttribute="leading" constant="6" id="KLF-gs-jBh"/>
                             <constraint firstItem="DNC-3L-IpY" firstAttribute="leading" secondItem="w0L-mc-svz" secondAttribute="leading" multiplier="9" constant="9" id="Ktf-c5-md4"/>
                             <constraint firstItem="4yQ-EV-aMQ" firstAttribute="top" secondItem="w0L-mc-svz" secondAttribute="top" constant="80" id="Mhf-dK-EbY"/>
-                            <constraint firstItem="8Vv-cs-fe0" firstAttribute="bottom" secondItem="aZY-Ta-zpF" secondAttribute="bottom" priority="750" id="PCk-St-AT6"/>
                             <constraint firstItem="QZQ-lp-H2V" firstAttribute="bottom" secondItem="4yQ-EV-aMQ" secondAttribute="top" constant="-24" id="QHc-lK-5M5"/>
+                            <constraint firstItem="CbY-t7-llv" firstAttribute="bottom" secondItem="aZY-Ta-zpF" secondAttribute="bottom" priority="750" id="Stg-6r-tvG"/>
+                            <constraint firstItem="CbY-t7-llv" firstAttribute="centerX" secondItem="w0L-mc-svz" secondAttribute="centerX" id="TSO-Zf-gO4"/>
                             <constraint firstItem="0Sv-Zf-Xc4" firstAttribute="width" secondItem="aZY-Ta-zpF" secondAttribute="width" multiplier="5/9" id="UId-QY-9SL"/>
+                            <constraint firstItem="CbY-t7-llv" firstAttribute="top" secondItem="aZY-Ta-zpF" secondAttribute="bottom" priority="998" id="UsQ-fE-1ce"/>
                             <constraint firstItem="DNC-3L-IpY" firstAttribute="centerY" secondItem="QZQ-lp-H2V" secondAttribute="centerY" multiplier="0.95" id="YuZ-4f-Q29"/>
                             <constraint firstItem="0Sv-Zf-Xc4" firstAttribute="centerX" secondItem="w0L-mc-svz" secondAttribute="centerX" id="ZrZ-zX-rdy"/>
                             <constraint firstItem="DNC-3L-IpY" firstAttribute="height" secondItem="QZQ-lp-H2V" secondAttribute="height" id="aTT-fd-oJc"/>
@@ -78,14 +112,13 @@
                             <constraint firstItem="w0L-mc-svz" firstAttribute="bottom" secondItem="4yQ-EV-aMQ" secondAttribute="bottom" id="lSR-G1-jYJ"/>
                             <constraint firstItem="LCc-7Q-Z0m" firstAttribute="width" secondItem="0Sv-Zf-Xc4" secondAttribute="width" id="nEI-cl-ME7"/>
                             <constraint firstItem="LCc-7Q-Z0m" firstAttribute="centerY" secondItem="0Sv-Zf-Xc4" secondAttribute="centerY" id="uXE-WA-bai"/>
-                            <constraint firstItem="8Vv-cs-fe0" firstAttribute="top" secondItem="aZY-Ta-zpF" secondAttribute="bottom" priority="998" id="vnF-4l-Vdb"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="w0L-mc-svz"/>
                     </view>
                     <connections>
                         <outlet property="activityIndicator" destination="LCc-7Q-Z0m" id="rLv-L6-wfG"/>
-                        <outlet property="categoryPickerBottomConstraint" destination="PCk-St-AT6" id="uxe-2j-aBK"/>
-                        <outlet property="categoryPickerTopConstraint" destination="vnF-4l-Vdb" id="eYw-RG-gGs"/>
+                        <outlet property="categoryPickerBottomConstraint" destination="Stg-6r-tvG" id="AHW-Nc-znB"/>
+                        <outlet property="categoryPickerTopConstraint" destination="UsQ-fE-1ce" id="lK3-zx-SYL"/>
                         <outlet property="categoryPickerView" destination="8Vv-cs-fe0" id="wP6-Zu-jyH"/>
                         <outlet property="noResultsImage" destination="0Sv-Zf-Xc4" id="iUn-bH-gDP"/>
                         <outlet property="resultsTableView" destination="4yQ-EV-aMQ" id="pIu-nr-mgK"/>
