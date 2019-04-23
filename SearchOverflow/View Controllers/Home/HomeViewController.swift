@@ -18,10 +18,17 @@ class HomeViewController: BaseViewController {
     @IBOutlet weak var resultsTableView: UITableView?
     @IBOutlet weak var noResultsImage: UIImageView!
     @IBOutlet weak var activityIndicator: NVActivityIndicatorView!
+    @IBOutlet weak var categoryPickerView: UIPickerView!
+    @IBOutlet weak var categoryPickerTopConstraint: NSLayoutConstraint!
+    @IBOutlet weak var categoryPickerBottomConstraint: NSLayoutConstraint!
+    private var isPickerViewShowing: Bool {
+        return categoryPickerBottomConstraint.priority > categoryPickerTopConstraint.priority
+    }
     
     lazy var categoryNavButton: QuestionCategoryNavigationButton = {
         let view = QuestionCategoryNavigationButton.instantiateFromNib()!
         view.categoryLabel.text = "Featured"
+        view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(didTapCategorySelector)))
         return view
     }()
     
@@ -68,9 +75,44 @@ class HomeViewController: BaseViewController {
         resultsTableView?.dataSource = self
         resultsTableView?.prefetchDataSource = self
         resultsTableView?.delegate = self
+        
+        // Category picker setup
+        categoryPickerView.dataSource = self
+        categoryPickerView.delegate = self
+    }
+    
+    // MARK: Selectors
+    @objc private func didTapCategorySelector() {
+        print(#function)
+        print("Is picker showing? \(isPickerViewShowing)")
+        if isPickerViewShowing {
+            categoryPickerBottomConstraint.priority = .defaultHigh
+        }
+        else {
+            categoryPickerBottomConstraint.priority = UILayoutPriority(999)
+        }
+        
+        UIView.animate(withDuration: 0.3) {
+            self.view.layoutIfNeeded()
+        }
     }
 }
-
+// MARK: - Picker View
+extension HomeViewController: UIPickerViewDataSource, UIPickerViewDelegate {
+    // MARK: Picker View Datasource
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return 3
+    }
+    
+    // MARK: Picker View Delegate
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return "This is the #\(row) row."
+    }
+}
 
 // MARK: - Text Field Delegate
 extension HomeViewController: UITextFieldDelegate {
