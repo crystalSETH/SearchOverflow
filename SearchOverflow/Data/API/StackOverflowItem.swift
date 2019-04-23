@@ -9,7 +9,7 @@
 import Foundation
 
 /// Descriptor of the StackOverflow response items' type
-enum StackOverflowItemType: String {
+enum StackOverflowItemType: String, Codable {
     case answer
     case question
     case user

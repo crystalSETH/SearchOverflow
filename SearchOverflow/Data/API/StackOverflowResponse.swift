@@ -58,23 +58,4 @@ class StackOverflowResponse<SOR: StackOverflowItem>: StackOverflowResponseItem, 
         case items
         case total
     }
-
-    required init(from decoder: Decoder) throws {
-        let values = try decoder.container(keyedBy: CodingKeys.self)
-
-        hasMore = try values.decode(Bool.self, forKey: .hasMore)
-        page = try values.decode(Int.self, forKey: .page)
-        pageSize = try values.decode(Int.self, forKey: .pageSize)
-        total = try values.decode(Int.self, forKey: .total)
-
-        let itemType = try values.decode(String.self, forKey: .type)
-
-        type = StackOverflowItemType(rawValue: itemType) ?? .unknown
-
-        items = try values.decode([Item].self, forKey: .items)
-
-        errorId = try values.decodeIfPresent(Int.self, forKey: .errorId)
-        errorName = try values.decodeIfPresent(String.self, forKey: .errorName)
-        errorMessage = try values.decodeIfPresent(String.self, forKey: .errorMessage)
-    }
 }
