@@ -15,7 +15,7 @@ class AppCoordinator: Coordinator {
     
     init(navigationController: UINavigationController) {
         navController = navigationController
-        navController.isNavigationBarHidden = true
+//        navController.isNavigationBarHidden = true
     }
 
     func begin() {

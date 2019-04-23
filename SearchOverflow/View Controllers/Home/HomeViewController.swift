@@ -19,6 +19,11 @@ class HomeViewController: BaseViewController {
     @IBOutlet weak var noResultsImage: UIImageView!
     @IBOutlet weak var activityIndicator: NVActivityIndicatorView!
     
+    lazy var categoryPicker: QuestionCategoryPickerView = {
+        let view = QuestionCategoryPickerView.instantiateFromNib()!
+        view.categoryLabel.text = "Featured"
+        return view
+    }()
     
     var searchController: SearchController? {
         didSet {
@@ -31,6 +36,8 @@ class HomeViewController: BaseViewController {
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        categoryPicker.sizeToFit()
+        navigationItem.titleView = categoryPicker
 
         configureViews()
     }
