@@ -28,7 +28,7 @@ class HomeViewController: BaseViewController {
     lazy var categoryNavButton: QuestionCategoryNavigationButton = {
         let view = QuestionCategoryNavigationButton.instantiateFromNib()!
         view.categoryLabel.text = "Featured"
-        view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(didTapCategorySelector)))
+        view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(toggleCategoryPicker)))
         return view
     }()
     
@@ -82,35 +82,65 @@ class HomeViewController: BaseViewController {
     }
     
     // MARK: Selectors
-    @objc private func didTapCategorySelector() {
-        print(#function)
-        print("Is picker showing? \(isPickerViewShowing)")
-        if isPickerViewShowing {
-            categoryPickerBottomConstraint.priority = .defaultHigh
-        }
-        else {
-            categoryPickerBottomConstraint.priority = UILayoutPriority(999)
-        }
+    @objc private func toggleCategoryPicker() {
+        isPickerViewShowing ? hideCategoryPicker() : showCategoryPicker()
+    }
+    
+    private func showCategoryPicker() {
+        categoryPickerBottomConstraint.priority = UILayoutPriority(999)
         
         UIView.animate(withDuration: 0.3) {
             self.view.layoutIfNeeded()
         }
     }
+    
+    private func hideCategoryPicker() {
+        categoryPickerBottomConstraint.priority = .defaultHigh
+
+        UIView.animate(withDuration: 0.3) {
+            self.view.layoutIfNeeded()
+        }
+    }
+    
 }
 // MARK: - Picker View
 extension HomeViewController: UIPickerViewDataSource, UIPickerViewDelegate {
+    
+    enum QuestionCategory: Int, CaseIterable {
+        case featured = 0
+        case top
+        case unanswered
+        case noAnswers
+        
+        var displayText: String {
+            switch self {
+            case .featured: return "Featured"
+            case .top: return "Top"
+            case .unanswered: return "Unanswered"
+            case .noAnswers: return "No Answers"
+            }
+        }
+    }
+
     // MARK: Picker View Datasource
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return 3
+        return QuestionCategory.allCases.count
     }
     
     // MARK: Picker View Delegate
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return "This is the #\(row) row."
+        return QuestionCategory(rawValue: row)?.displayText
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        let category = QuestionCategory(rawValue: row)
+        
+        hideCategoryPicker()
+        categoryNavButton.categoryLabel.text = category?.displayText
     }
 }
 
