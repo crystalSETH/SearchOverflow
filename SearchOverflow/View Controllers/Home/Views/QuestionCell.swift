@@ -14,4 +14,13 @@ class QuestionCell: UITableViewCell {
     @IBOutlet weak var questionTitleLabel: UILabel!
     @IBOutlet weak var tagsLabel: UILabel!
     @IBOutlet weak var lastActivityDescriptionLabel: UILabel!
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        
+        scoreLabel.text = nil
+        questionTitleLabel.text = nil
+        tagsLabel.text = nil
+        lastActivityDescriptionLabel.text = nil
+    }
 }
