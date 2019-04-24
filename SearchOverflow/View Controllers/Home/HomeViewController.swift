@@ -28,6 +28,8 @@ class HomeViewController: BaseViewController {
     lazy var categoryNavButton: QuestionCategoryNavigationButton = {
         let view = QuestionCategoryNavigationButton.instantiateFromNib()!
         view.categoryLabel.text = "Featured"
+        view.categoryLabel.textColor = Home.navBarItemTintColor
+        view.indicatorImageView.tintColor = Home.navBarItemTintColor
         view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(toggleCategoryPicker)))
         return view
     }()
@@ -43,8 +45,21 @@ class HomeViewController: BaseViewController {
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+
         categoryNavButton.sizeToFit()
         navigationItem.titleView = categoryNavButton
+
+        let searchBarItem = UIBarButtonItem(barButtonSystemItem: .search, target: self, action: #selector(didTapSearchNavItem))
+        searchBarItem.tintColor = Home.navBarItemTintColor
+        navigationItem.rightBarButtonItem = searchBarItem
+
+        let stackOBarItem = UIBarButtonItem(customView: UIImageView(image: #imageLiteral(resourceName: "Stack O Logo")))
+        stackOBarItem.customView?.contentMode = .scaleAspectFit
+//        stackOBarItem.customView?.widthAnchor.constraint(equalToConstant: 28).isActive = true
+        stackOBarItem.customView?.heightAnchor.constraint(equalToConstant: 28).isActive = true
+        navigationItem.leftBarButtonItem = stackOBarItem
+
+        navigationController?.navigationBar.barTintColor = Home.navBarColor
 
         configureViews()
     }
@@ -82,6 +97,10 @@ class HomeViewController: BaseViewController {
     }
     
     // MARK: Selectors
+    @objc private func didTapSearchNavItem() {
+        
+    }
+
     @objc private func toggleCategoryPicker() {
         isPickerViewShowing ? hideCategoryPicker() : showCategoryPicker()
     }
@@ -92,6 +111,8 @@ class HomeViewController: BaseViewController {
 
         hideCategoryPicker()
         categoryNavButton.categoryLabel.text = category?.displayText
+        
+        // TODO: Reload data for selected category
     }
 
     private func showCategoryPicker() {
