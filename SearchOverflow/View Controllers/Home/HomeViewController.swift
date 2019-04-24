@@ -58,7 +58,8 @@ class HomeViewController: BaseViewController {
 //        stackOBarItem.customView?.widthAnchor.constraint(equalToConstant: 28).isActive = true
         stackOBarItem.customView?.heightAnchor.constraint(equalToConstant: 28).isActive = true
         navigationItem.leftBarButtonItem = stackOBarItem
-
+        
+        navigationController?.navigationBar.tintColor = Home.navBarItemTintColor
         navigationController?.navigationBar.barTintColor = Home.navBarColor
 
         configureViews()
