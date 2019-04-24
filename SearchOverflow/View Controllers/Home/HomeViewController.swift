@@ -46,6 +46,8 @@ class HomeViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        view.backgroundColor = Home.navBarColor
+
         categoryNavButton.sizeToFit()
         navigationItem.titleView = categoryNavButton
 
@@ -77,13 +79,7 @@ class HomeViewController: BaseViewController {
         searchTextField?.leftView = padding
         searchTextField?.leftViewMode = .always
 
-        // Results table setup
-        let questionNib = UINib(nibName: Home.cellId, bundle: nil)
-        resultsTableView?.register(questionNib, forCellReuseIdentifier: Home.cellId)
-
-        resultsTableView?.layer.cornerRadius = 12
-        resultsTableView?.layer.masksToBounds = true
-        resultsTableView?.backgroundColor = .clear
+        resultsTableView?.backgroundColor = Home.navBarColor
         let background = UIView(frame: .zero)
         resultsTableView?.backgroundView = background
 

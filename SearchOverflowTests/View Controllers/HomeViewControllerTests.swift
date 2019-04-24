@@ -97,12 +97,10 @@ class HomeViewControllerTests: XCTestCase {
         cell?.prepareForReuse()
 
         XCTAssertNotNil(cell)
-        XCTAssertNil(cell?.gravatarImage.image)
-        XCTAssertNil(cell?.usernameLabel.text)
         XCTAssertNil(cell?.questionTitleLabel.text)
-        XCTAssertNil(cell?.viewsLabel.text)
+        XCTAssertNil(cell?.tagsLabel.text)
         XCTAssertNil(cell?.scoreLabel.text)
-        XCTAssertNil(cell?.answersLabel.text)
+        XCTAssertNil(cell?.lastActivityDescriptionLabel.text)
     }    
 }
 
