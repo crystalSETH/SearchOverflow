@@ -16,7 +16,6 @@ class QuestionDetailsViewController: BaseViewController {
 
     @IBOutlet weak var questionView: UIView?
     @IBOutlet weak var answersTableView: UITableView!
-    @IBOutlet weak var dismissButton: UIButton!
 
     @IBOutlet weak var gravatarImage: UIImageView!
     @IBOutlet weak var usernameLabel: UILabel!
@@ -64,23 +63,6 @@ class QuestionDetailsViewController: BaseViewController {
             downView.topAnchor.constraint(equalTo: questionTitleLabel.bottomAnchor).isActive = true
             downView.bottomAnchor.constraint(equalTo: qView.bottomAnchor, constant: -6).isActive = true
         }
-        
-        // Dismiss button
-        dismissButton.layer.borderWidth = 2
-        dismissButton.layer.borderColor = UIColor.lightGray.cgColor
-    }
-
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-
-        // Add corner radius to "dismiss button"
-        dismissButton.layer.cornerRadius = dismissButton.frame.height / 2
-        dismissButton.layer.masksToBounds = true
-    }
-
-    // MARK: Selectors
-    @IBAction func didTapDismiss(_ sender: Any) {
-        coordinator?.questionDetailsHasFinished()
     }
 }
 
