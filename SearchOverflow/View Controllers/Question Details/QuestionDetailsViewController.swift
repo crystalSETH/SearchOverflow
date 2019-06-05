@@ -16,7 +16,7 @@ class QuestionDetailsViewController: BaseViewController {
     @IBOutlet weak var scoreLabel: UILabel!
     @IBOutlet weak var markDownContainer: UIView!
     
-    private var markdownView: DownView?
+    private(set) var markdownView: DownView?
 
     // MARK: Lifecycle
     override func viewDidLoad() {

@@ -50,6 +50,9 @@
 		BA566DC1226ECC87005F247C /* QuestionCategoryNavigationButton.xib in Resources */ = {isa = PBXBuildFile; fileRef = BA566DC0226ECC87005F247C /* QuestionCategoryNavigationButton.xib */; };
 		BA566DC3226ECF06005F247C /* QuestionCategoryNavigationButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA566DC2226ECF06005F247C /* QuestionCategoryNavigationButton.swift */; };
 		BA566DC7226ED0FE005F247C /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA566DC6226ED0FE005F247C /* UIView+Extension.swift */; };
+		BA6BF14722A8645D0067D42A /* QuestionPageViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA6BF14622A8645D0067D42A /* QuestionPageViewControllerTests.swift */; };
+		BA6BF14922A866FB0067D42A /* AnswersTableViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA6BF14822A866FB0067D42A /* AnswersTableViewControllerTests.swift */; };
+		BA6BF14C22A868890067D42A /* ExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA6BF14B22A868890067D42A /* ExtensionsTests.swift */; };
 		BABBB33622A73ACC00BFAD9B /* QuestionDetailsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BABBB33522A73ACC00BFAD9B /* QuestionDetailsCoordinator.swift */; };
 		BABBB33822A7904900BFAD9B /* QuestionDetailsPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BABBB33722A7904900BFAD9B /* QuestionDetailsPageViewController.swift */; };
 		BABBB33A22A7922900BFAD9B /* AnswersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BABBB33922A7922900BFAD9B /* AnswersTableViewController.swift */; };
@@ -135,6 +138,9 @@
 		BA566DC0226ECC87005F247C /* QuestionCategoryNavigationButton.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QuestionCategoryNavigationButton.xib; sourceTree = "<group>"; };
 		BA566DC2226ECF06005F247C /* QuestionCategoryNavigationButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionCategoryNavigationButton.swift; sourceTree = "<group>"; };
 		BA566DC6226ED0FE005F247C /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
+		BA6BF14622A8645D0067D42A /* QuestionPageViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionPageViewControllerTests.swift; sourceTree = "<group>"; };
+		BA6BF14822A866FB0067D42A /* AnswersTableViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswersTableViewControllerTests.swift; sourceTree = "<group>"; };
+		BA6BF14B22A868890067D42A /* ExtensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionsTests.swift; sourceTree = "<group>"; };
 		BABBB33522A73ACC00BFAD9B /* QuestionDetailsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionDetailsCoordinator.swift; sourceTree = "<group>"; };
 		BABBB33722A7904900BFAD9B /* QuestionDetailsPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionDetailsPageViewController.swift; sourceTree = "<group>"; };
 		BABBB33922A7922900BFAD9B /* AnswersTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswersTableViewController.swift; sourceTree = "<group>"; };
@@ -230,12 +236,13 @@
 		5D5F8C7E21E87E0C007905A6 /* SearchOverflowTests */ = {
 			isa = PBXGroup;
 			children = (
+				5D5F8C8121E87E0C007905A6 /* Info.plist */,
+				5D5F8C7F21E87E0C007905A6 /* SearchOverflowTests.swift */,
 				BA566DBB226DFFD7005F247C /* Coordinators */,
-				BAE959F221F5271F00AE180D /* View Controllers */,
 				BAF70C3C21F43B7100800B05 /* Data */,
 				5D5F8CAD21EA9FDE007905A6 /* Networking */,
-				5D5F8C7F21E87E0C007905A6 /* SearchOverflowTests.swift */,
-				5D5F8C8121E87E0C007905A6 /* Info.plist */,
+				BA6BF14A22A868610067D42A /* Utils */,
+				BAE959F221F5271F00AE180D /* View Controllers */,
 			);
 			path = SearchOverflowTests;
 			sourceTree = "<group>";
@@ -428,6 +435,14 @@
 			path = Coordinators;
 			sourceTree = "<group>";
 		};
+		BA6BF14A22A868610067D42A /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				BA6BF14B22A868890067D42A /* ExtensionsTests.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
 		BAE959D821F50F2B00AE180D /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -453,6 +468,8 @@
 				BAE959F321F5274100AE180D /* HomeViewControllerTests.swift */,
 				BAE959F721F5917C00AE180D /* DetailViewControllerTests.swift */,
 				8C6494EF226A5AD100A93D27 /* RootViewControllerTests.swift */,
+				BA6BF14622A8645D0067D42A /* QuestionPageViewControllerTests.swift */,
+				BA6BF14822A866FB0067D42A /* AnswersTableViewControllerTests.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -725,12 +742,15 @@
 				BAF70C3F21F43C6C00800B05 /* BaseDataControllerTests.swift in Sources */,
 				BAE959E021F5173800AE180D /* AnswerModelTests.swift in Sources */,
 				8C6494F0226A5AD100A93D27 /* RootViewControllerTests.swift in Sources */,
+				BA6BF14C22A868890067D42A /* ExtensionsTests.swift in Sources */,
 				BAE959EA21F5190900AE180D /* UserModelTests.swift in Sources */,
 				BAE959ED21F5247800AE180D /* StackOverflowResponseTests.swift in Sources */,
 				BA566DBD226DFFF3005F247C /* AppCoordinatorTests.swift in Sources */,
 				BAE959F421F5274100AE180D /* HomeViewControllerTests.swift in Sources */,
 				5D5F8CAF21EAA00E007905A6 /* NetworkRouterTests.swift in Sources */,
 				5D5F8C8021E87E0C007905A6 /* SearchOverflowTests.swift in Sources */,
+				BA6BF14922A866FB0067D42A /* AnswersTableViewControllerTests.swift in Sources */,
+				BA6BF14722A8645D0067D42A /* QuestionPageViewControllerTests.swift in Sources */,
 				8C6494F2226A706300A93D27 /* StackOverflowURLBuilderTests.swift in Sources */,
 				BAE959F821F5917C00AE180D /* DetailViewControllerTests.swift in Sources */,
 				BAF70C4121F43DEF00800B05 /* SearchControllerTests.swift in Sources */,
