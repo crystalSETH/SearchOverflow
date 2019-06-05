@@ -57,7 +57,6 @@
 		BABBB33822A7904900BFAD9B /* QuestionDetailsPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BABBB33722A7904900BFAD9B /* QuestionDetailsPageViewController.swift */; };
 		BABBB33A22A7922900BFAD9B /* AnswersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BABBB33922A7922900BFAD9B /* AnswersTableViewController.swift */; };
 		BAE959D521F4EA7700AE180D /* SearchResponse p2.json in Resources */ = {isa = PBXBuildFile; fileRef = BAE959D421F4EA7700AE180D /* SearchResponse p2.json */; };
-		BAE959D721F505F900AE180D /* QuestionControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE959D621F505F900AE180D /* QuestionControllerTests.swift */; };
 		BAE959DA21F50F8700AE180D /* QuestionModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE959D921F50F8700AE180D /* QuestionModelTests.swift */; };
 		BAE959DC21F510F100AE180D /* QuestionDecodeSuccess.json in Resources */ = {isa = PBXBuildFile; fileRef = BAE959DB21F510F100AE180D /* QuestionDecodeSuccess.json */; };
 		BAE959DE21F5164200AE180D /* QuestionDecodeFailure.json in Resources */ = {isa = PBXBuildFile; fileRef = BAE959DD21F5164200AE180D /* QuestionDecodeFailure.json */; };
@@ -146,7 +145,6 @@
 		BABBB33722A7904900BFAD9B /* QuestionDetailsPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionDetailsPageViewController.swift; sourceTree = "<group>"; };
 		BABBB33922A7922900BFAD9B /* AnswersTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswersTableViewController.swift; sourceTree = "<group>"; };
 		BAE959D421F4EA7700AE180D /* SearchResponse p2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "SearchResponse p2.json"; sourceTree = "<group>"; };
-		BAE959D621F505F900AE180D /* QuestionControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionControllerTests.swift; sourceTree = "<group>"; };
 		BAE959D921F50F8700AE180D /* QuestionModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionModelTests.swift; sourceTree = "<group>"; };
 		BAE959DB21F510F100AE180D /* QuestionDecodeSuccess.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = QuestionDecodeSuccess.json; sourceTree = "<group>"; };
 		BAE959DD21F5164200AE180D /* QuestionDecodeFailure.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = QuestionDecodeFailure.json; sourceTree = "<group>"; };
@@ -499,7 +497,6 @@
 			isa = PBXGroup;
 			children = (
 				BAF70C3E21F43C6C00800B05 /* BaseDataControllerTests.swift */,
-				BAE959D621F505F900AE180D /* QuestionControllerTests.swift */,
 				BAF70C4021F43DEF00800B05 /* SearchControllerTests.swift */,
 			);
 			path = Controllers;
@@ -750,7 +747,6 @@
 				8C6494F0226A5AD100A93D27 /* RootViewControllerTests.swift in Sources */,
 				BAE959EA21F5190900AE180D /* UserModelTests.swift in Sources */,
 				BAE959ED21F5247800AE180D /* StackOverflowResponseTests.swift in Sources */,
-				BAE959D721F505F900AE180D /* QuestionControllerTests.swift in Sources */,
 				BA566DBD226DFFF3005F247C /* AppCoordinatorTests.swift in Sources */,
 				BAE959F421F5274100AE180D /* HomeViewControllerTests.swift in Sources */,
 				5D5F8CAF21EAA00E007905A6 /* NetworkRouterTests.swift in Sources */,
