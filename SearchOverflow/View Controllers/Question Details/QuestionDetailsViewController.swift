@@ -12,54 +12,35 @@ import Down
 class QuestionDetailsViewController: BaseViewController {
     var question: Question?
 
-    @IBOutlet weak var questionView: UIView?
-    @IBOutlet weak var answersTableView: UITableView!
-
-    @IBOutlet weak var gravatarImage: UIImageView!
-    @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var questionTitleLabel: UILabel!
     @IBOutlet weak var scoreLabel: UILabel!
+    @IBOutlet weak var markDownContainer: UIView!
     
     private var markdownView: DownView?
 
     // MARK: Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Results table setup
-        let answerNib = UINib(nibName: cAnswerCell.nibId, bundle: nil)
-        answersTableView?.register(answerNib, forCellReuseIdentifier: cAnswerCell.cellId)
-
-        answersTableView.dataSource = self
-        
+        DownOptions
         // Setup question details views
-        usernameLabel.text = question?.owner?.displayName
         scoreLabel.text = "\(question?.score ?? 0)"
 
         let questionTitle = try? Down.init(markdownString: "\(question?.title ?? QuestionDetails.defaultTitle)").toAttributedString().string
         questionTitleLabel?.text = questionTitle
-
-        gravatarImage.layer.cornerRadius = 3
-        gravatarImage.layer.masksToBounds = true
-        if let urlString = question?.owner?.profileImageUrl, let url = URL(string: urlString) {
-            
-            gravatarImage.kf.setImage(with: url, placeholder: UIImage(named: QuestionDetails.defaultGravatarName))
-        }
         
         // Setup markDownView
         markdownView = try? DownView(frame: .zero, markdownString: question?.body ?? QuestionDetails.defaultBody)
-        markdownView?.layer.cornerRadius = 10
-        markdownView?.layer.masksToBounds = true
 
-        if let downView = markdownView, let qView = questionView {
-            qView.addSubview(downView)
+        markdownView?.backgroundColor = .clear
+        if let downView = markdownView, let container = markDownContainer {
+            view.addSubview(downView)
             
             downView.backgroundColor = .clear
             downView.translatesAutoresizingMaskIntoConstraints = false
-            downView.leadingAnchor.constraint(equalTo: qView.leadingAnchor, constant: 9).isActive = true
-            downView.trailingAnchor.constraint(equalTo: qView.trailingAnchor, constant: -9).isActive = true
-            downView.topAnchor.constraint(equalTo: questionTitleLabel.bottomAnchor).isActive = true
-            downView.bottomAnchor.constraint(equalTo: qView.bottomAnchor, constant: -6).isActive = true
+            downView.leadingAnchor.constraint(equalTo: container.leadingAnchor).isActive = true
+            downView.trailingAnchor.constraint(equalTo: container.trailingAnchor).isActive = true
+            downView.topAnchor.constraint(equalTo: container.topAnchor).isActive = true
+            downView.bottomAnchor.constraint(equalTo: container.bottomAnchor).isActive = true
         }
     }
 }
