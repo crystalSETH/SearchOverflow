@@ -100,19 +100,73 @@
         <!--Question Answers Table View Controller-->
         <scene sceneID="lN8-Tr-WUB">
             <objects>
-                <tableViewController id="Hc7-Cf-JEj" userLabel="Question Answers Table View Controller" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="cNy-dT-HGt">
+                <tableViewController storyboardIdentifier="AnswersTableViewController" id="Hc7-Cf-JEj" userLabel="Question Answers Table View Controller" customClass="AnswersTableViewController" customModule="SearchOverflow" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="200" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="cNy-dT-HGt">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="nKX-7m-UVd">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="AnswerTableCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="AnswerTableCell" rowHeight="200" id="nKX-7m-UVd" customClass="AnswerTableCell" customModule="SearchOverflow" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="200"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="nKX-7m-UVd" id="wiI-9l-BI4">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="199.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="C1F-9E-YRd" userLabel="Mark Down Container">
+                                            <rect key="frame" x="60" y="0.0" width="295" height="179.5"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </view>
+                                        <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="juz-qY-COe" userLabel="Up Vote Button">
+                                            <rect key="frame" x="20" y="20" width="20" height="12"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="20" id="ZHw-Ad-ubH"/>
+                                                <constraint firstAttribute="width" secondItem="juz-qY-COe" secondAttribute="height" multiplier="70:42" id="qRD-Fe-hWo"/>
+                                            </constraints>
+                                            <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <state key="normal" title="Button" image="up-arrow"/>
+                                        </button>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qZB-Y3-Kax">
+                                            <rect key="frame" x="16" y="42" width="28.5" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </label>
+                                        <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Ds-3f-doH" userLabel="Down Vote Button">
+                                            <rect key="frame" x="20" y="73" width="20" height="12"/>
+                                            <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <state key="normal" title="Button" image="down-arrow"/>
+                                        </button>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" semanticContentAttribute="playback" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="check-mark" translatesAutoresizingMaskIntoConstraints="NO" id="mCz-mj-Kqw" userLabel="Answer Indicator">
+                                            <rect key="frame" x="15" y="105" width="30" height="23"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" secondItem="mCz-mj-Kqw" secondAttribute="height" multiplier="100:77" id="3ww-Fr-d4t"/>
+                                            </constraints>
+                                        </imageView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="trailing" secondItem="C1F-9E-YRd" secondAttribute="trailing" constant="20" id="0ir-sG-IUI"/>
+                                        <constraint firstItem="C1F-9E-YRd" firstAttribute="leading" secondItem="juz-qY-COe" secondAttribute="trailing" constant="20" id="AJZ-a4-ejb"/>
+                                        <constraint firstItem="mCz-mj-Kqw" firstAttribute="width" secondItem="2Ds-3f-doH" secondAttribute="width" constant="10" id="Che-zd-egd"/>
+                                        <constraint firstItem="mCz-mj-Kqw" firstAttribute="top" secondItem="2Ds-3f-doH" secondAttribute="bottom" constant="20" id="Qfd-PP-QJb"/>
+                                        <constraint firstItem="qZB-Y3-Kax" firstAttribute="centerX" secondItem="juz-qY-COe" secondAttribute="centerX" id="Tfv-M9-XXQ"/>
+                                        <constraint firstItem="juz-qY-COe" firstAttribute="width" secondItem="juz-qY-COe" secondAttribute="height" multiplier="70:42" id="Xih-Rq-XIQ"/>
+                                        <constraint firstAttribute="bottom" secondItem="C1F-9E-YRd" secondAttribute="bottom" constant="20" id="YfT-oi-Qmp"/>
+                                        <constraint firstItem="qZB-Y3-Kax" firstAttribute="top" secondItem="juz-qY-COe" secondAttribute="bottom" constant="10" id="f8K-lr-DKG"/>
+                                        <constraint firstItem="juz-qY-COe" firstAttribute="top" secondItem="wiI-9l-BI4" secondAttribute="top" constant="20" id="fiX-80-NMn"/>
+                                        <constraint firstItem="2Ds-3f-doH" firstAttribute="width" secondItem="juz-qY-COe" secondAttribute="width" id="fwi-EP-7b3"/>
+                                        <constraint firstItem="2Ds-3f-doH" firstAttribute="height" secondItem="juz-qY-COe" secondAttribute="height" id="gS7-fO-dfg"/>
+                                        <constraint firstItem="mCz-mj-Kqw" firstAttribute="centerX" secondItem="2Ds-3f-doH" secondAttribute="centerX" id="iY5-Fz-U7E"/>
+                                        <constraint firstItem="2Ds-3f-doH" firstAttribute="top" secondItem="qZB-Y3-Kax" secondAttribute="bottom" constant="10" id="icY-sK-mbB"/>
+                                        <constraint firstItem="juz-qY-COe" firstAttribute="leading" secondItem="wiI-9l-BI4" secondAttribute="leading" constant="20" id="k1w-UA-Mmo"/>
+                                        <constraint firstItem="C1F-9E-YRd" firstAttribute="top" secondItem="wiI-9l-BI4" secondAttribute="top" id="mJc-Jc-VF5"/>
+                                        <constraint firstItem="2Ds-3f-doH" firstAttribute="leading" secondItem="juz-qY-COe" secondAttribute="leading" id="wfY-9d-KhA"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="answerIndicator" destination="mCz-mj-Kqw" id="TpP-Sg-n9r"/>
+                                    <outlet property="markDownContainer" destination="C1F-9E-YRd" id="Yja-MY-DaO"/>
+                                    <outlet property="scoreLabel" destination="qZB-Y3-Kax" id="bO1-yW-3vW"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -127,6 +181,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="check-mark" width="100" height="78"/>
         <image name="down-arrow" width="71" height="42"/>
         <image name="up-arrow" width="71" height="42"/>
     </resources>
