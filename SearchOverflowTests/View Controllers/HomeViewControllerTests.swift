@@ -104,7 +104,7 @@ class HomeViewControllerTests: XCTestCase {
     }    
 }
 
-class MockSearchController: SearchController {
+class MockSearchController: StackOverflowSearchController {
     var test_TotalItems = 0
     override var totalItems: Int {
         get {

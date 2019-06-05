@@ -72,7 +72,7 @@
 		BAE959F421F5274100AE180D /* HomeViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE959F321F5274100AE180D /* HomeViewControllerTests.swift */; };
 		BAE959F821F5917C00AE180D /* DetailViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE959F721F5917C00AE180D /* DetailViewControllerTests.swift */; };
 		BAE959FB21F5A6AC00AE180D /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE959FA21F5A6AC00AE180D /* BaseViewController.swift */; };
-		BAF70C3B21F4121A00800B05 /* SearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAF70C3A21F4121A00800B05 /* SearchController.swift */; };
+		BAF70C3B21F4121A00800B05 /* StackOverflowSearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAF70C3A21F4121A00800B05 /* StackOverflowSearchController.swift */; };
 		BAF70C3F21F43C6C00800B05 /* BaseDataControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAF70C3E21F43C6C00800B05 /* BaseDataControllerTests.swift */; };
 		BAF70C4121F43DEF00800B05 /* SearchControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAF70C4021F43DEF00800B05 /* SearchControllerTests.swift */; };
 		BAF70C4421F4610900800B05 /* SearchResponse p1.json in Resources */ = {isa = PBXBuildFile; fileRef = BAF70C4321F4610900800B05 /* SearchResponse p1.json */; };
@@ -160,7 +160,7 @@
 		BAE959F321F5274100AE180D /* HomeViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewControllerTests.swift; sourceTree = "<group>"; };
 		BAE959F721F5917C00AE180D /* DetailViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewControllerTests.swift; sourceTree = "<group>"; };
 		BAE959FA21F5A6AC00AE180D /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
-		BAF70C3A21F4121A00800B05 /* SearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchController.swift; sourceTree = "<group>"; };
+		BAF70C3A21F4121A00800B05 /* StackOverflowSearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackOverflowSearchController.swift; sourceTree = "<group>"; };
 		BAF70C3E21F43C6C00800B05 /* BaseDataControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseDataControllerTests.swift; sourceTree = "<group>"; };
 		BAF70C4021F43DEF00800B05 /* SearchControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchControllerTests.swift; sourceTree = "<group>"; };
 		BAF70C4321F4610900800B05 /* SearchResponse p1.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "SearchResponse p1.json"; sourceTree = "<group>"; };
@@ -412,7 +412,7 @@
 			isa = PBXGroup;
 			children = (
 				BA0474EE21F06EBC0029983E /* BaseDataController.swift */,
-				BAF70C3A21F4121A00800B05 /* SearchController.swift */,
+				BAF70C3A21F4121A00800B05 /* StackOverflowSearchController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -700,7 +700,7 @@
 				BA566DBA226DFAB6005F247C /* AppCoordinator.swift in Sources */,
 				5D5F8CDD21EDACBE007905A6 /* Date+Extension.swift in Sources */,
 				BABBB33A22A7922900BFAD9B /* AnswersTableViewController.swift in Sources */,
-				BAF70C3B21F4121A00800B05 /* SearchController.swift in Sources */,
+				BAF70C3B21F4121A00800B05 /* StackOverflowSearchController.swift in Sources */,
 				5D5F8CB221EAA45F007905A6 /* URLSessionProtocol.swift in Sources */,
 				5D5F8C9B21E96C35007905A6 /* PostItem.swift in Sources */,
 				BAE959FB21F5A6AC00AE180D /* BaseViewController.swift in Sources */,

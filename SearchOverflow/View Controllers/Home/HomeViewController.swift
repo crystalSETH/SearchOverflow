@@ -34,9 +34,9 @@ class HomeViewController: BaseViewController {
         return view
     }()
     
-    var searchController: SearchController? {
+    var stackOverflowSearchController: StackOverflowSearchController? {
         didSet {
-            searchController?.delegate = self
+            stackOverflowSearchController?.delegate = self
         }
     }
 
@@ -174,6 +174,6 @@ extension HomeViewController: UITextFieldDelegate {
     func textFieldDidEndEditing(_ textField: UITextField, reason: UITextField.DidEndEditingReason) {
         guard let text = textField.text, text.count > 0 else { return }
 
-        searchController?.beginSearch(for: text)
+        stackOverflowSearchController?.beginSearch(for: text)
     }
 }
