@@ -43,9 +43,10 @@ class QuestionDetailsPageViewController: UIPageViewController, UIPageViewControl
     }
     
     // MARK: Selectors
-    @objc private func segmentControlValueChanged() {
+    @objc func segmentControlValueChanged() {
         let selectedValue = pageSegmentControl.selectedSegmentIndex
-        if let selectedSegment = QuestionDetailControlSegment(rawValue: pageSegmentControl.titleForSegment(at: selectedValue)?.lowercased() ?? "") {
+        if let segmenTitle = pageSegmentControl.titleForSegment(at: selectedValue)?.lowercased(),
+            let selectedSegment = QuestionDetailControlSegment(rawValue: segmenTitle) {
             switch selectedSegment {
             case .overview:
                 if currentIndex != 0, let detailsVC = pages[.details] {

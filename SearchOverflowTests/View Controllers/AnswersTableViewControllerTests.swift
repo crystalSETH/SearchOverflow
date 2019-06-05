@@ -39,7 +39,8 @@ class AnswersTableViewControllerTests: XCTestCase {
         }
         
         sut = answersVC
-        
+        sut.question = question
+
         sut.loadViewIfNeeded()
     }
     
@@ -50,5 +51,22 @@ class AnswersTableViewControllerTests: XCTestCase {
     func test_ViewDidLoad() {
         XCTAssertNotNil(sut.tableView.delegate)
         XCTAssertNotNil(sut.tableView.dataSource)
+    }
+    
+    func test_TableView_NumberOfSections() {
+        XCTAssertEqual(sut.tableView.numberOfSections, 1)
+    }
+
+    func test_TableView_NumberOfRows_Valid() {
+        XCTAssertEqual(sut.tableView.numberOfRows(inSection: 0), question.answers?.count)
+    }
+    
+    func test_TableView_NumberOfRows_Invalid() {
+        sut.question = nil
+        XCTAssertEqual(sut.tableView.numberOfRows(inSection: 0), 0)
+    }
+    
+    func test_TableView_CellForRowAt() {
+        XCTAssertNotNil(sut.tableView(sut.tableView, cellForRowAt: IndexPath(item: 0, section: 0)))
     }
 }

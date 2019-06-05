@@ -13,9 +13,13 @@ import Down
 class AnswersTableViewController: UITableViewController {
     var question: Question?
 
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let totalItems = question?.answers?.count ?? 0
-        
+        guard section == 0, let totalItems = question?.answers?.count else { return 0 }
+
         return totalItems
     }
     

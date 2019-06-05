@@ -53,4 +53,30 @@ class DetailsPageViewControllerTests: XCTestCase {
         XCTAssertNotNil(sut.delegate)
         XCTAssertNotNil(sut.dataSource)
     }
+    
+    func test_SegmentControl_updatesCurrentIndex() {
+        sut.pageSegmentControl.selectedSegmentIndex = 1
+        sut.segmentControlValueChanged()
+        XCTAssertEqual(sut.pageSegmentControl.selectedSegmentIndex, sut.currentIndex)
+        
+        sut.pageSegmentControl.selectedSegmentIndex = 0
+        sut.segmentControlValueChanged()
+        XCTAssertEqual(sut.pageSegmentControl.selectedSegmentIndex, sut.currentIndex)
+    }
+    
+    func test_PageVCDataSource_VCBefore_Valid() {
+        XCTAssert(sut.pageViewController(sut, viewControllerBefore: AnswersTableViewController()) is QuestionDetailsViewController)
+    }
+    
+    func test_PageVCDataSource_VCBefore_Invalid() {
+        XCTAssertNil(sut.pageViewController(sut, viewControllerBefore: UIViewController()))
+    }
+    
+    func test_PageVCDataSource_VCAfter_Valid() {
+        XCTAssert(sut.pageViewController(sut, viewControllerAfter: QuestionDetailsViewController()) is AnswersTableViewController)
+    }
+    
+    func test_PageVCDataSource_VCAfter_Invalid() {
+        XCTAssertNil(sut.pageViewController(sut, viewControllerAfter: UIViewController()))
+    }
 }
