@@ -9,15 +9,19 @@
 import Foundation
 import UIKit
 
+enum QuestionPageKeys: String {
+    case details, answers
+}
+
 class QuestionDetailsPageViewController: UIPageViewController, UIPageViewControllerDataSource {
-    var pages: [String : UIViewController] = [:]
+    var pages: [QuestionPageKeys : UIViewController] = [:]
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.dataSource = self
         
-        if let detailsVC = pages["Details"] {
+        if let detailsVC = pages[.details] {
             setViewControllers([detailsVC], direction: .forward, animated: false, completion: nil)
         }
     }
@@ -25,12 +29,17 @@ class QuestionDetailsPageViewController: UIPageViewController, UIPageViewControl
     // MARK: Page VC Datasource
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
         
-        return nil
+        if viewController is AnswersTableViewController {
+            return pages[.details]
+        }
+        else {
+            return nil
+        }
     }
     
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
         if viewController is QuestionDetailsViewController {
-            return nil
+            return pages[.answers]
         } else {
             return nil
         }

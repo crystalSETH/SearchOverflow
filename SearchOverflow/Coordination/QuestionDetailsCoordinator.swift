@@ -29,8 +29,8 @@ class QuestionDetailsCoordinator: NSObject, Coordinator {
         
         detailsVC.question = question
         
-        pageVC.pages["Details"] = detailsVC
-        pageVC.pages["Answers"] = AnswersTableViewController()
+        pageVC.pages[.details] = detailsVC
+        pageVC.pages[.answers] = AnswersTableViewController()
         
         navController.pushViewController(pageVC, animated: true)
     }
