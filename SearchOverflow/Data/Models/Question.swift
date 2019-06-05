@@ -42,4 +42,9 @@ struct Question: PostItem, StackOverflowItem {
         case tags
         case answers
     }
+    
+    /// Returns the answers ordered by score, but the accepted answer is always first
+    mutating func orderAnswers() {
+        self.answers?.sort(by: { $0.isAccepted || $0.score > $1.score })
+    }
 }
