@@ -1,13 +1,13 @@
 PODS:
   - Down (0.6.2)
-  - Kingfisher (5.1.1)
+  - Kingfisher (5.2.0)
   - NVActivityIndicatorView (4.6.1):
     - NVActivityIndicatorView/Presenter (= 4.6.1)
   - NVActivityIndicatorView/Presenter (4.6.1)
 
 DEPENDENCIES:
   - Down (~> 0.6.2.0)
-  - Kingfisher (~> 5.1.0)
+  - Kingfisher (~> 5.2.0)
   - NVActivityIndicatorView (~> 4.6.0)
 
 SPEC REPOS:
@@ -18,9 +18,9 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   Down: 8c59a03cb229ef28dfa774b2132da860f3dee0ac
-  Kingfisher: 2558186963e5be42d98c5b110ccb3130148b77e4
+  Kingfisher: 07067cfacf371117330dceb4b4b8f5c4b691ab42
   NVActivityIndicatorView: 4ca19fccc84595a78957336a086d00a49be6ce61
 
-PODFILE CHECKSUM: 82fd1637f4aa97544f34d717e2cf8fec262233b9
+PODFILE CHECKSUM: bf4032f049233f458702fe0b266973a158dc257e
 
 COCOAPODS: 1.6.0
