@@ -76,7 +76,7 @@ extension HomeViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard var requestedQuestion = question(for: indexPath) else { return }
 
-        requestedQuestion.answers = QuestionController.orderedAnswers(for: requestedQuestion)
+        requestedQuestion.orderAnswers()
         coordintator?.viewQuestionDetails(requestedQuestion)
     }
 }
