@@ -15,7 +15,6 @@ class AppCoordinator: Coordinator {
     
     init(navigationController: UINavigationController) {
         navController = navigationController
-//        navController.isNavigationBarHidden = true
     }
 
     func begin() {
@@ -26,10 +25,11 @@ class AppCoordinator: Coordinator {
     }
     
     func viewQuestionDetails(_ question: Question) {
-        guard let vc = QuestionDetailsViewController.initializeFromStoryboard(with: question) else { return }
-        vc.coordinator = self
+        let questionCoordinator = QuestionDetailsCoordinator(navigationController: navController, question: question)
 
-        navController.pushViewController(vc, animated: true)
+        childCoordinators[.questionDetails] = questionCoordinator
+
+        questionCoordinator.begin()
     }
     
     func questionDetailsHasFinished() {
