@@ -21,7 +21,7 @@ class QuestionDetailsViewController: BaseViewController {
     // MARK: Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        DownOptions
+
         // Setup question details views
         scoreLabel.text = "\(question?.score ?? 0)"
 
