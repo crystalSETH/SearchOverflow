@@ -10,8 +10,6 @@ import UIKit
 import Down
 
 class QuestionDetailsViewController: BaseViewController {
-    weak var coordinator: AppCoordinator?
-
     var question: Question?
 
     @IBOutlet weak var questionView: UIView?
@@ -71,7 +69,7 @@ extension QuestionDetailsViewController {
     /// Creates a Question Details VC with the given question.
     static func initializeFromStoryboard(with question: Question) -> QuestionDetailsViewController? {
         let questionVC = UIStoryboard(name: QuestionDetails.storyboardId, bundle: nil)
-                        .instantiateInitialViewController() as? QuestionDetailsViewController
+                        .instantiateViewController(withIdentifier: "QuestionDetailsViewController") as? QuestionDetailsViewController
 
         questionVC?.question = question
 
