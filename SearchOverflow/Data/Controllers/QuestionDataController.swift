@@ -8,6 +8,22 @@
 
 import Foundation
 
+enum QuestionCategory: Int, CaseIterable {
+    case featured = 0
+    case top
+    case unanswered
+    case noAnswers
+    
+    var displayText: String {
+        switch self {
+        case .featured: return "Featured"
+        case .top: return "Top"
+        case .unanswered: return "Unanswered"
+        case .noAnswers: return "No Answers"
+        }
+    }
+}
+
 protocol QuestionDataControllerDelegate: class {
     func didBeginLoadingQuestions()
     func didReceiveQuestions(_ questions: [Question], forPage page: Int)

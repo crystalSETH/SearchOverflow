@@ -22,15 +22,15 @@ class HomeViewControllerTests: XCTestCase {
         
         sut = homeVC
         
-        let mockDataController = MockSearchController(with: MockSearchRouter())
+        let mockDataController = MockQuestionController(with: MockQuestionRouter())
         mockDataController.test_TotalItems = 10
         mockDataController.test_PageSize = 3
 
-        sut.searchDataController = mockDataController
+        sut.questionDataController = mockDataController
 
         sut.loadViewIfNeeded()
         
-        sut.searchDataController?.beginSearch(for: "")
+        sut.questionDataController?.beginSearch(for: "")
     }
 
     override func tearDown() {
@@ -71,7 +71,7 @@ class HomeViewControllerTests: XCTestCase {
 
     func test_HomeVC_IsDataControllerDelegate() {
         
-        XCTAssertEqual(sut, sut.searchDataController?.delegate as? HomeViewController)
+        XCTAssertEqual(sut, sut.questionDataController?.delegate as? HomeViewController)
     }
 
     // MARK: Table View Tests
@@ -82,11 +82,11 @@ class HomeViewControllerTests: XCTestCase {
     
     func test_TableView_NumberOfSections_Case1() {
     
-        let mockDataController = MockSearchController(with: MockSearchRouter())
+        let mockDataController = MockQuestionController(with: MockQuestionRouter())
         mockDataController.test_TotalItems = 9
         mockDataController.test_PageSize = 3
         
-        sut.searchDataController = mockDataController
+        sut.questionDataController = mockDataController
         
         XCTAssertEqual(sut.resultsTableView?.numberOfSections, 3)
     }
@@ -120,7 +120,7 @@ class HomeViewControllerTests: XCTestCase {
     }    
 }
 
-class MockSearchController: SearchDataController {
+class MockQuestionController: QuestionDataController {
     var test_TotalItems = 0
     override var totalItems: Int {
         get {
@@ -136,7 +136,7 @@ class MockSearchController: SearchDataController {
     }
 }
 
-fileprivate class MockSearchRouter: Router {
+fileprivate class MockQuestionRouter: Router {
     let successResponse = HTTPURLResponse(url: URL(fileURLWithPath: ""), statusCode: 200, httpVersion: nil, headerFields: nil)
     
     var requestedPage = 1
