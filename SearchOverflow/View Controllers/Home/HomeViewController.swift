@@ -41,12 +41,17 @@ class HomeViewController: BaseViewController {
         return controller
     }()
 
-    var stackOverflowSearchController: SearchDataController? {
+    var searchDataController: SearchDataController? {
+        didSet {
+            searchDataController?.delegate = self
+        }
+    }
+
         didSet {
             stackOverflowSearchController?.delegate = self
         }
     }
-
+    
     var questionPages: [[Question]] = []
 
     // MARK: - Lifecycle
@@ -149,7 +154,7 @@ extension HomeViewController: UISearchBarDelegate {
     func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
         guard let text = searchBar.text, text.count > 0 else { return }
 
-        stackOverflowSearchController?.beginSearch(for: text)
+        searchDataController?.beginSearch(for: text)
     }
 }
 

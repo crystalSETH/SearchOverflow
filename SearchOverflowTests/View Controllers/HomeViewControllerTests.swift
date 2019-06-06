@@ -26,11 +26,11 @@ class HomeViewControllerTests: XCTestCase {
         mockDataController.test_TotalItems = 10
         mockDataController.test_PageSize = 3
 
-        sut.stackOverflowSearchController = mockDataController
+        sut.searchDataController = mockDataController
 
         sut.loadViewIfNeeded()
         
-        sut.stackOverflowSearchController?.beginSearch(for: "")
+        sut.searchDataController?.beginSearch(for: "")
     }
 
     override func tearDown() {
@@ -71,7 +71,7 @@ class HomeViewControllerTests: XCTestCase {
 
     func test_HomeVC_IsDataControllerDelegate() {
         
-        XCTAssertEqual(sut, sut.stackOverflowSearchController?.delegate as? HomeViewController)
+        XCTAssertEqual(sut, sut.searchDataController?.delegate as? HomeViewController)
     }
 
     // MARK: Table View Tests
@@ -86,7 +86,7 @@ class HomeViewControllerTests: XCTestCase {
         mockDataController.test_TotalItems = 9
         mockDataController.test_PageSize = 3
         
-        sut.stackOverflowSearchController = mockDataController
+        sut.searchDataController = mockDataController
         
         XCTAssertEqual(sut.resultsTableView?.numberOfSections, 3)
     }
