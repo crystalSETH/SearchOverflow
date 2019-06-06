@@ -14,7 +14,7 @@ protocol SearchControllerDelegate: class {
 }
 
 /// Search Controller that assists searching for strings in question titles.
-class StackOverflowSearchController: BaseDataController {
+class StackOverflowSearchController: BaseDataController, Pageable {
     weak var delegate: SearchControllerDelegate?
     
     var router: Router
@@ -23,20 +23,6 @@ class StackOverflowSearchController: BaseDataController {
     
     private(set) var totalItems: Int = 0
     private(set) var pageSize: Int = 0
-    
-    var numberOfPages: Int {
-        
-        let pages: Int
-        if pageSize > 0 {
-            
-            let fPages = (Float(totalItems) / Float(pageSize)).rounded(.up)
-            
-            pages = Int(fPages)
-        }
-        else { pages = 0}
-
-        return pages
-    }
     
     // MARK: - Lifecycle
     init(with router: Router) {
