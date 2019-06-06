@@ -59,7 +59,7 @@ class HomeViewController: BaseViewController {
 
         configureViews()
         
-        questionDataController?.load(category: .featured, page: 1)
+        questionDataController?.beginLoading(category: .featured)
     }
 
     private func setupNavigationBar() {
@@ -119,13 +119,16 @@ class HomeViewController: BaseViewController {
     }
     
     @IBAction func doneTappedForPickerView(_ sender: Any) {
-        let row = categoryPickerView.selectedRow(inComponent: 0)
-        let category = QuestionCategory(rawValue: row)
-
         hideCategoryPicker()
-        categoryNavButton.categoryLabel.text = category?.displayText
-        
-        // TODO: Reload data for selected category
+
+        let row = categoryPickerView.selectedRow(inComponent: 0)
+        if let category = QuestionCategory(rawValue: row) {
+            categoryNavButton.categoryLabel.text = category.displayText
+            
+            if category != questionDataController?.currentCategory {
+                questionDataController?.beginLoading(category: category)
+            }
+        }
     }
 
     func showCategoryPicker() {

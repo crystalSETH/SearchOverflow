@@ -77,22 +77,26 @@ class QuestionDataController: BaseDataController, Pageable {
     }
 
     // MARK: Category Loading
-    func load(category: QuestionCategory, page: Int) {
+    func beginLoading(category: QuestionCategory) {
         currentCategory = category
         currentSearchString = nil
 
-        page == 1 ? delegate?.didBeginLoadingQuestions() : nil
+        delegate?.didBeginLoadingQuestions()
+        
+        load(category: category, page: 1)
+    }
 
+    func load(category: QuestionCategory, page: Int) {
         let categoryEndpoint = StackOverflow.category(category, page: page)
         router.request(categoryEndpoint) { [weak self] data, response, error in
             guard error == nil, let urlResponse = response as? HTTPURLResponse else {
                 return
             }
             
-           self?.handleQuestionDataResponse(urlResponse, data: data, page: page)
+            self?.handleQuestionDataResponse(urlResponse, data: data, page: page)
         }
     }
-    
+
     // MARK: - Search Functions
     /// Begins the search for the given title
     func beginSearch(for title: String) {
