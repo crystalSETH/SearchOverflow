@@ -14,6 +14,7 @@ typealias Home = Constants.Home
 extension Constants {
     struct Home {
         static let cellId = "QuestionCell"
+        static let cellAnswerGreen = #colorLiteral(red: 0.2720531821, green: 0.6328938603, blue: 0.3870304227, alpha: 1)
         static let searchingFont = UIFont(name: "AvenirNextCondensed-Medium", size: 21)
         static let placeholderFont = UIFont(name: "AvenirNextCondensed-MediumItalic", size: 21)
 

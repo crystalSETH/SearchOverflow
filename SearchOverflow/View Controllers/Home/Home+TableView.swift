@@ -26,10 +26,30 @@ extension HomeViewController: UITableViewDataSource {
               let cell = tableView.dequeueReusableCell(withIdentifier: Home.cellId) as? QuestionCell else { return UITableViewCell() }
         
         cell.questionTitleLabel.text = try? Down(markdownString: question.title).toAttributedString().string.trimmingCharacters(in: .newlines)
+        
+        let hasAcceptedAnswer = question.acceptedAnswerId != nil
+        cell.scoreContainerView.backgroundColor = hasAcceptedAnswer ? Home.cellAnswerGreen : .clear
         cell.scoreContainerView.layer.cornerRadius = 3
         cell.scoreContainerView.layer.borderWidth = 1
-        cell.scoreContainerView.layer.borderColor = UIColor.gray.cgColor
-        cell.scoreLabel.text = "\(question.score)"
+        cell.scoreContainerView.layer.borderColor = (question.isAnswered ? Home.cellAnswerGreen : .gray).cgColor
+        let score = question.score
+        let scoreText: String
+        if score / 1000 > 1 {
+            scoreText = "\(score / 1000)k"
+        } else {
+            scoreText = "\(score)"
+        }
+        cell.scoreLabel.text = scoreText
+        let scoreTextColor: UIColor
+        if hasAcceptedAnswer {
+            scoreTextColor = .white
+        } else if question.isAnswered {
+            scoreTextColor = Home.cellAnswerGreen
+        }
+        else {
+            scoreTextColor = .darkGray
+        }
+        cell.scoreLabel.textColor = scoreTextColor
         cell.tagsLabel.text = "jimmy, cracked, corn, who, cares"
         cell.lastActivityDescriptionLabel.text = "\(indexPath.item + 2) mins ago"
         
