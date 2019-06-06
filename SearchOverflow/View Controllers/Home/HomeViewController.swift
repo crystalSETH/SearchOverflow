@@ -20,7 +20,8 @@ class HomeViewController: BaseViewController {
     @IBOutlet weak var categoryPickerView: UIPickerView!
     @IBOutlet weak var categoryPickerTopConstraint: NSLayoutConstraint!
     @IBOutlet weak var categoryPickerBottomConstraint: NSLayoutConstraint!
-    private var isPickerViewShowing: Bool {
+
+    var isPickerViewShowing: Bool {
         return categoryPickerBottomConstraint.priority > categoryPickerTopConstraint.priority
     }
     
@@ -105,13 +106,13 @@ class HomeViewController: BaseViewController {
     }
     
     // MARK: Selectors
-    @objc private func didTapSearchNavItem() {
+    @objc func didTapSearchNavItem() {
         if navigationItem.searchController == nil {
             navigationItem.searchController = searchController
         }
     }
 
-    @objc private func toggleCategoryPicker() {
+    @objc func toggleCategoryPicker() {
         isPickerViewShowing ? hideCategoryPicker() : showCategoryPicker()
     }
     
@@ -125,7 +126,7 @@ class HomeViewController: BaseViewController {
         // TODO: Reload data for selected category
     }
 
-    private func showCategoryPicker() {
+    func showCategoryPicker() {
         categoryPickerBottomConstraint.priority = UILayoutPriority(999)
         
         UIView.animate(withDuration: 0.3) {
@@ -133,7 +134,7 @@ class HomeViewController: BaseViewController {
         }
     }
     
-    private func hideCategoryPicker() {
+    func hideCategoryPicker() {
         categoryPickerBottomConstraint.priority = .defaultHigh
 
         UIView.animate(withDuration: 0.3) {
