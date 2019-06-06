@@ -155,23 +155,6 @@ extension HomeViewController: UISearchBarDelegate {
 
 // MARK: - Picker View
 extension HomeViewController: UIPickerViewDataSource, UIPickerViewDelegate {
-    
-    enum QuestionCategory: Int, CaseIterable {
-        case featured = 0
-        case top
-        case unanswered
-        case noAnswers
-        
-        var displayText: String {
-            switch self {
-            case .featured: return "Featured"
-            case .top: return "Top"
-            case .unanswered: return "Unanswered"
-            case .noAnswers: return "No Answers"
-            }
-        }
-    }
-
     // MARK: Picker View Datasource
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
