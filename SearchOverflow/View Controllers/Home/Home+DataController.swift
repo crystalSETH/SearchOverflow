@@ -13,7 +13,8 @@ extension HomeViewController: SearchControllerDelegate {
     
     func didBeginSearch(for title: String) {
         DispatchQueue.main.async {
-            
+            self.searchController.isActive = false
+
             // reset table data
             self.questionPages = []
 

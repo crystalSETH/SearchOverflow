@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="KTY-BD-EID">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="KTY-BD-EID">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -32,7 +32,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="onDrag" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="4yQ-EV-aMQ">
-                                <rect key="frame" x="0.0" y="100" width="375" height="567"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
@@ -122,22 +122,6 @@
                                 </prototypes>
                                 <sections/>
                             </tableView>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Search Away..." textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="QZQ-lp-H2V" userLabel="Search Text Field">
-                                <rect key="frame" x="50" y="46" width="250" height="30"/>
-                                <color key="backgroundColor" red="0.96431744100000005" green="0.97036427260000002" blue="1" alpha="1" colorSpace="deviceRGB"/>
-                                <accessibility key="accessibilityConfiguration">
-                                    <accessibilityTraits key="traits" searchField="YES"/>
-                                </accessibility>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="C2a-dV-X8F"/>
-                                </constraints>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" name="AvenirNextCondensed-MediumItalic" family="Avenir Next Condensed" pointSize="21"/>
-                                <textInputTraits key="textInputTraits" keyboardType="alphabet" keyboardAppearance="alert" returnKeyType="search" smartInsertDeleteType="no"/>
-                            </textField>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Stack O Logo" translatesAutoresizingMaskIntoConstraints="NO" id="DNC-3L-IpY">
-                                <rect key="frame" x="9" y="43" width="32" height="30"/>
-                            </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CbY-t7-llv" userLabel="Category Picker Container">
                                 <rect key="frame" x="0.0" y="667" width="375" height="166"/>
                                 <subviews>
@@ -182,18 +166,12 @@
                             <constraint firstItem="w0L-mc-svz" firstAttribute="trailing" secondItem="4yQ-EV-aMQ" secondAttribute="trailing" id="8rD-fC-hUG"/>
                             <constraint firstItem="CbY-t7-llv" firstAttribute="width" secondItem="aZY-Ta-zpF" secondAttribute="width" id="AKl-Ah-Q8d"/>
                             <constraint firstItem="4yQ-EV-aMQ" firstAttribute="leading" secondItem="w0L-mc-svz" secondAttribute="leading" id="KLF-gs-jBh"/>
-                            <constraint firstItem="DNC-3L-IpY" firstAttribute="leading" secondItem="w0L-mc-svz" secondAttribute="leading" multiplier="9" constant="9" id="Ktf-c5-md4"/>
-                            <constraint firstItem="4yQ-EV-aMQ" firstAttribute="top" secondItem="w0L-mc-svz" secondAttribute="top" constant="80" id="Mhf-dK-EbY"/>
-                            <constraint firstItem="QZQ-lp-H2V" firstAttribute="bottom" secondItem="4yQ-EV-aMQ" secondAttribute="top" constant="-24" id="QHc-lK-5M5"/>
+                            <constraint firstItem="4yQ-EV-aMQ" firstAttribute="top" secondItem="w0L-mc-svz" secondAttribute="top" id="Mhf-dK-EbY"/>
                             <constraint firstItem="CbY-t7-llv" firstAttribute="bottom" secondItem="aZY-Ta-zpF" secondAttribute="bottom" priority="750" id="Stg-6r-tvG"/>
                             <constraint firstItem="CbY-t7-llv" firstAttribute="centerX" secondItem="w0L-mc-svz" secondAttribute="centerX" id="TSO-Zf-gO4"/>
                             <constraint firstItem="0Sv-Zf-Xc4" firstAttribute="width" secondItem="aZY-Ta-zpF" secondAttribute="width" multiplier="5/9" id="UId-QY-9SL"/>
                             <constraint firstItem="CbY-t7-llv" firstAttribute="top" secondItem="aZY-Ta-zpF" secondAttribute="bottom" priority="998" id="UsQ-fE-1ce"/>
-                            <constraint firstItem="DNC-3L-IpY" firstAttribute="centerY" secondItem="QZQ-lp-H2V" secondAttribute="centerY" multiplier="0.95" id="YuZ-4f-Q29"/>
                             <constraint firstItem="0Sv-Zf-Xc4" firstAttribute="centerX" secondItem="w0L-mc-svz" secondAttribute="centerX" id="ZrZ-zX-rdy"/>
-                            <constraint firstItem="DNC-3L-IpY" firstAttribute="height" secondItem="QZQ-lp-H2V" secondAttribute="height" id="aTT-fd-oJc"/>
-                            <constraint firstItem="QZQ-lp-H2V" firstAttribute="leading" secondItem="DNC-3L-IpY" secondAttribute="trailing" constant="9" id="c6f-Hs-gU4"/>
-                            <constraint firstItem="QZQ-lp-H2V" firstAttribute="width" secondItem="aZY-Ta-zpF" secondAttribute="width" multiplier="2/3" id="hjA-Sf-XdN"/>
                             <constraint firstItem="w0L-mc-svz" firstAttribute="bottom" secondItem="4yQ-EV-aMQ" secondAttribute="bottom" id="lSR-G1-jYJ"/>
                             <constraint firstItem="LCc-7Q-Z0m" firstAttribute="width" secondItem="0Sv-Zf-Xc4" secondAttribute="width" id="nEI-cl-ME7"/>
                             <constraint firstItem="LCc-7Q-Z0m" firstAttribute="centerY" secondItem="0Sv-Zf-Xc4" secondAttribute="centerY" id="uXE-WA-bai"/>
@@ -207,7 +185,6 @@
                         <outlet property="categoryPickerView" destination="8Vv-cs-fe0" id="wP6-Zu-jyH"/>
                         <outlet property="noResultsImage" destination="0Sv-Zf-Xc4" id="iUn-bH-gDP"/>
                         <outlet property="resultsTableView" destination="4yQ-EV-aMQ" id="pIu-nr-mgK"/>
-                        <outlet property="searchTextField" destination="QZQ-lp-H2V" id="Bb5-5C-aMv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KAq-Aj-oBY" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -217,6 +194,5 @@
     </scenes>
     <resources>
         <image name="No Result" width="250" height="164"/>
-        <image name="Stack O Logo" width="32" height="38"/>
     </resources>
 </document>
