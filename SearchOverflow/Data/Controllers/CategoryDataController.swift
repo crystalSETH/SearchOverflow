@@ -25,11 +25,10 @@ enum QuestionCategory: Int, CaseIterable {
 }
 
 protocol CategoryControllerDelegate: class {
-    func didBeginSearch(for title: String)
-    func didReceiveSearchResults(for title: String, results: [Question], page: Int)
+    func didBeginLoading(category: QuestionCategory)
+    func didReceiveCategoryResults(for category: QuestionCategory, results: [Question], page: Int)
 }
 
-/// Search Controller that assists searching for strings in question titles.
 class CategoryDataController: BaseDataController, Pageable {
     weak var delegate: CategoryControllerDelegate?
     
@@ -43,48 +42,38 @@ class CategoryDataController: BaseDataController, Pageable {
         self.router = router
     }
     
-    func load(category: QuestionCategory) {
-        
-    }
+    func load(category: QuestionCategory, page: Int) {
+        let categoryRequest = StackOverflow.category(category, page: page)
+        router.request(categoryRequest) { [weak self] data, response, error in
+            guard error == nil, let urlResponse = response as? HTTPURLResponse else {
+                return
+            }
 
-    private func search(for title: String, page: Int) {
-        
-//        page == 1 ? delegate?.didBeginSearch(for: title) : nil
-//
-//        // Request data
-//        router.request(StackOverflow.search(for: title, page: page)) { [weak self] data, response, error in
-//
-//            guard error == nil, let urlResponse = response as? HTTPURLResponse, self?.currentSearchString == title else {
-//                self?.delegate?.didReceiveSearchResults(for: title, results: [], page: page)
-//                return
-//            }
-//
-//            // Handle the network response, parse data, and call completion
-//            switch self?.handleNetworkResponse(urlResponse) ?? Result.failure("") {
-//            case .success:
-//                guard let responseData = data else {
-//                    self?.delegate?.didReceiveSearchResults(for: title, results: [], page: page)
-//                    return
-//                }
-//                do {
-//                    // Try to parse the response data
-//                    //                    let json = try JSONSerialization.jsonObject(with: data!, options: []) as? [String : Any]
-//                    let apiReponse = try JSONDecoder().decode(StackOverflowResponse<Question>.self, from: responseData)
-//
-//                    self?.totalItems = apiReponse.total
-//                    self?.pageSize = apiReponse.pageSize
-//
-//                    // Completes with the question items, no error
-//                    self?.delegate?.didReceiveSearchResults(for: title, results: apiReponse.items, page: apiReponse.page)
-//                } catch {
-//                    // Complete with a parsing error
-//                    self?.delegate?.didReceiveSearchResults(for: title, results: [], page: page)
-//                }
-//
-//            case .failure(_):
-//                // Complete with a network error
-//                self?.delegate?.didReceiveSearchResults(for: title, results: [], page: page)
-//            }
-//        }
+            // Handle the network response, parse data, and call completion
+            switch self?.handleNetworkResponse(urlResponse) ?? Result.failure("") {
+            case .success:
+                guard let responseData = data else {
+                    return
+                }
+                do {
+                    // Try to parse the response data
+                    //                    let json = try JSONSerialization.jsonObject(with: data!, options: []) as? [String : Any]
+                    let apiReponse = try JSONDecoder().decode(StackOverflowResponse<Question>.self, from: responseData)
+
+                    self?.totalItems = apiReponse.total
+                    self?.pageSize = apiReponse.pageSize
+
+                    // Completes with the question items, no error
+                    self?.delegate?.didReceiveCategoryResults(for: category, results: apiReponse.items, page: page)
+                } catch {
+                    // Complete with a parsing error
+                    self?.delegate?.didReceiveCategoryResults(for: category, results: [], page: page)
+                }
+
+            case .failure(_): break
+                // Complete with a network error
+                self?.delegate?.didReceiveCategoryResults(for: category, results: [], page: page)
+            }
+        }
     }
 }
