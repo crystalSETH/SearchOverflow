@@ -60,6 +60,15 @@ class HomeViewController: BaseViewController {
         questionDataController?.beginLoading(category: .featured)
     }
 
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        
+        // remove table view selection
+        if let indexes = resultsTableView?.indexPathsForSelectedRows {
+            indexes.forEach({ resultsTableView?.deselectRow(at: $0, animated: false) })
+        }
+    }
+
     private func setupNavigationBar() {
         categoryNavButton.sizeToFit()
         navigationItem.titleView = categoryNavButton
