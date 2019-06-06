@@ -43,11 +43,27 @@ class QuestionDataController: BaseDataController, Pageable {
     private(set) var totalItems: Int = 0
     private(set) var pageSize: Int = 0
     
+    private(set) var responseItems: [StackOverflowResponse<Question>] = []
+
     // MARK: Lifecycle
     init(with router: Router) {
         self.router = router
     }
     
+    func appendResponseItem(_ item: StackOverflowResponse<Question>) {
+        // First try replacing the first occurance of this page
+        for (index, arrayItem) in responseItems.enumerated() {
+            if item.page == arrayItem.page {
+                responseItems[index] = item
+                return
+            }
+        }
+        
+        // Otherwise, append item and sort on page
+        responseItems.append(item)
+        responseItems.sort(by: { $0.page < $1.page })
+    }
+
     func handleQuestionDataResponse(_ response: HTTPURLResponse, data: Data?, page: Int) {
         // Handle the network response, parse data, and call completion
         switch self.handleNetworkResponse(response) ?? Result.failure("") {

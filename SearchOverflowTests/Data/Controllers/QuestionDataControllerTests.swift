@@ -43,7 +43,32 @@ class SearchControllerTests: XCTestCase, QuestionDataControllerDelegate {
         
         router.requestedPage = 1
     }
-    
+    // MARK: Helpers
+    func test_QDC_AppendResponseItems() {
+        // Test we append items
+        let firstMockResp = StackOverflowResponse<Question>(hasMore: true, page: 1, pageSize: 30, total: 300,
+                                                            type: .question, items: [],
+                                                            errorId: nil, errorName: nil, errorMessage: nil)
+        sut.appendResponseItem(firstMockResp)
+        XCTAssertFalse(sut.responseItems.isEmpty)
+        
+        // Test the items are sorted by page asc
+        let secondMock = StackOverflowResponse<Question>(hasMore: true, page: 2, pageSize: 30, total: 300,
+                                                         type: .question, items: [],
+                                                         errorId: nil, errorName: nil, errorMessage: nil)
+        sut.appendResponseItem(secondMock)
+        XCTAssert(sut.responseItems.last?.page == 2)
+        
+        // Test the replace functionality
+        let thirdMock = StackOverflowResponse<Question>(hasMore: true, page: 2, pageSize: 15, total: 300,
+                                                        type: .question, items: [],
+                                                        errorId: nil, errorName: nil, errorMessage: nil)
+        sut.appendResponseItem(thirdMock)
+        XCTAssert(sut.responseItems.count == 2)
+        XCTAssert(sut.responseItems.last?.pageSize == 15)
+    }
+
+    // MARK: Search
     func test_Search_CurrentSearchStringIsExpected() {
         sut.beginSearch(for: searchString)
         
