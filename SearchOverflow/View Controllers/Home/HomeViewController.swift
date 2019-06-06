@@ -185,18 +185,3 @@ extension HomeViewController: UIPickerViewDataSource, UIPickerViewDelegate {
         return QuestionCategory(rawValue: row)?.displayText
     }
 }
-
-// MARK: - Text Field Delegate
-extension HomeViewController: UITextFieldDelegate {
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        // Dismisses the keyboard
-        textField.resignFirstResponder()
-        return true
-    }
-
-    func textFieldDidEndEditing(_ textField: UITextField, reason: UITextField.DidEndEditingReason) {
-        guard let text = textField.text, text.count > 0 else { return }
-
-        stackOverflowSearchController?.beginSearch(for: text)
-    }
-}
