@@ -80,6 +80,7 @@ class HomeViewController: BaseViewController {
         let stackOBarItem = UIBarButtonItem(customView: UIImageView(image: #imageLiteral(resourceName: "Stack O Logo")))
         stackOBarItem.customView?.contentMode = .scaleAspectFit
         stackOBarItem.customView?.heightAnchor.constraint(equalToConstant: 28).isActive = true
+        stackOBarItem.customView?.widthAnchor.constraint(equalToConstant: 24).isActive = true
         navigationItem.leftBarButtonItem = stackOBarItem
         
         navigationController?.navigationBar.tintColor = Home.navBarItemTintColor
