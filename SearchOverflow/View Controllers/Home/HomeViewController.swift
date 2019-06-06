@@ -41,12 +41,12 @@ class HomeViewController: BaseViewController {
         return controller
     }()
 
-    var stackOverflowSearchController: StackOverflowSearchController? {
+    var questionDataController: QuestionDataController? {
         didSet {
-            stackOverflowSearchController?.delegate = self
+            questionDataController?.delegate = self
         }
     }
-
+    
     var questionPages: [[Question]] = []
 
     // MARK: - Lifecycle
@@ -58,6 +58,8 @@ class HomeViewController: BaseViewController {
         setupNavigationBar()
 
         configureViews()
+        
+        questionDataController?.beginLoading(category: .featured)
     }
 
     private func setupNavigationBar() {
@@ -117,13 +119,16 @@ class HomeViewController: BaseViewController {
     }
     
     @IBAction func doneTappedForPickerView(_ sender: Any) {
-        let row = categoryPickerView.selectedRow(inComponent: 0)
-        let category = QuestionCategory(rawValue: row)
-
         hideCategoryPicker()
-        categoryNavButton.categoryLabel.text = category?.displayText
-        
-        // TODO: Reload data for selected category
+
+        let row = categoryPickerView.selectedRow(inComponent: 0)
+        if let category = QuestionCategory(rawValue: row) {
+            categoryNavButton.categoryLabel.text = category.displayText
+            
+            if category != questionDataController?.currentCategory {
+                questionDataController?.beginLoading(category: category)
+            }
+        }
     }
 
     func showCategoryPicker() {
@@ -149,29 +154,12 @@ extension HomeViewController: UISearchBarDelegate {
     func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
         guard let text = searchBar.text, text.count > 0 else { return }
 
-        stackOverflowSearchController?.beginSearch(for: text)
+        questionDataController?.beginSearch(for: text)
     }
 }
 
 // MARK: - Picker View
 extension HomeViewController: UIPickerViewDataSource, UIPickerViewDelegate {
-    
-    enum QuestionCategory: Int, CaseIterable {
-        case featured = 0
-        case top
-        case unanswered
-        case noAnswers
-        
-        var displayText: String {
-            switch self {
-            case .featured: return "Featured"
-            case .top: return "Top"
-            case .unanswered: return "Unanswered"
-            case .noAnswers: return "No Answers"
-            }
-        }
-    }
-
     // MARK: Picker View Datasource
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
