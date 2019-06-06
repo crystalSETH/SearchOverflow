@@ -17,7 +17,7 @@ struct Question: PostItem, StackOverflowItem {
     var score: Int
     var title: String
     var body: String
-    var createdOn: Date
+    var createdOn: TimeInterval
     var tags: [String]
 
     // Question Data
