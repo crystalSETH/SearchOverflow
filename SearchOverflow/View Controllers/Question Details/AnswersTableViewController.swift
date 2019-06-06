@@ -26,17 +26,7 @@ class AnswersTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let answer = question?.answers?[indexPath.item],
             let cell = tableView.dequeueReusableCell(withIdentifier: "AnswerTableCell") as? AnswerTableCell else { return UITableViewCell() }
-        
-        // setup user metadata
-//        cell.usernameLabel?.text = answer.owner?.displayName ?? QuestionDetails.defaultUsername
-//        cell.gravatarImage.layer.cornerRadius = 5
-//        if let urlString = answer.owner?.profileImageUrl, let url = URL(string: urlString) {
-//            
-//            cell.gravatarImage.kf.setImage(with: url, placeholder: UIImage(named: QuestionDetails.defaultGravatarName))
-//        }
-//        
-//        // setup answer metadata
-//        cell.answerDateLabel?.text = "answered \(answer.createdOn.prettyPrinted)"
+
         cell.scoreLabel?.text = "\(answer.score)"
         
         try? cell.markdownView?.update(markdownString: answer.body)

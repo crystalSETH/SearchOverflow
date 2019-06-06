@@ -16,6 +16,6 @@ protocol PostItem {
     var score: Int { get set }
     var title: String { get set }
     var body: String { get set }
-    var createdOn: Date { get set }
+    var createdOn: TimeInterval { get set }
     var tags: [String] { get set }
 }

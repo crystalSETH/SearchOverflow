@@ -26,12 +26,31 @@ extension HomeViewController: UITableViewDataSource {
               let cell = tableView.dequeueReusableCell(withIdentifier: Home.cellId) as? QuestionCell else { return UITableViewCell() }
         
         cell.questionTitleLabel.text = try? Down(markdownString: question.title).toAttributedString().string.trimmingCharacters(in: .newlines)
+        
+        let hasAcceptedAnswer = question.acceptedAnswerId != nil
+        cell.scoreContainerView.backgroundColor = hasAcceptedAnswer ? Home.cellAnswerGreen : .clear
         cell.scoreContainerView.layer.cornerRadius = 3
         cell.scoreContainerView.layer.borderWidth = 1
-        cell.scoreContainerView.layer.borderColor = UIColor.gray.cgColor
-        cell.scoreLabel.text = "\(question.score)"
-        cell.tagsLabel.text = "jimmy, cracked, corn, who, cares"
-        cell.lastActivityDescriptionLabel.text = "\(indexPath.item + 2) mins ago"
+        cell.scoreContainerView.layer.borderColor = (question.isAnswered ? Home.cellAnswerGreen : .gray).cgColor
+
+        let score = question.score
+        cell.scoreLabel.text = score / 1000 > 1 ? "\(score / 1000)k" : "\(score)"
+        let scoreTextColor: UIColor
+        if hasAcceptedAnswer {
+            scoreTextColor = .white
+        } else if question.isAnswered {
+            scoreTextColor = Home.cellAnswerGreen
+        } else {
+            scoreTextColor = .darkGray
+        }
+        cell.scoreLabel.textColor = scoreTextColor
+        
+        var tagsString = ""
+        question.tags.forEach({ tagsString += "\($0), " })
+        tagsString.removeLast(2)
+        cell.tagsLabel.text = tagsString
+
+        cell.lastActivityDescriptionLabel.text = Date(timeIntervalSince1970: question.createdOn).prettyPrinted
         
         return cell
     }
