@@ -42,7 +42,8 @@ class QuestionDataController: BaseDataController, Pageable {
 
     private(set) var totalItems: Int = 0
     private(set) var pageSize: Int = 0
-    
+    var maxNumberOfPages = 10
+
     private(set) var pagesLoading: [Int] = []
     private(set) var responseItems: [StackOverflowResponse<Question>] = []
 

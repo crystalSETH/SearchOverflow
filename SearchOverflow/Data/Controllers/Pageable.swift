@@ -11,6 +11,7 @@ import Foundation
 protocol Pageable {
     var totalItems: Int { get }
     var pageSize: Int { get }
+    var maxNumberOfPages: Int { get set }
 }
 
 extension Pageable {
@@ -25,6 +26,6 @@ extension Pageable {
         }
         else { pages = 0}
         
-        return pages
+        return pages > maxNumberOfPages ? maxNumberOfPages : pages
     }
 }
