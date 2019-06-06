@@ -15,10 +15,11 @@ private let baseURL = "https://api.stackexchange.com"
  * it is not necessary (or advisable) to create filters at runtime.
  */
 
+private let shallowQuestionFilter = "&filter=!-MOiNm42tgzzkEU(LzVlBT1xkCHN-0O_A"
+private let filterParam = "&filter=!)s))yOCJcBsc9uLD71Rm"
+
 /// StackOverflow API Endpoint
 enum StackOverflow {
-    static let filterParam = "&filter=!)s))yOCJcBsc9uLD71Rm"
-
     case category(_ category: QuestionCategory, page: Int)
     case search(for: String, page: Int)
     case question(id: Int)
@@ -26,7 +27,7 @@ enum StackOverflow {
 
 extension StackOverflow: EndPoint {
     var baseURL: URL {
-        guard let url = URL(string: "https://api.stackexchange.com/2.2/" + path + StackOverflow.filterParam)
+        guard let url = URL(string: "https://api.stackexchange.com/2.2/")
             else { fatalError("Base url could not be configured.") }
 
         return url
@@ -40,10 +41,10 @@ extension StackOverflow: EndPoint {
             case .featured: categoryString = "featured"
             case .noAnswers: categoryString = "no-answers"
             case .unanswered: categoryString = "unanswered"
-            case .top: return "questions?page=\(page)&order=desc&sort=votes&site=stackoverflow"
+            case .top: return "questions?page=\(page)&order=desc&sort=votes&site=stackoverflow" + shallowQuestionFilter
             }
         
-            return "questions/" + categoryString + "?page=\(page)&order=desc&sort=activity&site=stackoverflow"
+            return "questions/" + categoryString + "?page=\(page)&order=desc&sort=activity&site=stackoverflow" + shallowQuestionFilter
     
         case .search(let text, let page):
             guard let textPercentEncoded = text.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) else {
