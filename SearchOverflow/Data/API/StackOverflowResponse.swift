@@ -31,7 +31,7 @@ protocol StackOverflowResponseItem {
 
 // https://api.stackexchange.com/docs/wrapper
 /// The StackOverflow response item represents the response wrapper from the StackExchange API
-class StackOverflowResponse<SOR: StackOverflowItem>: StackOverflowResponseItem, Decodable {
+struct StackOverflowResponse<SOR: StackOverflowItem>: StackOverflowResponseItem, Decodable {
     typealias Item = SOR
     var hasMore: Bool
     var page: Int

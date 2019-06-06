@@ -46,8 +46,6 @@ class HomeViewController: BaseViewController {
             questionDataController?.delegate = self
         }
     }
-    
-    var questionPages: [[Question]] = []
 
     // MARK: - Lifecycle
     override func viewDidLoad() {
@@ -60,6 +58,15 @@ class HomeViewController: BaseViewController {
         configureViews()
         
         questionDataController?.beginLoading(category: .featured)
+    }
+
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        
+        // remove table view selection
+        if let indexes = resultsTableView?.indexPathsForSelectedRows {
+            indexes.forEach({ resultsTableView?.deselectRow(at: $0, animated: false) })
+        }
     }
 
     private func setupNavigationBar() {

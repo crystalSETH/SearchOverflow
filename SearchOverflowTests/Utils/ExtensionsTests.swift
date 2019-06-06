@@ -27,4 +27,14 @@ class ExtensionsTests: XCTestCase {
     func test_Font_PrintsAll() {
         UIFont.printAvailableFonts()
     }
+    
+    func test_Array_RemovesDuplicates() {
+        var intArr = [1, 2, 2, 3, 4, 4, 4, 4]
+
+        let newSize = intArr.removingDuplicates().count
+        XCTAssert(newSize == 4)
+        
+        intArr.removeDuplicates()
+        XCTAssert(intArr.count == 4)
+    }
 }

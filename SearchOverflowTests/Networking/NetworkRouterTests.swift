@@ -74,7 +74,7 @@ private let mockBaseURL = "https://www.reddit.com"
 private let mockPath = "/r/AustralianShepherd/"
 
 struct MockEndPoint: EndPoint {
-    var baseURL: URL = URL(string: mockBaseURL + mockPath)!
+    var baseURL: URL = URL(string: mockBaseURL)!
     var path: String = mockPath
 }
 

@@ -42,27 +42,62 @@ class QuestionDataController: BaseDataController, Pageable {
 
     private(set) var totalItems: Int = 0
     private(set) var pageSize: Int = 0
-    
+    var maxNumberOfPages = 10
+
+    private(set) var pagesLoading: [Int] = []
+    private(set) var responseItems: [StackOverflowResponse<Question>] = []
+
     // MARK: Lifecycle
     init(with router: Router) {
         self.router = router
     }
     
+    func resetForNewLoad() {
+        responseItems.removeAll()
+        pagesLoading.removeAll()
+        currentSearchString = nil
+        currentCategory = nil
+    }
+
+    func appendResponseItem(_ item: StackOverflowResponse<Question>) {
+        // First try replacing the first occurance of this page
+        for (index, arrayItem) in responseItems.enumerated() {
+            if item.page == arrayItem.page {
+                responseItems[index] = item
+                return
+            }
+        }
+        
+        // Otherwise, append item and sort on page
+        responseItems.append(item)
+        responseItems.sort(by: { $0.page < $1.page })
+    }
+
+    func isLoadingPage(_ page: Int) -> Bool {
+        return pagesLoading.contains(page)
+    }
+
     func handleQuestionDataResponse(_ response: HTTPURLResponse, data: Data?, page: Int) {
+        pagesLoading.removeAll(where: { $0 == page })
+
+        print("Page \(page) loaded with status code: \(response.statusCode)")
+
         // Handle the network response, parse data, and call completion
-        switch self.handleNetworkResponse(response) ?? Result.failure("") {
+        switch self.handleNetworkResponse(response) {
         case .success:
             guard let responseData = data else {
                 return
             }
             do {
                 // Try to parse the response data
-                //                    let json = try JSONSerialization.jsonObject(with: data!, options: []) as? [String : Any]
+                //let json = try JSONSerialization.jsonObject(with: data!, options: []) as? [String : Any]
                 let apiReponse = try JSONDecoder().decode(StackOverflowResponse<Question>.self, from: responseData)
                 
                 self.totalItems = apiReponse.total
                 self.pageSize = apiReponse.pageSize
                 
+                self.appendResponseItem(apiReponse)
+
                 // Completes with the question items, no error
                 self.delegate?.didReceiveQuestions(apiReponse.items, forPage: page)
             } catch {
@@ -78,15 +113,17 @@ class QuestionDataController: BaseDataController, Pageable {
 
     // MARK: Category Loading
     func beginLoading(category: QuestionCategory) {
+        resetForNewLoad()
         currentCategory = category
-        currentSearchString = nil
-
-        delegate?.didBeginLoadingQuestions()
         
         load(category: category, page: 1)
+
+        delegate?.didBeginLoadingQuestions()
     }
 
     func load(category: QuestionCategory, page: Int) {
+        pagesLoading.append(page)
+
         let categoryEndpoint = StackOverflow.category(category, page: page)
         router.request(categoryEndpoint) { [weak self] data, response, error in
             guard error == nil, let urlResponse = response as? HTTPURLResponse else {
@@ -100,10 +137,11 @@ class QuestionDataController: BaseDataController, Pageable {
     // MARK: - Search Functions
     /// Begins the search for the given title
     func beginSearch(for title: String) {
+        resetForNewLoad()
         currentSearchString = title
-        currentCategory = nil
         
         search(for: title, page: 1)
+        delegate?.didBeginLoadingQuestions()
     }
     
     /// Gets the next page of the search results
@@ -117,9 +155,8 @@ class QuestionDataController: BaseDataController, Pageable {
     }
     
     private func search(for title: String, page: Int) {
-        
-        page == 1 ? delegate?.didBeginLoadingQuestions() : nil
-        
+        pagesLoading.append(page)
+
         // Request data
         router.request(StackOverflow.search(for: title, page: page)) { [weak self] data, response, error in
             

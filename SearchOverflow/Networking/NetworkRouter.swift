@@ -31,7 +31,7 @@ class NetworkRouter: Router {
 
     // Request builder
     private func buildRequest(from route: EndPoint) -> URLRequest {
-        var request = URLRequest(url: route.baseURL,
+        var request = URLRequest(url: route.url,
                                  cachePolicy: .reloadIgnoringLocalAndRemoteCacheData,
                                  timeoutInterval: 10.0)
 

@@ -13,3 +13,9 @@ protocol EndPoint {
     var baseURL: URL { get }
     var path: String { get }
 }
+
+extension EndPoint {
+    var url: URL {
+        return URL(string: baseURL.absoluteString + path)!
+    }
+}
