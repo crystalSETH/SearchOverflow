@@ -44,7 +44,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ouV-Uj-e2V" userLabel="True Content View">
-                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="79"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="79.5"/>
                                                     <subviews>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ACL-vi-cxw" userLabel="Score Container">
                                                             <rect key="frame" x="15" y="15" width="44" height="30.5"/>
@@ -65,16 +65,16 @@
                                                             </constraints>
                                                         </view>
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="vA4-Pr-zEh">
-                                                            <rect key="frame" x="69" y="15" width="296" height="49"/>
+                                                            <rect key="frame" x="69" y="15" width="296" height="49.5"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" text="Question Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o3h-WP-pHw" userLabel="Question Title Label">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="296" height="31.5"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="296" height="32"/>
                                                                     <fontDescription key="fontDescription" name="GeezaPro" family="Geeza Pro" pointSize="17"/>
                                                                     <color key="textColor" red="0.011764705882352941" green="0.46672612428665161" blue="0.799457848072052" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="Jhw-aS-g9o">
-                                                                    <rect key="frame" x="0.0" y="31.5" width="296" height="17.5"/>
+                                                                    <rect key="frame" x="0.0" y="32" width="296" height="17.5"/>
                                                                     <subviews>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" text="List, of, tags" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YMh-PX-jzo" userLabel="Tags Label">
                                                                             <rect key="frame" x="0.0" y="0.0" width="76.5" height="17.5"/>
@@ -108,7 +108,7 @@
                                                 <constraint firstAttribute="trailing" secondItem="ouV-Uj-e2V" secondAttribute="trailing" id="9O1-FN-S0w"/>
                                                 <constraint firstItem="ouV-Uj-e2V" firstAttribute="top" secondItem="CO1-jD-hhq" secondAttribute="top" id="JBK-4I-z7k"/>
                                                 <constraint firstItem="ouV-Uj-e2V" firstAttribute="leading" secondItem="CO1-jD-hhq" secondAttribute="leading" id="oPG-1o-m8S"/>
-                                                <constraint firstAttribute="bottom" secondItem="ouV-Uj-e2V" secondAttribute="bottom" constant="1" id="y9l-s5-qKQ"/>
+                                                <constraint firstAttribute="bottom" secondItem="ouV-Uj-e2V" secondAttribute="bottom" constant="0.5" id="y9l-s5-qKQ"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
