@@ -15,21 +15,22 @@ class AppCoordinator: Coordinator {
     
     init(navigationController: UINavigationController) {
         navController = navigationController
-        navController.isNavigationBarHidden = true
     }
 
     func begin() {
         let vc = UIStoryboard.init(name: "Home", bundle: nil).instantiateInitialViewController() as! HomeViewController
         vc.coordintator = self
-        vc.searchController = SearchController(with: NetworkRouter())
+        vc.questionDataController = QuestionDataController(with: NetworkRouter())
+
         navController.pushViewController(vc, animated: true)
     }
     
     func viewQuestionDetails(_ question: Question) {
-        guard let vc = QuestionDetailsViewController.initializeFromStoryboard(with: question) else { return }
-        vc.coordinator = self
+        let questionCoordinator = QuestionDetailsCoordinator(navigationController: navController, question: question)
 
-        navController.pushViewController(vc, animated: true)
+        childCoordinators[.questionDetails] = questionCoordinator
+
+        questionCoordinator.begin()
     }
     
     func questionDetailsHasFinished() {

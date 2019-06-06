@@ -15,52 +15,27 @@ extension HomeViewController: UITableViewDataSource {
 
     func numberOfSections(in tableView: UITableView) -> Int {
 
-        return searchController?.numberOfPages ?? 0
+        return questionDataController?.numberOfPages ?? 0
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return searchController?.pageSize ?? 0
+        return questionDataController?.pageSize ?? 0
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let question = question(for: indexPath),
               let cell = tableView.dequeueReusableCell(withIdentifier: Home.cellId) as? QuestionCell else { return UITableViewCell() }
         
-        // setup user metadata
-        cell.usernameLabel?.text = question.owner?.displayName ?? Home.defaultUsername
-
-        cell.gravatarImage.layer.cornerRadius = 5
-        if let urlString = question.owner?.profileImageUrl, let url = URL(string: urlString) {
-            
-            cell.gravatarImage.kf.setImage(with: url, placeholder: UIImage(named: Home.defaultGravatarName))
-        }
-        
-        // setup question metadata
-        let questionTitle = try? Down.init(markdownString: "\(question.title)").toAttributedString().string
-        cell.questionTitleLabel?.text = questionTitle
-        cell.viewsLabel?.text = "\(question.viewCount)"
-        cell.answersLabel?.text = "\(question.answerCount)"
-        cell.scoreLabel?.text = "\(question.score)"
-        
-        try? cell.markdownView?.update(markdownString: question.body)
-        
-        // additional cell setup
-        let bgView = UIView(frame: .zero)
-        bgView.backgroundColor = .clear
-        cell.backgroundView = bgView
-        
-        cell.background.layer.cornerRadius = 12
-        cell.background.layer.masksToBounds = true
+        cell.questionTitleLabel.text = try? Down(markdownString: question.title).toAttributedString().string.trimmingCharacters(in: .newlines)
+        cell.scoreContainerView.layer.cornerRadius = 3
+        cell.scoreContainerView.layer.borderWidth = 1
+        cell.scoreContainerView.layer.borderColor = UIColor.gray.cgColor
+        cell.scoreLabel.text = "\(question.score)"
+        cell.tagsLabel.text = "jimmy, cracked, corn, who, cares"
+        cell.lastActivityDescriptionLabel.text = "\(indexPath.item + 2) mins ago"
         
         return cell
-    }
-    
-    func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        // stop the image download task if the cell has finished displaying
-        if let qCell = cell as? QuestionCell {
-            qCell.gravatarImage.kf.cancelDownloadTask()
-        }
     }
     
     /// Convience method to retrieve question (if there is one) at the given index path. Based on the question pages.
@@ -68,6 +43,12 @@ extension HomeViewController: UITableViewDataSource {
         guard indexPath.section < questionPages.count, indexPath.item < questionPages[indexPath.section].count else { return nil }
         
         return questionPages[indexPath.section][indexPath.row]
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        let view = UIView()
+        view.backgroundColor = Home.navBarColor
+        cell.backgroundView = view
     }
 }
 
@@ -83,7 +64,7 @@ extension HomeViewController: UITableViewDataSourcePrefetching {
 
         // request search results for pages not in the question pages
         for section in sections {
-            searchController?.continueSearch(page: section + 1)
+            questionDataController?.continueLoadingCurrentRequest(page: section + 1)
         }
     }
 }
@@ -95,7 +76,7 @@ extension HomeViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard var requestedQuestion = question(for: indexPath) else { return }
 
-        requestedQuestion.answers = QuestionController.orderedAnswers(for: requestedQuestion)
+        requestedQuestion.orderAnswers()
         coordintator?.viewQuestionDetails(requestedQuestion)
     }
 }

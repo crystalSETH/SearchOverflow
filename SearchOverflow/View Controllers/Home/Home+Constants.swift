@@ -22,5 +22,8 @@ extension Constants {
         
         static let defaultUsername = "No Username"
         static let defaultGravatarName = "DefaultGravatar"
+        
+        static let navBarColor = #colorLiteral(red: 0.1914069653, green: 0.2327105999, blue: 0.2771952152, alpha: 1)
+        static let navBarItemTintColor = #colorLiteral(red: 0.9996390939, green: 1, blue: 0.9997561574, alpha: 1)
     }
 }

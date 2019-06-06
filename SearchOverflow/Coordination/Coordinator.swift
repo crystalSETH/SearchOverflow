@@ -16,5 +16,5 @@ protocol Coordinator: AnyObject {
 }
 
 enum CoordinatorType: String {
-    case defacto
+    case questionDetails
 }
