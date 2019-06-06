@@ -40,7 +40,7 @@ extension StackOverflow: EndPoint {
             case .featured: categoryString = "featured"
             case .noAnswers: categoryString = "no-answers"
             case .unanswered: categoryString = "unanswered"
-            default: categoryString = "featured"
+            case .top: return "questions?page=\(page)&order=desc&sort=votes&site=stackoverflow"
             }
         
             return "questions/" + categoryString + "?page=\(page)&order=desc&sort=activity&site=stackoverflow"
