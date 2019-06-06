@@ -19,13 +19,14 @@ private let baseURL = "https://api.stackexchange.com"
 enum StackOverflow {
     static let filterParam = "&filter=!)s))yOCJcBsc9uLD71Rm"
 
+    case category(_ category: QuestionCategory, page: Int)
     case search(for: String, page: Int)
     case question(id: Int)
 }
 
 extension StackOverflow: EndPoint {
     var baseURL: URL {
-        guard let url = URL(string: "https://api.stackexchange.com" + path + StackOverflow.filterParam)
+        guard let url = URL(string: "https://api.stackexchange.com/2.2/" + path + StackOverflow.filterParam)
             else { fatalError("Base url could not be configured.") }
 
         return url
@@ -33,14 +34,25 @@ extension StackOverflow: EndPoint {
 
     var path: String {
         switch self {
+        case .category(let category, let page):
+            let categoryString: String
+            switch category {
+            case .featured: categoryString = "featured"
+            case .noAnswers: categoryString = "no-answers"
+            case .unanswered: categoryString = "unanswered"
+            default: categoryString = "featured"
+            }
+        
+            return "questions/" + categoryString + "?page=\(page)&order=desc&sort=activity&site=stackoverflow"
+    
         case .search(let text, let page):
             guard let textPercentEncoded = text.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) else {
                 fatalError("Could not percent encode searched for text.")
             }
-            return "/2.2/search?page=\(page)&order=desc&sort=votes&intitle=\(textPercentEncoded)&site=stackoverflow"
+            return "search?page=\(page)&order=desc&sort=votes&intitle=\(textPercentEncoded)&site=stackoverflow"
 
         case .question(let id):
-            return "/2.2/questions/\(id)?order=desc&sort=activity&site=stackoverflow"
+            return "questions/\(id)?order=desc&sort=activity&site=stackoverflow"
         }
     }
 }
