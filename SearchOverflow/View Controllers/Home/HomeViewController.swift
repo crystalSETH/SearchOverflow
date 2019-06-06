@@ -14,14 +14,14 @@ import NVActivityIndicatorView
 class HomeViewController: BaseViewController {
     weak var coordintator: AppCoordinator?
     
-    @IBOutlet weak var searchTextField: UITextField?
     @IBOutlet weak var resultsTableView: UITableView?
     @IBOutlet weak var noResultsImage: UIImageView!
     @IBOutlet weak var activityIndicator: NVActivityIndicatorView!
     @IBOutlet weak var categoryPickerView: UIPickerView!
     @IBOutlet weak var categoryPickerTopConstraint: NSLayoutConstraint!
     @IBOutlet weak var categoryPickerBottomConstraint: NSLayoutConstraint!
-    private var isPickerViewShowing: Bool {
+
+    var isPickerViewShowing: Bool {
         return categoryPickerBottomConstraint.priority > categoryPickerTopConstraint.priority
     }
     
@@ -34,9 +34,16 @@ class HomeViewController: BaseViewController {
         return view
     }()
     
-    var searchController: SearchController? {
+    private(set) lazy var searchController: UISearchController = {
+        let controller = UISearchController(searchResultsController: nil)
+        controller.searchBar.delegate = self
+        controller.searchBar.placeholder = "Search Stack Overflow"
+        return controller
+    }()
+
+    var stackOverflowSearchController: StackOverflowSearchController? {
         didSet {
-            searchController?.delegate = self
+            stackOverflowSearchController?.delegate = self
         }
     }
 
@@ -48,37 +55,42 @@ class HomeViewController: BaseViewController {
 
         view.backgroundColor = Home.navBarColor
 
+        setupNavigationBar()
+
+        configureViews()
+    }
+
+    private func setupNavigationBar() {
         categoryNavButton.sizeToFit()
         navigationItem.titleView = categoryNavButton
-
+        
         let searchBarItem = UIBarButtonItem(barButtonSystemItem: .search, target: self, action: #selector(didTapSearchNavItem))
         searchBarItem.tintColor = Home.navBarItemTintColor
         navigationItem.rightBarButtonItem = searchBarItem
-
+        
         let stackOBarItem = UIBarButtonItem(customView: UIImageView(image: #imageLiteral(resourceName: "Stack O Logo")))
         stackOBarItem.customView?.contentMode = .scaleAspectFit
-//        stackOBarItem.customView?.widthAnchor.constraint(equalToConstant: 28).isActive = true
         stackOBarItem.customView?.heightAnchor.constraint(equalToConstant: 28).isActive = true
         navigationItem.leftBarButtonItem = stackOBarItem
         
         navigationController?.navigationBar.tintColor = Home.navBarItemTintColor
         navigationController?.navigationBar.barTintColor = Home.navBarColor
 
-        configureViews()
+        if let textfield = searchController.searchBar.value(forKey: "searchField") as? UITextField {
+            textfield.textColor = .darkText
+            if let backgroundview = textfield.subviews.first {
+                // Background color
+                backgroundview.backgroundColor = Home.navBarItemTintColor
+                
+                backgroundview.layer.cornerRadius = 10
+                backgroundview.layer.masksToBounds = false
+            }
+        }
+        // ensure search controller stays on this VC
+        definesPresentationContext = true
     }
 
     private func configureViews() {
-        // Search text field setup
-        searchTextField?.delegate = self
-        searchTextField?.borderStyle = .none
-        searchTextField?.layer.cornerRadius = 15
-        searchTextField?.layer.masksToBounds = true
-
-        // Add padding to left side of text field
-        let padding = UIView(frame: CGRect(origin: .zero, size: CGSize(width: 15, height: 30)))
-        searchTextField?.leftView = padding
-        searchTextField?.leftViewMode = .always
-
         resultsTableView?.backgroundColor = Home.navBarColor
         let background = UIView(frame: .zero)
         resultsTableView?.backgroundView = background
@@ -94,11 +106,13 @@ class HomeViewController: BaseViewController {
     }
     
     // MARK: Selectors
-    @objc private func didTapSearchNavItem() {
-        
+    @objc func didTapSearchNavItem() {
+        if navigationItem.searchController == nil {
+            navigationItem.searchController = searchController
+        }
     }
 
-    @objc private func toggleCategoryPicker() {
+    @objc func toggleCategoryPicker() {
         isPickerViewShowing ? hideCategoryPicker() : showCategoryPicker()
     }
     
@@ -112,7 +126,7 @@ class HomeViewController: BaseViewController {
         // TODO: Reload data for selected category
     }
 
-    private func showCategoryPicker() {
+    func showCategoryPicker() {
         categoryPickerBottomConstraint.priority = UILayoutPriority(999)
         
         UIView.animate(withDuration: 0.3) {
@@ -120,7 +134,7 @@ class HomeViewController: BaseViewController {
         }
     }
     
-    private func hideCategoryPicker() {
+    func hideCategoryPicker() {
         categoryPickerBottomConstraint.priority = .defaultHigh
 
         UIView.animate(withDuration: 0.3) {
@@ -129,6 +143,16 @@ class HomeViewController: BaseViewController {
     }
     
 }
+
+// MARK: - Search Bar Delegate
+extension HomeViewController: UISearchBarDelegate {
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        guard let text = searchBar.text, text.count > 0 else { return }
+
+        stackOverflowSearchController?.beginSearch(for: text)
+    }
+}
+
 // MARK: - Picker View
 extension HomeViewController: UIPickerViewDataSource, UIPickerViewDelegate {
     
@@ -160,20 +184,5 @@ extension HomeViewController: UIPickerViewDataSource, UIPickerViewDelegate {
     // MARK: Picker View Delegate
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return QuestionCategory(rawValue: row)?.displayText
-    }
-}
-
-// MARK: - Text Field Delegate
-extension HomeViewController: UITextFieldDelegate {
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        // Dismisses the keyboard
-        textField.resignFirstResponder()
-        return true
-    }
-
-    func textFieldDidEndEditing(_ textField: UITextField, reason: UITextField.DidEndEditingReason) {
-        guard let text = textField.text, text.count > 0 else { return }
-
-        searchController?.beginSearch(for: text)
     }
 }

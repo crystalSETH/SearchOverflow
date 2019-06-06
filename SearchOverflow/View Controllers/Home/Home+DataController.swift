@@ -13,7 +13,8 @@ extension HomeViewController: SearchControllerDelegate {
     
     func didBeginSearch(for title: String) {
         DispatchQueue.main.async {
-            
+            self.searchController.isActive = false
+
             // reset table data
             self.questionPages = []
 
@@ -31,11 +32,11 @@ extension HomeViewController: SearchControllerDelegate {
     func didReceiveSearchResults(for title: String, results: [Question], page: Int) {
 
         // fill the array if needed
-        if questionPages.isEmpty, let pages = searchController?.numberOfPages {
+        if questionPages.isEmpty, let pages = stackOverflowSearchController?.numberOfPages {
             questionPages = Array<[Question]>(repeating: [], count: pages)
         }
     
-        if searchController?.numberOfPages != 0 {
+        if stackOverflowSearchController?.numberOfPages != 0 {
             let questionsSorted = results.sorted(by: { $0.score > $1.score })
             questionPages[page - 1] = questionsSorted
         }

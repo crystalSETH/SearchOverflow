@@ -26,17 +26,37 @@ class HomeViewControllerTests: XCTestCase {
         mockDataController.test_TotalItems = 10
         mockDataController.test_PageSize = 3
 
-        sut.searchController = mockDataController
+        sut.stackOverflowSearchController = mockDataController
 
         sut.loadViewIfNeeded()
         
-        sut.searchController?.beginSearch(for: "")
+        sut.stackOverflowSearchController?.beginSearch(for: "")
     }
 
     override func tearDown() {
         sut = nil
     }
 
+    // MARK: Selector Tests
+    func test_HomeVC_SearchItemTapped() {
+        sut.didTapSearchNavItem()
+        XCTAssertNotNil(sut.navigationItem.searchController)
+    }
+
+    func test_HomeVC_ToggleCategoryPicker() {
+        let initialPickerIsShowing = sut.isPickerViewShowing
+        sut.toggleCategoryPicker()
+        XCTAssert(initialPickerIsShowing != sut.isPickerViewShowing)
+    }
+
+    func test_HomeVC_DoneTappedForPicker() {
+        sut.showCategoryPicker()
+        sut.doneTappedForPickerView(sut.categoryPickerView)
+        
+        XCTAssertFalse(sut.isPickerViewShowing)
+    }
+
+    // MARK: Misc Home Setup tests
     func test_HomeVC_HandlesTableView() {
 
         guard let safeSut = sut, let tableView = sut?.resultsTableView else {
@@ -51,14 +71,10 @@ class HomeViewControllerTests: XCTestCase {
 
     func test_HomeVC_IsDataControllerDelegate() {
         
-        XCTAssertEqual(sut, sut.searchController?.delegate as? HomeViewController)
+        XCTAssertEqual(sut, sut.stackOverflowSearchController?.delegate as? HomeViewController)
     }
 
-    func test_SearchField_IsNotNil() {
-
-        XCTAssertNotNil(sut.searchTextField)
-    }
-
+    // MARK: Table View Tests
     func test_TableView_IsNotNil() {
 
         XCTAssertNotNil(sut.resultsTableView)
@@ -70,7 +86,7 @@ class HomeViewControllerTests: XCTestCase {
         mockDataController.test_TotalItems = 9
         mockDataController.test_PageSize = 3
         
-        sut.searchController = mockDataController
+        sut.stackOverflowSearchController = mockDataController
         
         XCTAssertEqual(sut.resultsTableView?.numberOfSections, 3)
     }
@@ -104,7 +120,7 @@ class HomeViewControllerTests: XCTestCase {
     }    
 }
 
-class MockSearchController: SearchController {
+class MockSearchController: StackOverflowSearchController {
     var test_TotalItems = 0
     override var totalItems: Int {
         get {

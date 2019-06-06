@@ -14,7 +14,7 @@ protocol SearchControllerDelegate: class {
 }
 
 /// Search Controller that assists searching for strings in question titles.
-class SearchController: BaseDataController {
+class StackOverflowSearchController: BaseDataController {
     weak var delegate: SearchControllerDelegate?
     
     var router: Router
