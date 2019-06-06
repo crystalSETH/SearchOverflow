@@ -16,7 +16,7 @@ private let baseURL = "https://api.stackexchange.com"
  */
 
 private let shallowQuestionFilter = "&filter=!-MOiNm42tgzzkEU(LzVlBT1xkCHN-0O_A"
-private let filterParam = "&filter=!)s))yOCJcBsc9uLD71Rm"
+private let questionFilter = "&filter=!)s))yOCJcBsc9uLD71Rm"
 
 /// StackOverflow API Endpoint
 enum StackOverflow {
@@ -41,10 +41,10 @@ extension StackOverflow: EndPoint {
             case .featured: categoryString = "featured"
             case .noAnswers: categoryString = "no-answers"
             case .unanswered: categoryString = "unanswered"
-            case .top: return "questions?page=\(page)&order=desc&sort=votes&site=stackoverflow" + shallowQuestionFilter
+            case .top: return "questions?page=\(page)&order=desc&sort=votes&site=stackoverflow" + questionFilter
             }
         
-            return "questions/" + categoryString + "?page=\(page)&order=desc&sort=activity&site=stackoverflow" + shallowQuestionFilter
+            return "questions/" + categoryString + "?page=\(page)&order=desc&sort=activity&site=stackoverflow" + questionFilter
     
         case .search(let text, let page):
             guard let textPercentEncoded = text.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) else {
