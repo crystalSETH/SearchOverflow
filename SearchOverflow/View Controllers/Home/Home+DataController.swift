@@ -8,19 +8,15 @@
 
 import Foundation
 
-// MARK: - Search Controller Delegate
-extension HomeViewController: SearchControllerDelegate {
-    
-    func didBeginSearch(for title: String) {
+extension HomeViewController {
+    func questionsBeganLoading() {
         DispatchQueue.main.async {
-            self.searchController.isActive = false
-
             // reset table data
             self.questionPages = []
-
+            
             self.resultsTableView?.reloadData()
             self.resultsTableView?.isHidden = true
-
+            
             self.noResultsImage.isHidden = true
             
             // start loading animation
@@ -28,30 +24,43 @@ extension HomeViewController: SearchControllerDelegate {
             self.activityIndicator.startAnimating()
         }
     }
+    
+    func firstPageLoaded(with questions: [Question]) {
+        DispatchQueue.main.async {
+            self.resultsTableView?.reloadData()
+            self.resultsTableView?.isHidden = questions.count == 0
+            self.resultsTableView?.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: true)
+            
+            self.noResultsImage.isHidden = questions.count > 0
+            self.activityIndicator.isHidden = true
+            self.activityIndicator.stopAnimating()
+        }
+    }
+}
+// MARK: - Question Data Controller Delegate
+extension HomeViewController: QuestionDataControllerDelegate {
+    func didBeginLoadingQuestions() {
+        questionsBeganLoading()
 
-    func didReceiveSearchResults(for title: String, results: [Question], page: Int) {
-
+        if questionDataController?.isSearching == true {
+            self.searchController.isActive = false
+        }
+    }
+    
+    func didReceiveQuestions(_ questions: [Question], forPage page: Int) {
         // fill the array if needed
-        if questionPages.isEmpty, let pages = searchDataController?.numberOfPages {
+        if questionPages.isEmpty, let pages = questionDataController?.numberOfPages {
             questionPages = Array<[Question]>(repeating: [], count: pages)
         }
-    
-        if searchDataController?.numberOfPages != 0 {
-            let questionsSorted = results.sorted(by: { $0.score > $1.score })
+        
+        if questionDataController?.numberOfPages != 0 {
+            let questionsSorted = questions.sorted(by: { $0.score > $1.score })
             questionPages[page - 1] = questionsSorted
         }
-
+        
         // Reload the table if this is the first page
         if page == 1 {
-            DispatchQueue.main.async {
-                self.resultsTableView?.reloadData()
-                self.resultsTableView?.isHidden = results.count == 0
-                self.resultsTableView?.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: true)
-
-                self.noResultsImage.isHidden = results.count > 0
-                self.activityIndicator.isHidden = true
-                self.activityIndicator.stopAnimating()
-            }
+            firstPageLoaded(with: questions)
         }
     }
 }

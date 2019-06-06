@@ -41,14 +41,9 @@ class HomeViewController: BaseViewController {
         return controller
     }()
 
-    var searchDataController: SearchDataController? {
+    var questionDataController: QuestionDataController? {
         didSet {
-            searchDataController?.delegate = self
-        }
-    }
-
-        didSet {
-            stackOverflowSearchController?.delegate = self
+            questionDataController?.delegate = self
         }
     }
     
@@ -63,6 +58,8 @@ class HomeViewController: BaseViewController {
         setupNavigationBar()
 
         configureViews()
+        
+        questionDataController?.load(category: .featured, page: 1)
     }
 
     private func setupNavigationBar() {
@@ -154,7 +151,7 @@ extension HomeViewController: UISearchBarDelegate {
     func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
         guard let text = searchBar.text, text.count > 0 else { return }
 
-        searchDataController?.beginSearch(for: text)
+        questionDataController?.beginSearch(for: text)
     }
 }
 
