@@ -11,9 +11,6 @@ import Foundation
 extension HomeViewController {
     func questionsBeganLoading() {
         DispatchQueue.main.async {
-            // reset table data
-            self.questionPages = []
-            
             self.resultsTableView?.reloadData()
             self.resultsTableView?.isHidden = true
             
@@ -48,16 +45,6 @@ extension HomeViewController: QuestionDataControllerDelegate {
     }
     
     func didReceiveQuestions(_ questions: [Question], forPage page: Int) {
-        // fill the array if needed
-        if questionPages.isEmpty, let pages = questionDataController?.numberOfPages {
-            questionPages = Array<[Question]>(repeating: [], count: pages)
-        }
-        
-        if questionDataController?.numberOfPages != 0 {
-            let questionsSorted = questions.sorted(by: { $0.score > $1.score })
-            questionPages[page - 1] = questionsSorted
-        }
-        
         // Reload the table if this is the first page
         if page == 1 {
             firstPageLoaded(with: questions)

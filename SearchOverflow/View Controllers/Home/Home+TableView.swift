@@ -14,12 +14,10 @@ import Down
 extension HomeViewController: UITableViewDataSource {
 
     func numberOfSections(in tableView: UITableView) -> Int {
-
         return questionDataController?.numberOfPages ?? 0
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
         return questionDataController?.pageSize ?? 0
     }
 
@@ -40,9 +38,13 @@ extension HomeViewController: UITableViewDataSource {
     
     /// Convience method to retrieve question (if there is one) at the given index path. Based on the question pages.
     private func question(for indexPath: IndexPath) -> Question? {
-        guard indexPath.section < questionPages.count, indexPath.item < questionPages[indexPath.section].count else { return nil }
+        guard let controller = questionDataController else { return nil }
         
-        return questionPages[indexPath.section][indexPath.row]
+        let questionRespItems = controller.responseItems
+        guard indexPath.section < questionRespItems.count,
+              indexPath.item < questionRespItems[indexPath.section].items.count else { return nil }
+        
+        return questionRespItems[indexPath.section].items[indexPath.item]
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
@@ -56,15 +58,15 @@ extension HomeViewController: UITableViewDataSource {
 extension HomeViewController: UITableViewDataSourcePrefetching {
 
     func tableView(_ tableView: UITableView, prefetchRowsAt indexPaths: [IndexPath]) {
+        guard let controller = questionDataController else { return }
+        
+        let sections = indexPaths.map({ $0.section }).removingDuplicates()
 
-        guard let maxSection = indexPaths.map({ $0.section }).max(), maxSection < questionPages.count else { return }
-
-        // check for sections(pages) that don't already have data
-        let sections = indexPaths.filter({ questionPages[$0.section].isEmpty }).map({ $0.section })
-
-        // request search results for pages not in the question pages
-        for section in sections {
-            questionDataController?.continueLoadingCurrentRequest(page: section + 1)
+        sections.forEach { section in
+            let page = section + 1
+            if !controller.responseItems.contains(where: { $0.page == page }), !controller.isLoadingPage(page) {
+                controller.continueLoadingCurrentRequest(page: page)
+            }
         }
     }
 }

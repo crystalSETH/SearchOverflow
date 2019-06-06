@@ -72,23 +72,31 @@ class QuestionDataController: BaseDataController, Pageable {
         responseItems.sort(by: { $0.page < $1.page })
     }
 
+    func isLoadingPage(_ page: Int) -> Bool {
+        return pagesLoading.contains(page)
+    }
+
     func handleQuestionDataResponse(_ response: HTTPURLResponse, data: Data?, page: Int) {
         pagesLoading.removeAll(where: { $0 == page })
 
+        print("Page \(page) loaded with status code: \(response.statusCode)")
+
         // Handle the network response, parse data, and call completion
-        switch self.handleNetworkResponse(response) ?? Result.failure("") {
+        switch self.handleNetworkResponse(response) {
         case .success:
             guard let responseData = data else {
                 return
             }
             do {
                 // Try to parse the response data
-                //                    let json = try JSONSerialization.jsonObject(with: data!, options: []) as? [String : Any]
+                //let json = try JSONSerialization.jsonObject(with: data!, options: []) as? [String : Any]
                 let apiReponse = try JSONDecoder().decode(StackOverflowResponse<Question>.self, from: responseData)
                 
                 self.totalItems = apiReponse.total
                 self.pageSize = apiReponse.pageSize
                 
+                self.appendResponseItem(apiReponse)
+
                 // Completes with the question items, no error
                 self.delegate?.didReceiveQuestions(apiReponse.items, forPage: page)
             } catch {

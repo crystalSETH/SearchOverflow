@@ -46,8 +46,6 @@ class HomeViewController: BaseViewController {
             questionDataController?.delegate = self
         }
     }
-    
-    var questionPages: [[Question]] = []
 
     // MARK: - Lifecycle
     override func viewDidLoad() {
