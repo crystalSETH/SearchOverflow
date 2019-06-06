@@ -43,6 +43,7 @@ class QuestionDataController: BaseDataController, Pageable {
     private(set) var totalItems: Int = 0
     private(set) var pageSize: Int = 0
     
+    private(set) var pagesLoading: [Int] = []
     private(set) var responseItems: [StackOverflowResponse<Question>] = []
 
     // MARK: Lifecycle
@@ -50,6 +51,13 @@ class QuestionDataController: BaseDataController, Pageable {
         self.router = router
     }
     
+    func resetForNewLoad() {
+        responseItems.removeAll()
+        pagesLoading.removeAll()
+        currentSearchString = nil
+        currentCategory = nil
+    }
+
     func appendResponseItem(_ item: StackOverflowResponse<Question>) {
         // First try replacing the first occurance of this page
         for (index, arrayItem) in responseItems.enumerated() {
@@ -65,6 +73,8 @@ class QuestionDataController: BaseDataController, Pageable {
     }
 
     func handleQuestionDataResponse(_ response: HTTPURLResponse, data: Data?, page: Int) {
+        pagesLoading.removeAll(where: { $0 == page })
+
         // Handle the network response, parse data, and call completion
         switch self.handleNetworkResponse(response) ?? Result.failure("") {
         case .success:
@@ -94,15 +104,17 @@ class QuestionDataController: BaseDataController, Pageable {
 
     // MARK: Category Loading
     func beginLoading(category: QuestionCategory) {
+        resetForNewLoad()
         currentCategory = category
-        currentSearchString = nil
-
-        delegate?.didBeginLoadingQuestions()
         
         load(category: category, page: 1)
+
+        delegate?.didBeginLoadingQuestions()
     }
 
     func load(category: QuestionCategory, page: Int) {
+        pagesLoading.append(page)
+
         let categoryEndpoint = StackOverflow.category(category, page: page)
         router.request(categoryEndpoint) { [weak self] data, response, error in
             guard error == nil, let urlResponse = response as? HTTPURLResponse else {
@@ -116,10 +128,11 @@ class QuestionDataController: BaseDataController, Pageable {
     // MARK: - Search Functions
     /// Begins the search for the given title
     func beginSearch(for title: String) {
+        resetForNewLoad()
         currentSearchString = title
-        currentCategory = nil
         
         search(for: title, page: 1)
+        delegate?.didBeginLoadingQuestions()
     }
     
     /// Gets the next page of the search results
@@ -133,9 +146,8 @@ class QuestionDataController: BaseDataController, Pageable {
     }
     
     private func search(for title: String, page: Int) {
-        
-        page == 1 ? delegate?.didBeginLoadingQuestions() : nil
-        
+        pagesLoading.append(page)
+
         // Request data
         router.request(StackOverflow.search(for: title, page: page)) { [weak self] data, response, error in
             
