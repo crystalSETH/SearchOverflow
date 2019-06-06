@@ -41,7 +41,7 @@ class HomeViewController: BaseViewController {
         return controller
     }()
 
-    var stackOverflowSearchController: StackOverflowSearchController? {
+    var stackOverflowSearchController: SearchDataController? {
         didSet {
             stackOverflowSearchController?.delegate = self
         }

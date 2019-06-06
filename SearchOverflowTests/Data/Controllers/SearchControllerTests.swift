@@ -13,8 +13,8 @@ class SearchControllerTests: XCTestCase, SearchControllerDelegate {
 
     let searchString = "Huckleberry"
 
-    lazy var sut: StackOverflowSearchController = {
-        let controller = StackOverflowSearchController(with: router)
+    lazy var sut: SearchDataController = {
+        let controller = SearchDataController(with: router)
         controller.delegate = self
         return controller
     }()
