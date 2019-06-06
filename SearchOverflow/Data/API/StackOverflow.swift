@@ -15,8 +15,8 @@ private let baseURL = "https://api.stackexchange.com"
  * it is not necessary (or advisable) to create filters at runtime.
  */
 
-private let shallowQuestionFilter = "&filter=!-MOiNm42tgzzkEU(LzVlBT1xkCHN-0O_A"
-private let questionFilter = "&filter=!)s))yOCJcBsc9uLD71Rm"
+let shallowQuestionFilter = "&filter=!-MOiNm42tgzzkEU(LzVlBT1xkCHN-0O_A"
+let questionFilter = "&filter=!)s))yOCJcBsc9uLD71Rm"
 
 /// StackOverflow API Endpoint
 enum StackOverflow {
@@ -50,10 +50,10 @@ extension StackOverflow: EndPoint {
             guard let textPercentEncoded = text.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) else {
                 fatalError("Could not percent encode searched for text.")
             }
-            return "search?page=\(page)&order=desc&sort=votes&intitle=\(textPercentEncoded)&site=stackoverflow"
+            return "search?page=\(page)&order=desc&sort=votes&intitle=\(textPercentEncoded)&site=stackoverflow" + questionFilter
 
         case .question(let id):
-            return "questions/\(id)?order=desc&sort=activity&site=stackoverflow"
+            return "questions/\(id)?order=desc&sort=activity&site=stackoverflow" + questionFilter
         }
     }
 }
