@@ -24,8 +24,7 @@ class AppCoordinatorTests: XCTestCase {
     }
     
     func test_DisplaysQuestionDetails() {
-        let question = Question(id: 0, owner: nil, score: 0, title: "", body: "", createdOn: Date(),
-                                tags: [], viewCount: 0, isAnswered: false, answers: nil, acceptedAnswerId: nil, answerCount: 0)
+        let question = Question(id: 0, owner: nil, score: 0, title: "", body: "", createdOn: 12345, tags: [], viewCount: 0, isAnswered: false, answers: nil, acceptedAnswerId: nil, answerCount: 0)
         sut?.viewQuestionDetails(question)
 
         let expectation = XCTestExpectation(description: "QuestionDetails is displayed")
