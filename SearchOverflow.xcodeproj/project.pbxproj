@@ -17,7 +17,6 @@
 		5D5F8C9721E96907007905A6 /* Answer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D5F8C9621E96907007905A6 /* Answer.swift */; };
 		5D5F8C9921E9691A007905A6 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D5F8C9821E9691A007905A6 /* User.swift */; };
 		5D5F8C9B21E96C35007905A6 /* PostItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D5F8C9A21E96C35007905A6 /* PostItem.swift */; };
-		5D5F8CA121E9C354007905A6 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D5F8C9F21E9C354007905A6 /* Router.swift */; };
 		5D5F8CA221E9C354007905A6 /* NetworkRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D5F8CA021E9C354007905A6 /* NetworkRouter.swift */; };
 		5D5F8CA421E9C668007905A6 /* EndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D5F8CA321E9C668007905A6 /* EndPoint.swift */; };
 		5D5F8CA621E9CDEB007905A6 /* NetworkResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D5F8CA521E9CDEB007905A6 /* NetworkResponse.swift */; };
@@ -50,6 +49,9 @@
 		BA6534F323825B6E004A0245 /* StackOverflowResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA6534F023825B6E004A0245 /* StackOverflowResponse.swift */; };
 		BA6534F423825B6E004A0245 /* StackOverflow.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA6534F123825B6E004A0245 /* StackOverflow.swift */; };
 		BA6534F523825B6E004A0245 /* StackOverflowItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA6534F223825B6E004A0245 /* StackOverflowItem.swift */; };
+		BA6534F92382657F004A0245 /* ApiRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA6534F82382657F004A0245 /* ApiRepository.swift */; };
+		BA6534FB2383051E004A0245 /* StackOverflowRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA6534FA2383051E004A0245 /* StackOverflowRepository.swift */; };
+		BA6534FD238305E6004A0245 /* ApiRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA6534FC238305E6004A0245 /* ApiRouter.swift */; };
 		BA6BF14722A8645D0067D42A /* QuestionPageViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA6BF14622A8645D0067D42A /* QuestionPageViewControllerTests.swift */; };
 		BA6BF14922A866FB0067D42A /* AnswersTableViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA6BF14822A866FB0067D42A /* AnswersTableViewControllerTests.swift */; };
 		BA6BF14C22A868890067D42A /* ExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA6BF14B22A868890067D42A /* ExtensionsTests.swift */; };
@@ -107,7 +109,6 @@
 		5D5F8C9621E96907007905A6 /* Answer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Answer.swift; sourceTree = "<group>"; };
 		5D5F8C9821E9691A007905A6 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		5D5F8C9A21E96C35007905A6 /* PostItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostItem.swift; sourceTree = "<group>"; };
-		5D5F8C9F21E9C354007905A6 /* Router.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		5D5F8CA021E9C354007905A6 /* NetworkRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkRouter.swift; sourceTree = "<group>"; };
 		5D5F8CA321E9C668007905A6 /* EndPoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EndPoint.swift; sourceTree = "<group>"; };
 		5D5F8CA521E9CDEB007905A6 /* NetworkResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkResponse.swift; sourceTree = "<group>"; };
@@ -140,6 +141,9 @@
 		BA6534F023825B6E004A0245 /* StackOverflowResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StackOverflowResponse.swift; sourceTree = "<group>"; };
 		BA6534F123825B6E004A0245 /* StackOverflow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StackOverflow.swift; sourceTree = "<group>"; };
 		BA6534F223825B6E004A0245 /* StackOverflowItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StackOverflowItem.swift; sourceTree = "<group>"; };
+		BA6534F82382657F004A0245 /* ApiRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiRepository.swift; sourceTree = "<group>"; };
+		BA6534FA2383051E004A0245 /* StackOverflowRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackOverflowRepository.swift; sourceTree = "<group>"; };
+		BA6534FC238305E6004A0245 /* ApiRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiRouter.swift; sourceTree = "<group>"; };
 		BA6BF14622A8645D0067D42A /* QuestionPageViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionPageViewControllerTests.swift; sourceTree = "<group>"; };
 		BA6BF14822A866FB0067D42A /* AnswersTableViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswersTableViewControllerTests.swift; sourceTree = "<group>"; };
 		BA6BF14B22A868890067D42A /* ExtensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionsTests.swift; sourceTree = "<group>"; };
@@ -305,6 +309,7 @@
 		5D5F8C8F21E8809A007905A6 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				BA6534F62382653F004A0245 /* Interactors */,
 				BA0474EB21F06BDE0029983E /* Controllers */,
 				5D5F8C9121E88215007905A6 /* Models */,
 			);
@@ -334,9 +339,9 @@
 			isa = PBXGroup;
 			children = (
 				5D5F8CA521E9CDEB007905A6 /* NetworkResponse.swift */,
-				5D5F8CA021E9C354007905A6 /* NetworkRouter.swift */,
 				BA6534EF23825B57004A0245 /* API */,
 				5D5F8CB021EAA3E7007905A6 /* Protocols */,
+				BA6534F723826552004A0245 /* Repos */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -353,7 +358,7 @@
 			isa = PBXGroup;
 			children = (
 				5D5F8CA321E9C668007905A6 /* EndPoint.swift */,
-				5D5F8C9F21E9C354007905A6 /* Router.swift */,
+				5D5F8CA021E9C354007905A6 /* NetworkRouter.swift */,
 				5D5F8CB121EAA45F007905A6 /* URLSessionProtocol.swift */,
 			);
 			path = Protocols;
@@ -437,8 +442,25 @@
 				BA6534F123825B6E004A0245 /* StackOverflow.swift */,
 				BA6534F223825B6E004A0245 /* StackOverflowItem.swift */,
 				BA6534F023825B6E004A0245 /* StackOverflowResponse.swift */,
+				BA6534FC238305E6004A0245 /* ApiRouter.swift */,
 			);
 			path = API;
+			sourceTree = "<group>";
+		};
+		BA6534F62382653F004A0245 /* Interactors */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Interactors;
+			sourceTree = "<group>";
+		};
+		BA6534F723826552004A0245 /* Repos */ = {
+			isa = PBXGroup;
+			children = (
+				BA6534F82382657F004A0245 /* ApiRepository.swift */,
+				BA6534FA2383051E004A0245 /* StackOverflowRepository.swift */,
+			);
+			path = Repos;
 			sourceTree = "<group>";
 		};
 		BA6BF14A22A868610067D42A /* Utils */ = {
@@ -710,11 +732,13 @@
 				5D5F8C9B21E96C35007905A6 /* PostItem.swift in Sources */,
 				BAE959FB21F5A6AC00AE180D /* BaseViewController.swift in Sources */,
 				BA6BF15022A8B8850067D42A /* Pageable.swift in Sources */,
-				5D5F8CA121E9C354007905A6 /* Router.swift in Sources */,
+				BA6534FD238305E6004A0245 /* ApiRouter.swift in Sources */,
+				BA6534F92382657F004A0245 /* ApiRepository.swift in Sources */,
 				BA566DC7226ED0FE005F247C /* UIView+Extension.swift in Sources */,
 				5D5F8CC321EB326B007905A6 /* UIColor+Extension.swift in Sources */,
 				5D5F8CA421E9C668007905A6 /* EndPoint.swift in Sources */,
 				5D5F8C6D21E87DF5007905A6 /* RootViewController.swift in Sources */,
+				BA6534FB2383051E004A0245 /* StackOverflowRepository.swift in Sources */,
 				BA566DC3226ECF06005F247C /* QuestionCategoryNavigationButton.swift in Sources */,
 				5D5F8CA621E9CDEB007905A6 /* NetworkResponse.swift in Sources */,
 				5D5F8CD221ED6D91007905A6 /* QuestionDetailsViewController.swift in Sources */,
@@ -919,14 +943,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 42Z8BNDCEF;
 				INFOPLIST_FILE = "$(SRCROOT)/SearchOverflow/Resources/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = app.SearchOverflow.github;
+				PRODUCT_BUNDLE_IDENTIFIER = app.SearchOverflow.sethfolley;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.2;
@@ -941,14 +965,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 42Z8BNDCEF;
 				INFOPLIST_FILE = "$(SRCROOT)/SearchOverflow/Resources/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = app.SearchOverflow.github;
+				PRODUCT_BUNDLE_IDENTIFIER = app.SearchOverflow.sethfolley;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.2;
@@ -964,7 +988,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 42Z8BNDCEF;
 				INFOPLIST_FILE = SearchOverflowTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -987,7 +1011,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 42Z8BNDCEF;
 				INFOPLIST_FILE = SearchOverflowTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

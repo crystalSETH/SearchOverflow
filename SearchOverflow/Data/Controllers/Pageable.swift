@@ -16,7 +16,6 @@ protocol Pageable {
 
 extension Pageable {
     var numberOfPages: Int {
-        
         let pages: Int
         if pageSize > 0 {
             
@@ -24,7 +23,7 @@ extension Pageable {
             
             pages = Int(fPages)
         }
-        else { pages = 0}
+        else { pages = 0 }
         
         return pages > maxNumberOfPages ? maxNumberOfPages : pages
     }

@@ -20,7 +20,8 @@ class AppCoordinator: Coordinator {
     func begin() {
         let vc = UIStoryboard.init(name: "Home", bundle: nil).instantiateInitialViewController() as! HomeViewController
         vc.coordintator = self
-        vc.questionDataController = QuestionDataController(with: NetworkRouter())
+        let sessionConfig = URLSessionConfiguration.default
+        vc.questionDataController = QuestionDataController(with: ApiRouter(sessionConfig: sessionConfig))
 
         navController.pushViewController(vc, animated: true)
     }

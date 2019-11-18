@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Combine
 
 enum QuestionCategory: Int, CaseIterable {
     case featured = 0
@@ -32,7 +33,7 @@ protocol QuestionDataControllerDelegate: class {
 class QuestionDataController: BaseDataController, Pageable {
     weak var delegate: QuestionDataControllerDelegate?
     
-    var router: Router
+    var router: NetworkRouter
     
     private(set) var currentCategory: QuestionCategory?
     private(set) var currentSearchString: String?
@@ -47,8 +48,10 @@ class QuestionDataController: BaseDataController, Pageable {
     private(set) var pagesLoading: [Int] = []
     private(set) var responseItems: [StackOverflowResponse<Question>] = []
 
+    var cancelBag: [AnyCancellable] = []
+
     // MARK: Lifecycle
-    init(with router: Router) {
+    init(with router: NetworkRouter) {
         self.router = router
     }
     
@@ -90,7 +93,7 @@ class QuestionDataController: BaseDataController, Pageable {
             }
             do {
                 // Try to parse the response data
-                //let json = try JSONSerialization.jsonObject(with: data!, options: []) as? [String : Any]
+//                let json = try JSONSerialization.jsonObject(with: data!, options: []) as? [String : Any]
                 let apiReponse = try JSONDecoder().decode(StackOverflowResponse<Question>.self, from: responseData)
                 
                 self.totalItems = apiReponse.total
@@ -123,15 +126,21 @@ class QuestionDataController: BaseDataController, Pageable {
 
     func load(category: QuestionCategory, page: Int) {
         pagesLoading.append(page)
-
+        typealias QuestionResponse = StackOverflowResponse<Question>
         let categoryEndpoint = StackOverflow.category(category, page: page)
-        router.request(categoryEndpoint) { [weak self] data, response, error in
-            guard error == nil, let urlResponse = response as? HTTPURLResponse else {
-                return
+        let catPub: AnyPublisher<QuestionResponse, NetworkError> = router.request(categoryEndpoint)
+        catPub.sink(receiveCompletion: { completion in
+            switch completion {
+            case .failure: self.delegate?.didReceiveQuestions([], forPage: page)
+            case .finished: break
             }
-            
-            self?.handleQuestionDataResponse(urlResponse, data: data, page: page)
+        }) { apiResponse in
+            self.totalItems = apiResponse.total
+            self.pageSize = apiResponse.pageSize
+            self.appendResponseItem(apiResponse)
+            self.delegate?.didReceiveQuestions(apiResponse.items, forPage: page)
         }
+        .store(in: &cancelBag)
     }
 
     // MARK: - Search Functions
@@ -157,14 +166,11 @@ class QuestionDataController: BaseDataController, Pageable {
     private func search(for title: String, page: Int) {
         pagesLoading.append(page)
 
-        // Request data
-        router.request(StackOverflow.search(for: title, page: page)) { [weak self] data, response, error in
-            
-            guard error == nil, let urlResponse = response as? HTTPURLResponse, self?.currentSearchString == title else {
-                return
-            }
-            
-            self?.handleQuestionDataResponse(urlResponse, data: data, page: page)
-        }
+        let searchSub: AnyPublisher<[Question], NetworkError> = router.request(StackOverflow.search(for: title, page: page))
+        searchSub.sink(receiveCompletion: { completion in
+            self.delegate?.didReceiveQuestions([], forPage: page)
+        }) { questions in
+            self.delegate?.didReceiveQuestions(questions, forPage: page)
+        }.store(in: &cancelBag)
     }
 }

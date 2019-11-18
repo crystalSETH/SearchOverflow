@@ -19,8 +19,11 @@ enum NetworkResponse: String {
     case unableToDecode = "We could not decode the response."
 }
 
-// Network response result.
-enum Result<String> {
-    case success
-    case failure(String)
+enum NetworkError: Error {
+    case authenticationError
+    case badRequest
+    case outdated
+    case failed
+    case noData
+    case unableToDecode
 }

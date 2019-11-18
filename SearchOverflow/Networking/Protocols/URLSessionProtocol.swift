@@ -10,7 +10,7 @@ import Foundation
 
 // Session protocol made for dependency injection (for testing).
 protocol URLSessionProtocol {
-    func dataTask(with request: URLRequest, completionHandler: @escaping (Data?, URLResponse?, Error?) -> Void) -> URLSessionDataTask
+    func dataTaskPublisher(for request: URLRequest) -> URLSession.DataTaskPublisher
 }
 
 extension URLSession: URLSessionProtocol { }
