@@ -13,7 +13,6 @@
 		5D5F8C7221E87E0B007905A6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5D5F8C7121E87E0B007905A6 /* Assets.xcassets */; };
 		5D5F8C7521E87E0B007905A6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5D5F8C7321E87E0B007905A6 /* LaunchScreen.storyboard */; };
 		5D5F8C8021E87E0C007905A6 /* SearchOverflowTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D5F8C7F21E87E0C007905A6 /* SearchOverflowTests.swift */; };
-		5D5F8C9321E88251007905A6 /* StackOverflow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D5F8C9221E88251007905A6 /* StackOverflow.swift */; };
 		5D5F8C9521E968F9007905A6 /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D5F8C9421E968F9007905A6 /* Question.swift */; };
 		5D5F8C9721E96907007905A6 /* Answer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D5F8C9621E96907007905A6 /* Answer.swift */; };
 		5D5F8C9921E9691A007905A6 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D5F8C9821E9691A007905A6 /* User.swift */; };
@@ -22,8 +21,6 @@
 		5D5F8CA221E9C354007905A6 /* NetworkRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D5F8CA021E9C354007905A6 /* NetworkRouter.swift */; };
 		5D5F8CA421E9C668007905A6 /* EndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D5F8CA321E9C668007905A6 /* EndPoint.swift */; };
 		5D5F8CA621E9CDEB007905A6 /* NetworkResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D5F8CA521E9CDEB007905A6 /* NetworkResponse.swift */; };
-		5D5F8CAA21EA5265007905A6 /* StackOverflowResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D5F8CA921EA5265007905A6 /* StackOverflowResponse.swift */; };
-		5D5F8CAC21EA63F3007905A6 /* StackOverflowItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D5F8CAB21EA63F3007905A6 /* StackOverflowItem.swift */; };
 		5D5F8CAF21EAA00E007905A6 /* NetworkRouterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D5F8CAE21EAA00E007905A6 /* NetworkRouterTests.swift */; };
 		5D5F8CB221EAA45F007905A6 /* URLSessionProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D5F8CB121EAA45F007905A6 /* URLSessionProtocol.swift */; };
 		5D5F8CB721EB2749007905A6 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5D5F8CB621EB2749007905A6 /* Home.storyboard */; };
@@ -50,6 +47,9 @@
 		BA566DC1226ECC87005F247C /* QuestionCategoryNavigationButton.xib in Resources */ = {isa = PBXBuildFile; fileRef = BA566DC0226ECC87005F247C /* QuestionCategoryNavigationButton.xib */; };
 		BA566DC3226ECF06005F247C /* QuestionCategoryNavigationButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA566DC2226ECF06005F247C /* QuestionCategoryNavigationButton.swift */; };
 		BA566DC7226ED0FE005F247C /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA566DC6226ED0FE005F247C /* UIView+Extension.swift */; };
+		BA6534F323825B6E004A0245 /* StackOverflowResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA6534F023825B6E004A0245 /* StackOverflowResponse.swift */; };
+		BA6534F423825B6E004A0245 /* StackOverflow.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA6534F123825B6E004A0245 /* StackOverflow.swift */; };
+		BA6534F523825B6E004A0245 /* StackOverflowItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA6534F223825B6E004A0245 /* StackOverflowItem.swift */; };
 		BA6BF14722A8645D0067D42A /* QuestionPageViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA6BF14622A8645D0067D42A /* QuestionPageViewControllerTests.swift */; };
 		BA6BF14922A866FB0067D42A /* AnswersTableViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA6BF14822A866FB0067D42A /* AnswersTableViewControllerTests.swift */; };
 		BA6BF14C22A868890067D42A /* ExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA6BF14B22A868890067D42A /* ExtensionsTests.swift */; };
@@ -103,7 +103,6 @@
 		5D5F8C7B21E87E0C007905A6 /* SearchOverflowTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SearchOverflowTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5D5F8C7F21E87E0C007905A6 /* SearchOverflowTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchOverflowTests.swift; sourceTree = "<group>"; };
 		5D5F8C8121E87E0C007905A6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		5D5F8C9221E88251007905A6 /* StackOverflow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackOverflow.swift; sourceTree = "<group>"; };
 		5D5F8C9421E968F9007905A6 /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
 		5D5F8C9621E96907007905A6 /* Answer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Answer.swift; sourceTree = "<group>"; };
 		5D5F8C9821E9691A007905A6 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -112,8 +111,6 @@
 		5D5F8CA021E9C354007905A6 /* NetworkRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkRouter.swift; sourceTree = "<group>"; };
 		5D5F8CA321E9C668007905A6 /* EndPoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EndPoint.swift; sourceTree = "<group>"; };
 		5D5F8CA521E9CDEB007905A6 /* NetworkResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkResponse.swift; sourceTree = "<group>"; };
-		5D5F8CA921EA5265007905A6 /* StackOverflowResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackOverflowResponse.swift; sourceTree = "<group>"; };
-		5D5F8CAB21EA63F3007905A6 /* StackOverflowItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackOverflowItem.swift; sourceTree = "<group>"; };
 		5D5F8CAE21EAA00E007905A6 /* NetworkRouterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRouterTests.swift; sourceTree = "<group>"; };
 		5D5F8CB121EAA45F007905A6 /* URLSessionProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionProtocol.swift; sourceTree = "<group>"; };
 		5D5F8CB621EB2749007905A6 /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
@@ -140,6 +137,9 @@
 		BA566DC0226ECC87005F247C /* QuestionCategoryNavigationButton.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QuestionCategoryNavigationButton.xib; sourceTree = "<group>"; };
 		BA566DC2226ECF06005F247C /* QuestionCategoryNavigationButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionCategoryNavigationButton.swift; sourceTree = "<group>"; };
 		BA566DC6226ED0FE005F247C /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
+		BA6534F023825B6E004A0245 /* StackOverflowResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StackOverflowResponse.swift; sourceTree = "<group>"; };
+		BA6534F123825B6E004A0245 /* StackOverflow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StackOverflow.swift; sourceTree = "<group>"; };
+		BA6534F223825B6E004A0245 /* StackOverflowItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StackOverflowItem.swift; sourceTree = "<group>"; };
 		BA6BF14622A8645D0067D42A /* QuestionPageViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionPageViewControllerTests.swift; sourceTree = "<group>"; };
 		BA6BF14822A866FB0067D42A /* AnswersTableViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswersTableViewControllerTests.swift; sourceTree = "<group>"; };
 		BA6BF14B22A868890067D42A /* ExtensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionsTests.swift; sourceTree = "<group>"; };
@@ -306,20 +306,9 @@
 			isa = PBXGroup;
 			children = (
 				BA0474EB21F06BDE0029983E /* Controllers */,
-				5D5F8C9021E880A3007905A6 /* API */,
 				5D5F8C9121E88215007905A6 /* Models */,
 			);
 			path = Data;
-			sourceTree = "<group>";
-		};
-		5D5F8C9021E880A3007905A6 /* API */ = {
-			isa = PBXGroup;
-			children = (
-				5D5F8C9221E88251007905A6 /* StackOverflow.swift */,
-				5D5F8CAB21EA63F3007905A6 /* StackOverflowItem.swift */,
-				5D5F8CA921EA5265007905A6 /* StackOverflowResponse.swift */,
-			);
-			path = API;
 			sourceTree = "<group>";
 		};
 		5D5F8C9121E88215007905A6 /* Models */ = {
@@ -346,6 +335,7 @@
 			children = (
 				5D5F8CA521E9CDEB007905A6 /* NetworkResponse.swift */,
 				5D5F8CA021E9C354007905A6 /* NetworkRouter.swift */,
+				BA6534EF23825B57004A0245 /* API */,
 				5D5F8CB021EAA3E7007905A6 /* Protocols */,
 			);
 			path = Networking;
@@ -439,6 +429,16 @@
 				BA566DBC226DFFF3005F247C /* AppCoordinatorTests.swift */,
 			);
 			path = Coordinators;
+			sourceTree = "<group>";
+		};
+		BA6534EF23825B57004A0245 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				BA6534F123825B6E004A0245 /* StackOverflow.swift */,
+				BA6534F223825B6E004A0245 /* StackOverflowItem.swift */,
+				BA6534F023825B6E004A0245 /* StackOverflowResponse.swift */,
+			);
+			path = API;
 			sourceTree = "<group>";
 		};
 		BA6BF14A22A868610067D42A /* Utils */ = {
@@ -712,7 +712,6 @@
 				BA6BF15022A8B8850067D42A /* Pageable.swift in Sources */,
 				5D5F8CA121E9C354007905A6 /* Router.swift in Sources */,
 				BA566DC7226ED0FE005F247C /* UIView+Extension.swift in Sources */,
-				5D5F8CAA21EA5265007905A6 /* StackOverflowResponse.swift in Sources */,
 				5D5F8CC321EB326B007905A6 /* UIColor+Extension.swift in Sources */,
 				5D5F8CA421E9C668007905A6 /* EndPoint.swift in Sources */,
 				5D5F8C6D21E87DF5007905A6 /* RootViewController.swift in Sources */,
@@ -721,10 +720,10 @@
 				5D5F8CD221ED6D91007905A6 /* QuestionDetailsViewController.swift in Sources */,
 				5D5F8C9521E968F9007905A6 /* Question.swift in Sources */,
 				BA566DB8226DFA01005F247C /* Coordinator.swift in Sources */,
-				5D5F8CAC21EA63F3007905A6 /* StackOverflowItem.swift in Sources */,
 				5D5F8CA221E9C354007905A6 /* NetworkRouter.swift in Sources */,
 				5D5F8C9921E9691A007905A6 /* User.swift in Sources */,
 				BABBB33622A73ACC00BFAD9B /* QuestionDetailsCoordinator.swift in Sources */,
+				BA6534F423825B6E004A0245 /* StackOverflow.swift in Sources */,
 				5D5F8CC721EB3A0F007905A6 /* Home+Constants.swift in Sources */,
 				5D5F8CDB21EDA689007905A6 /* QuestionDetails+Constants.swift in Sources */,
 				BA3CFC1C22702FBF004CCB69 /* QuestionCell.swift in Sources */,
@@ -736,10 +735,11 @@
 				BA6BF15622A96C800067D42A /* Array+Extension.swift in Sources */,
 				BA0474F321F0DC840029983E /* Home+DataController.swift in Sources */,
 				5D5F8C6B21E87DF5007905A6 /* AppDelegate.swift in Sources */,
-				5D5F8C9321E88251007905A6 /* StackOverflow.swift in Sources */,
 				BA6BF15222A8CA7D0067D42A /* QuestionDataController.swift in Sources */,
+				BA6534F523825B6E004A0245 /* StackOverflowItem.swift in Sources */,
 				5D5F8CC921EB3C60007905A6 /* UIFont+Extension.swift in Sources */,
 				5D5F8CC521EB39CD007905A6 /* Constants.swift in Sources */,
+				BA6534F323825B6E004A0245 /* StackOverflowResponse.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -918,7 +918,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "$(SRCROOT)/SearchOverflow/Resources/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
@@ -940,7 +940,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "$(SRCROOT)/SearchOverflow/Resources/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
@@ -962,8 +962,9 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 42Z8BNDCEF;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = SearchOverflowTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -984,8 +985,9 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 42Z8BNDCEF;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = SearchOverflowTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
