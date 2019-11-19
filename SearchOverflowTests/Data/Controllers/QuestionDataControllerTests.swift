@@ -6,6 +6,7 @@
 //  Copyright © 2019 Seth Folley. All rights reserved.
 //
 
+import Combine
 import XCTest
 @testable import SearchOverflow
 
@@ -14,12 +15,12 @@ class SearchControllerTests: XCTestCase, QuestionDataControllerDelegate {
     let searchString = "Huckleberry"
     
     lazy var sut: QuestionDataController = {
-        let controller = QuestionDataController(with: router)
+        let sessionConfig = URLSessionConfiguration.ephemeral
+        sessionConfig.protocolClasses = [MockSearchURLProtocol.self]
+        let controller = QuestionDataController(with: ApiRouter(sessionConfig: sessionConfig))
         controller.delegate = self
         return controller
     }()
-    
-    private let router = MockSearchRouter()
     
     var searchBeganExpectation: XCTestExpectation!
     var searchBeganResultExpectation: XCTestExpectation!
@@ -40,8 +41,6 @@ class SearchControllerTests: XCTestCase, QuestionDataControllerDelegate {
         searchBeganExpectation = nil
         searchBeganResultExpectation = nil
         searchContinuedResultExpectation = nil
-        
-        router.requestedPage = 1
     }
     // MARK: Helpers
     func test_QDC_AppendResponseItems() {
@@ -95,7 +94,6 @@ class SearchControllerTests: XCTestCase, QuestionDataControllerDelegate {
         XCTAssertEqual(delegateSearchPage, 1)
         
         searchContinuedResultExpectation = expectation(description: "Search Continued Result")
-        router.requestedPage = 2
         sut.continueLoadingCurrentRequest(page: 2)
         
         wait(for: [searchContinuedResultExpectation], timeout: 10)
@@ -120,16 +118,31 @@ class SearchControllerTests: XCTestCase, QuestionDataControllerDelegate {
     }
 }
 
-fileprivate class MockSearchRouter: Router {
-    let successResponse = HTTPURLResponse(url: URL(fileURLWithPath: ""), statusCode: 200, httpVersion: nil, headerFields: nil)
-    
-    var requestedPage = 1
-    
-    func request(_ route: EndPoint, completion: @escaping RouterCompletion) {
-        
-        let data = SearchOverflowTests.loadJSON(named: "SearchResponse p\(requestedPage)")
-        completion(data, successResponse, nil)
+class MockSearchURLProtocol: URLProtocol {
+    // this dictionary maps URLs to test data
+    static var testURLs = [URL?: Data]()
+
+    // say we want to handle all types of request
+    override class func canInit(with request: URLRequest) -> Bool {
+        return true
     }
-    
-    func cancel() { }
+
+    // ignore this method; just send back what we were given
+    override class func canonicalRequest(for request: URLRequest) -> URLRequest {
+        return request
+    }
+
+    override func startLoading() {
+        // …and if we have test data for that URL…
+        if let data = SearchOverflowTests.loadJSON(named: "SearchResponse p\(1)") {
+            // …load it immediately.
+            self.client?.urlProtocol(self, didLoad: data)
+        }
+
+        // mark that we've finished
+        self.client?.urlProtocolDidFinishLoading(self)
+    }
+
+    // this method is required but doesn't need to do anything
+    override func stopLoading() { }
 }

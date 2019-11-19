@@ -47,7 +47,7 @@ extension HomeViewController: UITableViewDataSource {
         
         var tagsString = ""
         question.tags.forEach({ tagsString += "\($0), " })
-        tagsString.removeLast(2)
+//        tagsString.removeLast(2)
         cell.tagsLabel.text = tagsString
 
         cell.lastActivityDescriptionLabel.text = Date(timeIntervalSince1970: question.createdOn).prettyPrinted

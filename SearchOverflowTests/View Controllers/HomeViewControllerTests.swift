@@ -10,7 +10,7 @@ import XCTest
 @testable import SearchOverflow
 
 class HomeViewControllerTests: XCTestCase {
-
+    var router: NetworkRouter!
     var sut: HomeViewController!
 
     override func setUp() {
@@ -21,8 +21,10 @@ class HomeViewControllerTests: XCTestCase {
         }
         
         sut = homeVC
-        
-        let mockDataController = MockQuestionController(with: MockQuestionRouter())
+        let sessionConfig = URLSessionConfiguration.ephemeral
+        sessionConfig.protocolClasses = [MockQuestionURLProtocol.self]
+        router = ApiRouter(sessionConfig: sessionConfig)
+        let mockDataController = MockQuestionController(with: router)
         mockDataController.test_TotalItems = 10
         mockDataController.test_PageSize = 3
 
@@ -34,6 +36,7 @@ class HomeViewControllerTests: XCTestCase {
     }
 
     override func tearDown() {
+        router = nil
         sut = nil
     }
 
@@ -82,7 +85,7 @@ class HomeViewControllerTests: XCTestCase {
     
     func test_TableView_NumberOfSections_Case1() {
     
-        let mockDataController = MockQuestionController(with: MockQuestionRouter())
+        let mockDataController = MockQuestionController(with: router)
         mockDataController.test_TotalItems = 9
         mockDataController.test_PageSize = 3
         
@@ -105,7 +108,6 @@ class HomeViewControllerTests: XCTestCase {
         let cell = sut.tableView(sut.resultsTableView!, cellForRowAt: IndexPath(item: 0, section: 0)) as? QuestionCell
         
         XCTAssertNotNil(cell)
-        
     }
     
     func test_TableView_QuestionCellReuse() {
@@ -134,18 +136,58 @@ class MockQuestionController: QuestionDataController {
             return test_PageSize
         }
     }
+
+    override var responseItems: [StackOverflowResponse<Question>] {
+        get {
+            return [StackOverflowResponse<Question>(hasMore: false,
+                                                   page: 0,
+                                                   pageSize: pageSize,
+                                                   total: totalItems,
+                                                   type: .question,
+                                                   items: [Question(id: 0,
+                                                                    owner: nil,
+                                                                    score: 0,
+                                                                    title: "",
+                                                                    body: "",
+                                                                    createdOn: 0,
+                                                                    tags: [],
+                                                                    viewCount: 0,
+                                                                    isAnswered: true,
+                                                                    answers: nil,
+                                                                    acceptedAnswerId: nil,
+                                                                    answerCount: 0)],
+                                                   errorId: nil,
+                                                   errorName: nil,
+                                                   errorMessage: nil)]
+        }
+    }
 }
 
-fileprivate class MockQuestionRouter: Router {
-    let successResponse = HTTPURLResponse(url: URL(fileURLWithPath: ""), statusCode: 200, httpVersion: nil, headerFields: nil)
-    
-    var requestedPage = 1
-    
-    func request(_ route: EndPoint, completion: @escaping RouterCompletion) {
-        
-        let data = SearchOverflowTests.loadJSON(named: "SearchResponse p\(requestedPage)")
-        completion(data, successResponse, nil)
+class MockQuestionURLProtocol: URLProtocol {
+    // this dictionary maps URLs to test data
+    static var testURLs = [URL?: Data]()
+
+    // say we want to handle all types of request
+    override class func canInit(with request: URLRequest) -> Bool {
+        return true
     }
-    
-    func cancel() { }
+
+    // ignore this method; just send back what we were given
+    override class func canonicalRequest(for request: URLRequest) -> URLRequest {
+        return request
+    }
+
+    override func startLoading() {
+        // …and if we have test data for that URL…
+        if let data = SearchOverflowTests.loadJSON(named: "SearchResponse p\(1)") {
+            // …load it immediately.
+            self.client?.urlProtocol(self, didLoad: data)
+        }
+
+        // mark that we've finished
+        self.client?.urlProtocolDidFinishLoading(self)
+    }
+
+    // this method is required but doesn't need to do anything
+    override func stopLoading() { }
 }

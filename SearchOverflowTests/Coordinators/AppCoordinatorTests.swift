@@ -28,7 +28,7 @@ class AppCoordinatorTests: XCTestCase {
         sut?.viewQuestionDetails(question)
 
         let expectation = XCTestExpectation(description: "QuestionDetails is displayed")
-        DispatchQueue.global().asyncAfter(deadline: .now() + 1.0) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
             if self.sut?.navController.topViewController is QuestionDetailsPageViewController {
                 expectation.fulfill()
             }
